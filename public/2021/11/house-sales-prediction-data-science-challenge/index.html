@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "House Sales Prediction - Data Science challenge",
+  
+  "image": "/post_cover/lego.jpg",
+  
+  "datePublished": "2021-11-19T16:50:18-03:00",
+  "dateModified": "2021-11-19T16:50:18-03:00",
+  "author": {
+    "@type": "Person",
+    "name": "Data Science Portfolio",
+    
+    "image": "/realfoxnobg.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "\/2021\/11\/house-sales-prediction-data-science-challenge\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/realfoxnobg.png"
+    }
+    
+  },
+  "description": "So, I\u0026rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.\nHouse Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:",
+  "keywords": ["data science, house sales rocket"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Data Science Portfolio">
+<meta name="keywords" content="data science, house sales rocket">
+<meta name="description" content="So, I&rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.
+House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:">
+
+
+<meta property="og:description" content="So, I&rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.
+House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="House Sales Prediction - Data Science challenge">
+<meta name="twitter:title" content="House Sales Prediction - Data Science challenge">
+<meta property="og:url" content="/2021/11/house-sales-prediction-data-science-challenge/">
+<meta property="twitter:url" content="/2021/11/house-sales-prediction-data-science-challenge/">
+<meta property="og:site_name" content="">
+<meta property="og:description" content="So, I&rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.
+House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:">
+<meta name="twitter:description" content="So, I&rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.
+House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-11-19T16:50:18">
+  
+  
+    <meta property="article:modified_time" content="2021-11-19T16:50:18">
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/realfoxnobg.png">
+  <meta property="twitter:image" content="/realfoxnobg.png">
+
+
+
+
+  <meta property="og:image" content="/post_cover/lego.jpg">
+  <meta property="twitter:image" content="/post_cover/lego.jpg">
+
+
+
+    <title>House Sales Prediction - Data Science challenge</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2021/11/house-sales-prediction-data-science-challenge/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/" aria-label="Go to homepage"></a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Data Science Portfolio</h4>
+        
+          <h5 class="sidebar-profile-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Chitolina" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://instagram.com/acechitolina" title="Instagram">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-instagram" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/lucas-chitolina/" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/post_cover/lego.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      House Sales Prediction - Data Science challenge
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-11-19T16:50:18-03:00">
+        
+  November 19, 2021
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>So, I&rsquo;m gonna start to post my Data Science challenges, usually taken from Kaggle site.</p>
+<p>House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:</p>
+<ol>
+<li>Which of the houses should be bought, why, and how to predict a good sale price?</li>
+<li>Theres is a right time to sell them?</li>
+<li>Is it a good idea to spend on a reform to raise the sale price?</li>
+</ol>
+<p>So, lets see how we can start.<br>
+On data analysis is very commom start calling our Python <strong>libraries</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+<span style="color:#f92672">%</span>matplotlib inline <span style="color:#75715e">#the % matplotlib inline will cause plot displays to appear and be stored on the notebook</span>
+</code></pre></div><hr>
+<p>It&rsquo;s usual to set a few <strong>parameters</strong> for some libs (pd, plt and sns) if you are already used to it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#34;seaborn-muted&#34;</span>)
+sns<span style="color:#f92672">.</span>set_style(<span style="color:#e6db74">&#39;darkgrid&#39;</span>)
+pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;display.max_columns&#39;</span>, <span style="color:#ae81ff">50</span>)
+pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;display.max_rows&#39;</span>, <span style="color:#ae81ff">200</span>)
+pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;display.float_format&#39;</span>, <span style="color:#66d9ef">lambda</span> x: <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%.5f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> x)
+</code></pre></div><hr>
+<p>Calling panda to read our data and parsing the time features for reading:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span>  pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;kc_house_data.csv&#34;</span>, parse_dates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#e6db74">&#39;yr_built&#39;</span>])
+df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)
+
+</code></pre></div><p>Then we get a resume of the &ldquo;ten&rdquo; first rows. There is a lot of features that may have potential to influence on the houses price.</p>
+<p><img src="/house_sale/pd.jpg" alt="Yellow Duck" title="Yellow Duck"></p>
+<hr>
+<p>It&rsquo;s also important to analyse statistical data and get an idea about the types of our features:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>DataFrame(df[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>describe())
+
+	        price
+count	<span style="color:#ae81ff">21613.00000</span>
+mean	<span style="color:#ae81ff">540088.14177</span>
+std	    <span style="color:#ae81ff">367127.19648</span>
+min	    <span style="color:#ae81ff">75000.00000</span>
+<span style="color:#ae81ff">25</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">321950.00000</span>
+<span style="color:#ae81ff">50</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">450000.00000</span>
+<span style="color:#ae81ff">75</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">645000.00000</span>
+max	    <span style="color:#ae81ff">7700000.0000</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>info()
+RangeIndex: <span style="color:#ae81ff">21613</span> entries, <span style="color:#ae81ff">0</span> to <span style="color:#ae81ff">21612</span>
+Data columns (total <span style="color:#ae81ff">21</span> columns):
+ <span style="color:#75715e">#   Column         Non-Null Count  Dtype         </span>
+<span style="color:#f92672">---</span>  <span style="color:#f92672">------</span>         <span style="color:#f92672">--------------</span>  <span style="color:#f92672">-----</span>         
+ <span style="color:#ae81ff">0</span>   id             <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">1</span>   date           <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  datetime64[ns]
+ <span style="color:#ae81ff">2</span>   price          <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  float64       
+ <span style="color:#ae81ff">3</span>   bedrooms       <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">4</span>   bathrooms      <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  float64       
+ <span style="color:#ae81ff">5</span>   sqft_living    <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">6</span>   sqft_lot       <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">7</span>   floors         <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  float64       
+ <span style="color:#ae81ff">8</span>   waterfront     <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">9</span>   view           <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">10</span>  condition      <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">11</span>  grade          <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">12</span>  sqft_above     <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">13</span>  sqft_basement  <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">14</span>  yr_built       <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  datetime64[ns]
+ <span style="color:#ae81ff">15</span>  yr_renovated   <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">16</span>  zipcode        <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">17</span>  lat            <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  float64       
+ <span style="color:#ae81ff">18</span>  long           <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  float64       
+ <span style="color:#ae81ff">19</span>  sqft_living15  <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+ <span style="color:#ae81ff">20</span>  sqft_lot15     <span style="color:#ae81ff">21613</span> non<span style="color:#f92672">-</span>null  int64         
+dtypes: datetime64[ns](<span style="color:#ae81ff">2</span>), float64(<span style="color:#ae81ff">5</span>), int64(<span style="color:#ae81ff">14</span>)
+memory usage: <span style="color:#ae81ff">3.5</span> MB
+
+</code></pre></div><p>dt = datetime
+assign() method assign new columns to a DataFrame, returning a new object (a copy) with the new columns added to the original ones. So, I just selected the data about the year and put in a new column and deleted the previous column that also had day and month.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>assign(year_built<span style="color:#f92672">=</span>df<span style="color:#f92672">.</span>yr_built<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>year)
+df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;yr_built&#39;</span>, <span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</code></pre></div><hr>
+<p>We can check the output variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>DataFrame(raw_data[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>describe())
+	price
+count	<span style="color:#ae81ff">21613.00000</span>
+mean	<span style="color:#ae81ff">540088.14177</span>
+std	<span style="color:#ae81ff">367127.19648</span>
+min	<span style="color:#ae81ff">75000.00000</span>
+<span style="color:#ae81ff">25</span><span style="color:#f92672">%</span>	<span style="color:#ae81ff">321950.00000</span>
+<span style="color:#ae81ff">50</span><span style="color:#f92672">%</span>	<span style="color:#ae81ff">450000.00000</span>
+<span style="color:#ae81ff">75</span><span style="color:#f92672">%</span>	<span style="color:#ae81ff">645000.00000</span>
+max	<span style="color:#ae81ff">7700000.00000</span>
+</code></pre></div><hr>
+<p>Calling plot libs (sns and plt) and ajust its parameters according to the graph we want to make.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">med_price <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>median()
+
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">8</span>])
+sns<span style="color:#f92672">.</span>distplot(df[<span style="color:#e6db74">&#39;price&#39;</span>], color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;r&#39;</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Distribuição&#39;</span>)
+plt<span style="color:#f92672">.</span>axvline(med_price, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;dashed&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Mediana&#39;</span>) <span style="color:#75715e">#dashed median</span>
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Distribuição do preço de vendas das casas&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Preço (em dólar)&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Densidade&#39;</span>)
+plt<span style="color:#f92672">.</span>ticklabel_format(style<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;plain&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;x&#39;</span>) <span style="color:#75715e">#plain turns off scientific notation</span>
+plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(df[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>min(), df[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>max(), step<span style="color:#f92672">=</span><span style="color:#ae81ff">500000</span>)) <span style="color:#75715e">#create an array containing a sequence of uniformed spaced values</span>
+
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+
+</code></pre></div><p>There is a very high standard deviation, it&rsquo;s usually response to the presence of several outliers:</p>
+<p><img src="/house_sale/graph.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<p>To check if there is null values on out set:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)  
+</code></pre></div><hr>
+<p>Checking the features one by one is also a good approach to identify important correlations:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">7</span>])
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">121</span>)
+sns<span style="color:#f92672">.</span>violinplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;condition&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;price&#39;</span>, data<span style="color:#f92672">=</span>df);
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">122</span>)
+sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;grade&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;price&#39;</span>, data<span style="color:#f92672">=</span>df);
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><hr>
+<p>The grade feature seems to have a positive influence on houses price.
+There are several outliers, but the median price increases with the material quality.</p>
+<p><img src="/house_sale/violin_bar.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">6</span>])
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">122</span>)
+sns<span style="color:#f92672">.</span>barplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bedrooms&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;price&#39;</span>, data<span style="color:#f92672">=</span>df)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/rooms.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<p>The number of rooms, when above 8, does not show much correction with prices.</p>
+<p><em>By commom sense we would think bedroom is an atribute that usually follows the properties price, but it is not very wise to count on this, because you take the risk of getting biased results.</em></p>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>DataFrame(df[<span style="color:#e6db74">&#39;condition&#39;</span>]<span style="color:#f92672">.</span>value_counts()<span style="color:#f92672">.</span>sort_index())
+
+condition
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">30</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">172</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">14031</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">5679</span>
+<span style="color:#ae81ff">5</span>	<span style="color:#ae81ff">1701</span>
+
+</code></pre></div><p>There is few houses in bad conditions (1, 2), a high amount in average condition (3), a considerable amount in good conditions (4) and a lesser amount in great conditions (5).</p>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>DataFrame(df[<span style="color:#e6db74">&#39;grade&#39;</span>]<span style="color:#f92672">.</span>value_counts()<span style="color:#f92672">.</span>sort_index())
+
+	grade
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">29</span>
+<span style="color:#ae81ff">5</span>	<span style="color:#ae81ff">242</span>
+<span style="color:#ae81ff">6</span>	<span style="color:#ae81ff">2038</span>
+<span style="color:#ae81ff">7</span>	<span style="color:#ae81ff">8981</span>
+<span style="color:#ae81ff">8</span>	<span style="color:#ae81ff">6068</span>
+<span style="color:#ae81ff">9</span>	<span style="color:#ae81ff">2615</span>
+<span style="color:#ae81ff">10</span>	<span style="color:#ae81ff">1134</span>
+<span style="color:#ae81ff">11</span>	<span style="color:#ae81ff">399</span>
+<span style="color:#ae81ff">12</span>	<span style="color:#ae81ff">90</span>
+<span style="color:#ae81ff">13</span>	<span style="color:#ae81ff">13</span>
+
+</code></pre></div><p>The grade increases untill 7, then keep decaying.</p>
+<hr>
+<p><strong>Data Munging</strong></p>
+<p>By now, we can see that there is a few features that may have low influence on the price sale, so we can drop them for our next analisys.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">var_num <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>_get_numeric_data()
+var_num<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+var_num<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;view&#39;</span>, <span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+var_num<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;waterfront&#39;</span>, <span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+
+</code></pre></div><p>Another way is calling just the features that I want in a new variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_df <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;price&#39;</span>,<span style="color:#e6db74">&#39;grade&#39;</span>,<span style="color:#e6db74">&#39;sqft_above&#39;</span>,
+       <span style="color:#e6db74">&#34;sqft_living&#34;</span>,<span style="color:#e6db74">&#34;sqft_living15&#34;</span>,<span style="color:#e6db74">&#34;bathrooms&#34;</span>]]
+
+new_df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)
+
+price		  grade	sqft_above	sqft_living	 sqft_living15	  bathrooms
+<span style="color:#ae81ff">221900.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1180</span>			<span style="color:#ae81ff">1180</span>		<span style="color:#ae81ff">1340</span>			<span style="color:#ae81ff">1.00000</span>
+<span style="color:#ae81ff">538000.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">2170</span>			<span style="color:#ae81ff">2570</span>		<span style="color:#ae81ff">1690</span>			<span style="color:#ae81ff">2.25000</span>
+<span style="color:#ae81ff">180000.00000</span>	<span style="color:#ae81ff">6</span>	   <span style="color:#ae81ff">770</span>			 <span style="color:#ae81ff">770</span>		<span style="color:#ae81ff">2720</span>			<span style="color:#ae81ff">1.00000</span>
+<span style="color:#ae81ff">604000.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1050</span>			<span style="color:#ae81ff">1960</span>		<span style="color:#ae81ff">1360</span>			<span style="color:#ae81ff">3.00000</span>
+<span style="color:#ae81ff">510000.00000</span>	<span style="color:#ae81ff">8</span>	  <span style="color:#ae81ff">1680</span>			<span style="color:#ae81ff">1680</span>		<span style="color:#ae81ff">1800</span>			<span style="color:#ae81ff">2.00000</span>
+<span style="color:#ae81ff">1225000.0000</span>	<span style="color:#ae81ff">11</span>	 <span style="color:#ae81ff">3890</span>			<span style="color:#ae81ff">5420</span>		<span style="color:#ae81ff">4760</span>			<span style="color:#ae81ff">4.50000</span>
+<span style="color:#ae81ff">257500.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1715</span>			<span style="color:#ae81ff">1715</span>		<span style="color:#ae81ff">2238</span>			<span style="color:#ae81ff">2.25000</span>
+<span style="color:#ae81ff">291850.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1060</span>			<span style="color:#ae81ff">1060</span>		<span style="color:#ae81ff">1650</span>			<span style="color:#ae81ff">1.50000</span>
+<span style="color:#ae81ff">229500.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1050</span>			<span style="color:#ae81ff">1780</span>		<span style="color:#ae81ff">1780</span>			<span style="color:#ae81ff">1.00000</span>
+<span style="color:#ae81ff">323000.00000</span>	<span style="color:#ae81ff">7</span>	  <span style="color:#ae81ff">1890</span>			<span style="color:#ae81ff">1890</span>		<span style="color:#ae81ff">2390</span>			<span style="color:#ae81ff">2.50000</span>
+</code></pre></div><hr>
+<p>We can call .corr() to find correlations between our features.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">var_num<span style="color:#f92672">.</span>corr()
+var_num_corr <span style="color:#f92672">=</span> var_num<span style="color:#f92672">.</span>corr()
+
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> [<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">8</span>])
+sns<span style="color:#f92672">.</span>heatmap(var_num_corr, vmin<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>, linecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;YlGnBu&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/corr1.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<hr>
+<p>Correlating the other features with respect to the price and ranking them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">var_num_corr[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>round(<span style="color:#ae81ff">3</span>)
+
+price            <span style="color:#ae81ff">1.00000</span>
+sqft_living      <span style="color:#ae81ff">0.70200</span>
+grade            <span style="color:#ae81ff">0.66700</span>
+sqft_above       <span style="color:#ae81ff">0.60600</span>
+sqft_living15    <span style="color:#ae81ff">0.58500</span>
+bathrooms        <span style="color:#ae81ff">0.52500</span>
+sqft_basement    <span style="color:#ae81ff">0.32400</span>
+bedrooms         <span style="color:#ae81ff">0.30800</span>
+lat              <span style="color:#ae81ff">0.30700</span>
+floors           <span style="color:#ae81ff">0.25700</span>
+yr_renovated     <span style="color:#ae81ff">0.12600</span>
+sqft_lot         <span style="color:#ae81ff">0.09000</span>
+sqft_lot15       <span style="color:#ae81ff">0.08200</span>
+year_built       <span style="color:#ae81ff">0.05400</span>
+condition        <span style="color:#ae81ff">0.03600</span>
+long             <span style="color:#ae81ff">0.02200</span>
+zipcode         <span style="color:#f92672">-</span><span style="color:#ae81ff">0.05300</span>
+Name: price, dtype: float64
+</code></pre></div><hr>
+<p>Selecting the most interesting features and doing a new correlation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_df <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;sqft_living&#39;</span>, <span style="color:#e6db74">&#39;grade&#39;</span>, <span style="color:#e6db74">&#39;sqft_above&#39;</span>,
+       <span style="color:#e6db74">&#39;sqft_living15&#39;</span>, <span style="color:#e6db74">&#39;bathrooms&#39;</span>,<span style="color:#e6db74">&#39;price&#39;</span>]]              
+most_corr_var <span style="color:#f92672">=</span> new_df<span style="color:#f92672">.</span>corr()                      
+
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>])
+sns<span style="color:#f92672">.</span>heatmap(data<span style="color:#f92672">=</span>most_corr_var, vmin<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>, linecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;RdBu_r&#39;</span>, annot<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+<span style="color:#75715e">#annot=True (If True, write the data value in each cell)</span>
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/corr2.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<hr>
+<p>A loop is usually a good way to plot a diverse amount of features in a variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">15</span>])
+custom_params <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;axes.spines.right&#34;</span>: <span style="color:#66d9ef">False</span>, <span style="color:#e6db74">&#34;axes.spines.top&#34;</span>: <span style="color:#66d9ef">False</span>}
+sns<span style="color:#f92672">.</span>set_theme(style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ticks&#34;</span>, rc<span style="color:#f92672">=</span>custom_params)
+
+i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+
+<span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> new_df:
+    <span style="color:#66d9ef">if</span> col <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;price&#39;</span>:
+        <span style="color:#66d9ef">continue</span>
+    plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, i)
+    sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span>new_df[col], y<span style="color:#f92672">=</span>new_df[<span style="color:#e6db74">&#39;price&#39;</span>], line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>: <span style="color:#e6db74">&#39;b&#39;</span>},<span style="color:#75715e">#plot with specifying the x, y parameters</span>
+               color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lightseagreen&#34;</span>, x_jitter<span style="color:#f92672">=</span><span style="color:#ae81ff">2.2</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.15</span>})
+    plt<span style="color:#f92672">.</span>xlabel(col)
+    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Preço de venda ($)&#39;</span>)
+    i<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+
+plt<span style="color:#f92672">.</span>tight_layout()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/scatter.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<ul>
+<li>
+<p>The number of bathrooms has a direct positive influence on the price, although there is a lot of dispersion of data since 5 bathrooms;</p>
+</li>
+<li>
+<p>Sqlft_living also has a direct influence, despite the large dispersion from 7000 onwards;</p>
+</li>
+<li>
+<p>As we expected, &ldquo;grade&rdquo; also has a positive influence; sqft_above and sqft_living15 have a positive influence, despite both having dispersion from 5000 onwards.</p>
+</li>
+</ul>
+<hr>
+<p><strong>Analyzing the yr_build table</strong>.</p>
+<p>Separating the years of construction into decades and creating a new column</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dates <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(df[<span style="color:#e6db74">&#39;year_built&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;year_built&#39;</span>])
+bins <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1900</span>, <span style="color:#ae81ff">1910</span>, <span style="color:#ae81ff">1920</span>, <span style="color:#ae81ff">1930</span>, <span style="color:#ae81ff">1940</span>, <span style="color:#ae81ff">1950</span>, <span style="color:#ae81ff">1960</span>, <span style="color:#ae81ff">1970</span>, <span style="color:#ae81ff">1980</span>, <span style="color:#ae81ff">1990</span>, <span style="color:#ae81ff">2000</span>, <span style="color:#ae81ff">2010</span>, <span style="color:#ae81ff">2015</span>]
+labels <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;1900 - 1910&#39;</span>, <span style="color:#e6db74">&#39;1911 - 1920&#39;</span>, <span style="color:#e6db74">&#39;1921 - 1930&#39;</span>, <span style="color:#e6db74">&#39;1931 - 1940&#39;</span>, <span style="color:#e6db74">&#39;1941 - 1950&#39;</span>, <span style="color:#e6db74">&#39;1951 - 1960&#39;</span>, <span style="color:#e6db74">&#39;1961 - 1970&#39;</span>, <span style="color:#e6db74">&#39;1971 - 1980&#39;</span>,
+         <span style="color:#e6db74">&#39;1981 - 1990&#39;</span>, <span style="color:#e6db74">&#39;1991 - 2000&#39;</span>, <span style="color:#e6db74">&#39;2001 - 2010&#39;</span>, <span style="color:#e6db74">&#39;2011 - 2015&#39;</span>]
+df[<span style="color:#e6db74">&#39;decade_built&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>cut(dates[<span style="color:#e6db74">&#39;year_built&#39;</span>], bins, labels <span style="color:#f92672">=</span> labels, include_lowest <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+df<span style="color:#f92672">.</span>sample(<span style="color:#ae81ff">5</span>)
+</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>[<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">8</span>])
+
+sns<span style="color:#f92672">.</span>barplot(x<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;price&#39;</span>], y<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;decade_built&#39;</span>], palette<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icefire&#34;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/decades.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<p>After a fluctuation of ups and downs between the years 1900 and 1970, houses price rised again from the year 1971 onwards.</p>
+<hr>
+<p>It is also interesting cluster the prices.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">prices <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(new_df[<span style="color:#e6db74">&#39;price&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;price&#39;</span>])
+bins <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250000</span>, <span style="color:#ae81ff">500000</span>, <span style="color:#ae81ff">1000000</span>, <span style="color:#ae81ff">8000000</span>]
+labels <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Group 1&#39;</span>, <span style="color:#e6db74">&#39;Group 2&#39;</span>, <span style="color:#e6db74">&#39;Group 3&#39;</span>, <span style="color:#e6db74">&#39;Group 4&#39;</span>]
+new_df[<span style="color:#e6db74">&#39;price_group&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>cut(prices[<span style="color:#e6db74">&#39;price&#39;</span>], bins, labels <span style="color:#f92672">=</span> labels, include_lowest <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+new_df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)
+
+Group <span style="color:#ae81ff">1</span>:  <span style="color:#ae81ff">0</span> a <span style="color:#ae81ff">250000</span>
+Group <span style="color:#ae81ff">2</span>: <span style="color:#ae81ff">250001</span> a <span style="color:#ae81ff">500000</span>
+Group <span style="color:#ae81ff">3</span>:  <span style="color:#ae81ff">500001</span> a <span style="color:#ae81ff">1000000</span>
+Group <span style="color:#ae81ff">4</span>: above <span style="color:#ae81ff">1000001</span>
+</code></pre></div><p><img src="/house_sale/pd2.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_df<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;price_group&#39;</span>)[<span style="color:#e6db74">&#39;price_group&#39;</span>]<span style="color:#f92672">.</span>count()
+
+price_group
+Group <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2433</span>
+Group <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">10127</span>
+Group <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">7588</span>
+Group <span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">1465</span>
+Name: price_group, dtype: int64
+</code></pre></div><p>The vast majority of sales are in groups 2 and 3, that indicates the price range varies between 250 thousand dollars and 1 million.</p>
+<hr>
+<p>Another analysis can be made about the &ldquo;yr_renovated&rdquo; feature.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">raw_data <span style="color:#f92672">=</span> raw_data<span style="color:#f92672">.</span>assign(renovated<span style="color:#f92672">=</span>(raw_data[<span style="color:#e6db74">&#39;yr_renovated&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>astype(int))
+<span style="color:#75715e">#creating the assumption into the boolean (0 or year).</span>
+
+renovated <span style="color:#f92672">=</span> raw_data<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;renovated&#39;</span>)[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>count()
+renovated
+
+renovated
+<span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">20699</span>
+<span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">914</span>
+Name: price, dtype: int64
+
+renovated_median <span style="color:#f92672">=</span> raw_data<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;renovated&#39;</span>)[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>median()
+renovated_median
+
+renovated
+<span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">448000.00000</span>
+<span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">600000.00000</span>
+Name: price, dtype: float64
+
+
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">5</span>))
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+plt<span style="color:#f92672">.</span>pie(renovated, explode <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>), colors<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;cyan&#39;</span>], labels<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Não&#39;</span>, <span style="color:#e6db74">&#39;Sim&#39;</span>], autopct<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%4.1f%%</span><span style="color:#e6db74">&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;A casa foi renovada ou não?&#39;</span>)
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+sns<span style="color:#f92672">.</span>barplot(x<span style="color:#f92672">=</span>renovated<span style="color:#f92672">.</span>index, y <span style="color:#f92672">=</span> renovated_median, palette<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;lightblue&#39;</span>])
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Mediana dos preços das casas renovadas ou não&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Mediana de preço&#39;</span>)
+
+plt<span style="color:#f92672">.</span>tight_layout()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/house_sale/renovated.jpg" alt="Yellow Duck" title="Yellow Duck"></p>
+<p>Renovated houses coust more, but few houses were renovated.</p>
+<hr>
+<p><strong>Once the data munging and analysis were done, we can get some idea about how is the influence of some features, and is enough to answer some earlyer questions, can you? By now, we can also begin to make more statystical analysis</strong></p>
+<hr>
+<ul>
+<li>
+<p>Implementing Linear Regression to Predict R²:
+The R-squared is a statistical measure of how close the data is to the fitted regression line.</p>
+</li>
+<li>
+<p>Key limitationr of R-Square:
+R-square cannot determine if the coefficient balance and predictions are biased, which is why you should evaluate residual plots.</p>
+</li>
+<li>
+<p>The R-squared does not indicate whether a regression model is adequate. It is possible to have a low R-squared value for a good model or a high R-squared value for a model that doesn&rsquo;t fit the data.</p>
+</li>
+</ul>
+<hr>
+<p>Importing some necessary libs like plt and sklearn.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sklearn <span style="color:#66d9ef">as</span> sk
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</code></pre></div><p>Fit a linear regression model using the longitude feature &lsquo;long&rsquo; and calculate the R².</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;long&#39;</span>]]
+Y <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]
+lm <span style="color:#f92672">=</span> LinearRegression()
+lm
+lm<span style="color:#f92672">.</span>fit(X,Y)
+lm<span style="color:#f92672">.</span>score(X, Y)
+
+<span style="color:#ae81ff">0.00046769430149007363</span>
+</code></pre></div><p>Fit a linear regression model using the feature &lsquo;sqft_living&rsquo; and calculate the R².</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">U <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;sqft_living&#39;</span>]]
+V <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]
+lm<span style="color:#f92672">.</span>fit(U,V)
+lm<span style="color:#f92672">.</span>score(U,V)
+
+<span style="color:#ae81ff">0.4928532179037931</span>
+</code></pre></div><p>Fit a linear regression model using a variable list.</p>
+<p>Why a Simple Linear Regression?</p>
+<p>We need to solve a regression problem since my answer variable is numerical (Price).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">features <span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;floors&#34;</span>, <span style="color:#e6db74">&#34;waterfront&#34;</span>,<span style="color:#e6db74">&#34;lat&#34;</span> ,<span style="color:#e6db74">&#34;bedrooms&#34;</span> ,<span style="color:#e6db74">&#34;sqft_basement&#34;</span> ,<span style="color:#e6db74">&#34;view&#34;</span> ,<span style="color:#e6db74">&#34;bathrooms&#34;</span>,<span style="color:#e6db74">&#34;sqft_living15&#34;</span>,<span style="color:#e6db74">&#34;sqft_above&#34;</span>,<span style="color:#e6db74">&#34;grade&#34;</span>,<span style="color:#e6db74">&#34;sqft_living&#34;</span>]     
+X <span style="color:#f92672">=</span> df[features]
+Y <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]
+lm<span style="color:#f92672">.</span>fit(X,Y)
+
+LinearRegression(copy_X<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, n_jobs<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
+         normalize<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+lm<span style="color:#f92672">.</span>score(X,Y)
+
+<span style="color:#ae81ff">0.6577151058279325</span>
+</code></pre></div><hr>
+<p><strong>Model Evaluation and Refinement</strong></p>
+<p>Through the Min/MaxScaler we can put our features in the same scale.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> MinMaxScaler
+scaler <span style="color:#f92672">=</span> MinMaxScaler()
+df <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>fit_transform(df)
+
+df<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;date&#39;</span>,<span style="color:#e6db74">&#39;zipcode&#39;</span>,<span style="color:#e6db74">&#39;long&#39;</span>,<span style="color:#e6db74">&#39;condition&#39;</span>,<span style="color:#e6db74">&#39;year_built&#39;</span>,<span style="color:#e6db74">&#39;decade_built&#39;</span>,<span style="color:#e6db74">&#39;waterfront&#39;</span>,<span style="color:#e6db74">&#39;view&#39;</span>,<span style="color:#e6db74">&#39;id&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+
+df[<span style="color:#e6db74">&#39;price&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;bedrooms&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;bedrooms&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;bedrooms&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;bathrooms&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;bathrooms&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;bathrooms&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_living&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_living&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_living&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_lot&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_lot&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_lot&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;floors&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;floors&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;floors&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;grade&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;grade&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;grade&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_above&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_above&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_above&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_basement&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_basement&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_basement&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;yr_renovated&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;yr_renovated&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;yr_renovated&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;lat&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;lat&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;lat&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_living15&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_living15&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_living15&#39;</span>]<span style="color:#f92672">.</span>max()
+df[<span style="color:#e6db74">&#39;sqft_lot15&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;sqft_lot15&#39;</span>] <span style="color:#f92672">/</span> df[<span style="color:#e6db74">&#39;sqft_lot15&#39;</span>]<span style="color:#f92672">.</span>max()
+
+df<span style="color:#f92672">.</span>head()
+</code></pre></div><p><img src="/house_sale/pd3.jpg" alt="Yellow Duck" title="Yellow Duck"></p>
+<hr>
+<p><strong>Linear Regression on then fully treated dataframe</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;price&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+y <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;price&#39;</span>]
+lm<span style="color:#f92672">.</span>fit(X,y)
+
+LinearRegression(copy_X<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, n_jobs<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
+         normalize<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+lm<span style="color:#f92672">.</span>score(X,y)
+
+<span style="color:#ae81ff">0.6630336851239078</span>
+</code></pre></div><hr>
+<p>Test/Train A</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;kc_house_data.csv&#34;</span>) <span style="color:#75715e">#testing on the raw df</span>
+
+<span style="color:#75715e">#features</span>
+x_train <span style="color:#f92672">=</span> df1<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#34;price&#34;</span>,<span style="color:#e6db74">&#34;date&#34;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">#response variable</span>
+y_train <span style="color:#f92672">=</span> df1[<span style="color:#e6db74">&#34;price&#34;</span>]<span style="color:#f92672">.</span>copy()
+</code></pre></div><p>Model Training</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#model description,</span>
+model_lr <span style="color:#f92672">=</span> LinearRegression()
+
+<span style="color:#75715e">#model training</span>
+model_lr<span style="color:#f92672">.</span>fit(x_train, y_train)
+</code></pre></div><p><strong>Performance Metrics</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#prediction</span>
+pred <span style="color:#f92672">=</span> model_lr<span style="color:#f92672">.</span>predict(x_train)
+df1[<span style="color:#e6db74">&#39;prediction&#39;</span>] <span style="color:#f92672">=</span> pred
+df1[[<span style="color:#e6db74">&#34;price&#34;</span>,<span style="color:#e6db74">&#34;prediction&#34;</span>]]<span style="color:#f92672">.</span>head()
+
+price	prediction
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">221900.00000</span>	<span style="color:#ae81ff">205766.26461</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">538000.00000</span>	<span style="color:#ae81ff">731219.64983</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">180000.00000</span>	<span style="color:#ae81ff">379097.88265</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">604000.00000</span>	<span style="color:#ae81ff">457424.13433</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">510000.00000</span>	<span style="color:#ae81ff">444789.05472</span>
+</code></pre></div><hr>
+<p><strong>How much is my model missing? What is the difference between the actual value and the value that my model predicted?</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Prediction &lt; Actual Price = Underestimation</span>
+<span style="color:#75715e">#Prediction &gt; Actual Price = Overestimation</span>
+
+df1[<span style="color:#e6db74">&#34;error&#34;</span>] <span style="color:#f92672">=</span> df1[<span style="color:#e6db74">&#34;price&#34;</span>] <span style="color:#f92672">-</span>df1[<span style="color:#e6db74">&#34;prediction&#34;</span>]
+df1[<span style="color:#e6db74">&#34;error_abs&#34;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(df1[<span style="color:#e6db74">&#34;error&#34;</span>])
+df1[[<span style="color:#e6db74">&#34;price&#34;</span>,<span style="color:#e6db74">&#34;prediction&#34;</span>,<span style="color:#e6db74">&#34;error&#34;</span>,<span style="color:#e6db74">&#34;error_abs&#34;</span>]]<span style="color:#f92672">.</span>head()
+</code></pre></div><p><img src="/house_sale/pd4.png" alt="Yellow Duck" title="Yellow Duck"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mae <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(df1[<span style="color:#e6db74">&#34;error_abs&#34;</span>]) <span style="color:#75715e">#error mean</span>
+print(<span style="color:#e6db74">&#34;MAE: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(mae))
+MAE: <span style="color:#ae81ff">125921.54419397262</span>
+
+df1[<span style="color:#e6db74">&#34;error_perc&#34;</span>] <span style="color:#f92672">=</span> ((df1[<span style="color:#e6db74">&#34;price&#34;</span>]<span style="color:#f92672">-</span>df1[<span style="color:#e6db74">&#39;prediction&#39;</span>])<span style="color:#f92672">/</span>df1[<span style="color:#e6db74">&#39;price&#39;</span>]) <span style="color:#75715e">#error percentual</span>
+df1[[<span style="color:#e6db74">&#34;price&#34;</span>,<span style="color:#e6db74">&#34;prediction&#34;</span>,<span style="color:#e6db74">&#34;error&#34;</span>,<span style="color:#e6db74">&#34;error_abs&#34;</span>,<span style="color:#e6db74">&#34;error_perc&#34;</span>]]
+
+<span style="color:#75715e">#to resume the percentual in a single value</span>
+df1[<span style="color:#e6db74">&#34;error_perc_abs&#34;</span>]<span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(df1[<span style="color:#e6db74">&#34;error_perc&#34;</span>])
+df1[[<span style="color:#e6db74">&#34;price&#34;</span>,<span style="color:#e6db74">&#34;prediction&#34;</span>,<span style="color:#e6db74">&#34;error&#34;</span>,<span style="color:#e6db74">&#34;error_abs&#34;</span>,<span style="color:#e6db74">&#34;error_perc&#34;</span>,<span style="color:#e6db74">&#34;error_perc_abs&#34;</span>]]<span style="color:#f92672">.</span>head()
+</code></pre></div><p><img src="/house_sale/pd5.jpg" alt="Yellow Duck" title="Yellow Duck"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#mean absolute percentage error</span>
+mape <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(df1[<span style="color:#e6db74">&#34;error_perc_abs&#34;</span>]) <span style="color:#75715e">#my prediction error rate 25%</span>
+print(<span style="color:#e6db74">&#34;MAPE: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(mape))
+MAPE: <span style="color:#ae81ff">0.2558051253618308</span>
+</code></pre></div><hr>
+<p>Test/Train B</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Splitted Data</span>
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.33</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">44</span>, shuffle <span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+
+print(<span style="color:#e6db74">&#34;number of test samples:&#34;</span>, X_test<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+print(<span style="color:#e6db74">&#34;number of training samples:&#34;</span>,X_train<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+
+number of test samples: <span style="color:#ae81ff">7133</span>
+number of training samples: <span style="color:#ae81ff">14480</span>
+</code></pre></div><hr>
+<ul>
+<li>Ridge Linear Regression Model</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> Ridge
+
+RidgeModel <span style="color:#f92672">=</span> Ridge(alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>)
+RidgeModel<span style="color:#f92672">.</span>fit(X_train, y_train) <span style="color:#75715e">#treinar modelo</span>
+print(<span style="color:#e6db74">&#34;The predicted values are : &#34;</span> <span style="color:#f92672">+</span> str(RidgeModel<span style="color:#f92672">.</span>predict(X_test)))
+
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">The R^2 Score value is mentioned as : &#34;</span> <span style="color:#f92672">+</span> str(RidgeModel<span style="color:#f92672">.</span>score(X_test, y_test)))
+
+The predicted values are : [<span style="color:#ae81ff">0.05122976</span> <span style="color:#ae81ff">0.05334605</span> <span style="color:#ae81ff">0.05406578</span> <span style="color:#f92672">...</span> <span style="color:#ae81ff">0.03066274</span> <span style="color:#ae81ff">0.05512876</span> <span style="color:#ae81ff">0.06664502</span>]
+
+The R<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span> Score value <span style="color:#f92672">is</span> mentioned <span style="color:#66d9ef">as</span> : <span style="color:#ae81ff">0.6416574473478416</span>
+</code></pre></div><hr>
+<ul>
+<li>Gradient Boosting Regression Model</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> GradientBoostingRegressor
+
+GBRModel <span style="color:#f92672">=</span> GradientBoostingRegressor(n_estimators<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>,max_depth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,learning_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span> ,random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">33</span>)
+GBRModel<span style="color:#f92672">.</span>fit(X_train, y_train)
+
+print(<span style="color:#e6db74">&#39;GBRModel Train Score is : &#39;</span> , GBRModel<span style="color:#f92672">.</span>score(X_train, y_train))
+print(<span style="color:#e6db74">&#39;GBRModel Test Score is : &#39;</span> , GBRModel<span style="color:#f92672">.</span>score(X_test, y_test))
+print(<span style="color:#e6db74">&#39;----------------------------------------------------&#39;</span>)
+
+<span style="color:#75715e">#Calculating Prediction</span>
+y_pred <span style="color:#f92672">=</span> GBRModel<span style="color:#f92672">.</span>predict(X_test)
+print(<span style="color:#e6db74">&#39;Predicted Value for GBRModel is : &#39;</span> , y_pred[:<span style="color:#ae81ff">10</span>])
+
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_absolute_error
+
+<span style="color:#75715e">#Calculating Mean Absolute Error</span>
+MAEValue <span style="color:#f92672">=</span> mean_absolute_error(y_test, y_pred, multioutput<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;uniform_average&#39;</span>) <span style="color:#75715e"># it can be raw_values</span>
+print(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Mean Absolute Error Value is : &#39;</span>, MAEValue)
+
+GBRModel Train Score <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.8375154821860198</span>
+GBRModel Test Score <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.6081972695779214</span>
+<span style="color:#f92672">----------------------------------------------------</span>
+Predicted Value <span style="color:#66d9ef">for</span> GBRModel <span style="color:#f92672">is</span> :  [<span style="color:#ae81ff">0.05112803</span> <span style="color:#ae81ff">0.02610758</span> <span style="color:#ae81ff">0.05654433</span> <span style="color:#ae81ff">0.16174271</span> <span style="color:#ae81ff">0.03812145</span> <span style="color:#ae81ff">0.05084646</span>
+ <span style="color:#ae81ff">0.08211293</span> <span style="color:#ae81ff">0.04510831</span> <span style="color:#ae81ff">0.03947703</span> <span style="color:#ae81ff">0.08572436</span>]
+
+Mean Absolute Error Value <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.015095112550215718</span>
+</code></pre></div><hr>
+<ul>
+<li>KNeighbors regression</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.neighbors <span style="color:#f92672">import</span> KNeighborsRegressor
+
+KNeighborsRegressorModel <span style="color:#f92672">=</span> KNeighborsRegressor(n_neighbors <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, weights<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;uniform&#39;</span>, <span style="color:#75715e">#also can be : distance, or defined function</span>
+                                               algorithm <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;auto&#39;</span>)    <span style="color:#75715e">#also can be : ball_tree ,  kd_tree  , brute</span>
+KNeighborsRegressorModel<span style="color:#f92672">.</span>fit(X_train, y_train)
+
+<span style="color:#75715e">#Calculating Details</span>
+print(<span style="color:#e6db74">&#39;KNeighborsRegressorModel Train Score is : &#39;</span> , KNeighborsRegressorModel<span style="color:#f92672">.</span>score(X_train, y_train))
+print(<span style="color:#e6db74">&#39;KNeighborsRegressorModel Test Score is : &#39;</span> , KNeighborsRegressorModel<span style="color:#f92672">.</span>score(X_test, y_test))
+<span style="color:#75715e">#print(&#39;----------------------------------------------------&#39;)</span>
+
+<span style="color:#75715e">#Calculating Prediction</span>
+y_pred <span style="color:#f92672">=</span> KNeighborsRegressorModel<span style="color:#f92672">.</span>predict(X_test)
+print(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Predicted Value for KNeighborsRegressorModel is : &#39;</span> , y_pred[:<span style="color:#ae81ff">10</span>])
+
+<span style="color:#75715e">#Calculating Mean Absolute Error</span>
+MAEValue <span style="color:#f92672">=</span> mean_absolute_error(y_test, y_pred, multioutput<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;uniform_average&#39;</span>) <span style="color:#75715e"># it can be raw_values</span>
+print(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Mean Absolute Error Value is : &#39;</span>, MAEValue)
+
+KNeighborsRegressorModel Train Score <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.7593636317590736</span>
+KNeighborsRegressorModel Test Score <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.5804982804241052</span>
+
+Predicted Value <span style="color:#66d9ef">for</span> KNeighborsRegressorModel <span style="color:#f92672">is</span> :  [<span style="color:#ae81ff">0.03997403</span> <span style="color:#ae81ff">0.07077922</span> <span style="color:#ae81ff">0.05701299</span> <span style="color:#ae81ff">0.17306364</span> <span style="color:#ae81ff">0.05361818</span> <span style="color:#ae81ff">0.03761039</span>
+ <span style="color:#ae81ff">0.07452857</span> <span style="color:#ae81ff">0.06200073</span> <span style="color:#ae81ff">0.09711688</span> <span style="color:#ae81ff">0.05098571</span>]
+
+Mean Absolute Error Value <span style="color:#f92672">is</span> :  <span style="color:#ae81ff">0.018657923221318144</span>
+</code></pre></div><p>And we finally arrived to the end of our tests. After analyzing our results, we can get to the conclusion if our data analysis process responded important answers and if the ML models were good. The next step would be to take your data to a dashboard and show it to the client/company.</p>
+<p>If you have any doubt or corrections, please contact me 😉.</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/amber-molecular-dynamics-project/" data-tooltip="Amber - Molecular Dynamics Project" aria-label="PREVIOUS: Amber - Molecular Dynamics Project">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = '\/2021\/11\/house-sales-prediction-data-science-challenge\/';
+        
+          this.page.identifier = '\/2021\/11\/house-sales-prediction-data-science-challenge\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Data Science Portfolio. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/amber-molecular-dynamics-project/" data-tooltip="Amber - Molecular Dynamics Project" aria-label="PREVIOUS: Amber - Molecular Dynamics Project">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/house-sales-prediction-data-science-challenge/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F11%2Fhouse-sales-prediction-data-science-challenge%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F11%2Fhouse-sales-prediction-data-science-challenge%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=%2F2021%2F11%2Fhouse-sales-prediction-data-science-challenge%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Data Science Portfolio</h4>
+    
+      <div id="about-card-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Biologist/Potential Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/gray.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

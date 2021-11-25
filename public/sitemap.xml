@@ -2,12 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/archives/</loc>
+    <loc>/</loc>
+    <lastmod>2021-11-19T16:50:18-03:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>/2021/11/house-sales-prediction-data-science-challenge/</loc>
+    <lastmod>2021-11-19T16:50:18-03:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>/posts/</loc>
+    <lastmod>2021-11-19T16:50:18-03:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>/2021/11/amber-molecular-dynamics-project/</loc>
+    <lastmod>2021-11-19T11:09:07-03:00</lastmod>
+  </url><url>
+    <loc>/archives/</loc>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/</loc>
   </url>
 </urlset>
