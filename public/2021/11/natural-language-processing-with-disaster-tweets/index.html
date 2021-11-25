@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Natural Language Processing with Disaster Tweets",
+  
+  "image": "/post_cover/tw.jpg",
+  
+  "datePublished": "2021-11-24T09:04:58-03:00",
+  "dateModified": "2021-11-24T09:04:58-03:00",
+  "author": {
+    "@type": "Person",
+    "name": "Data Science Portfolio",
+    
+    "image": "/realfoxnobg.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "\/2021\/11\/natural-language-processing-with-disaster-tweets\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/realfoxnobg.png"
+    }
+    
+  },
+  "description": "Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).\nBut, it’s not always clear whether a person’s words are actually announcing a disaster.\nTake this example: \u0026ldquo;Looked at the sky at night yesterday, it was ablaze\u0026rdquo;",
+  "keywords": ["Data Science, Natural Language Processing"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Data Science Portfolio">
+<meta name="keywords" content="Data Science, Natural Language Processing">
+<meta name="description" content="Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+But, it’s not always clear whether a person’s words are actually announcing a disaster.
+Take this example: &ldquo;Looked at the sky at night yesterday, it was ablaze&rdquo;">
+
+
+<meta property="og:description" content="Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+But, it’s not always clear whether a person’s words are actually announcing a disaster.
+Take this example: &ldquo;Looked at the sky at night yesterday, it was ablaze&rdquo;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Natural Language Processing with Disaster Tweets">
+<meta name="twitter:title" content="Natural Language Processing with Disaster Tweets">
+<meta property="og:url" content="/2021/11/natural-language-processing-with-disaster-tweets/">
+<meta property="twitter:url" content="/2021/11/natural-language-processing-with-disaster-tweets/">
+<meta property="og:site_name" content="">
+<meta property="og:description" content="Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+But, it’s not always clear whether a person’s words are actually announcing a disaster.
+Take this example: &ldquo;Looked at the sky at night yesterday, it was ablaze&rdquo;">
+<meta name="twitter:description" content="Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+But, it’s not always clear whether a person’s words are actually announcing a disaster.
+Take this example: &ldquo;Looked at the sky at night yesterday, it was ablaze&rdquo;">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-11-24T09:04:58">
+  
+  
+    <meta property="article:modified_time" content="2021-11-24T09:04:58">
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/realfoxnobg.png">
+  <meta property="twitter:image" content="/realfoxnobg.png">
+
+
+
+
+  <meta property="og:image" content="/post_cover/tw.jpg">
+  <meta property="twitter:image" content="/post_cover/tw.jpg">
+
+
+
+    <title>Natural Language Processing with Disaster Tweets</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2021/11/natural-language-processing-with-disaster-tweets/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/" aria-label="Go to homepage"></a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Data Science Portfolio</h4>
+        
+          <h5 class="sidebar-profile-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Chitolina" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://instagram.com/acechitolina" title="Instagram">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-instagram" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/lucas-chitolina/" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/post_cover/tw.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Natural Language Processing with Disaster Tweets
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-11-24T09:04:58-03:00">
+        
+  November 24, 2021
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Competition Description
+Twitter has become an important communication channel in times of emergency.
+The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).</p>
+<p>But, it’s not always clear whether a person’s words are actually announcing a disaster.</p>
+<p>Take this example: &ldquo;Looked at the sky at night yesterday, it was ablaze&rdquo;</p>
+<p>The author explicitly uses the word “ABLAZE” but means it metaphorically. This is clear to a human right away, especially with the visual aid. But it’s less clear to a machine.</p>
+<p>In this competition, you’re challenged to build a machine learning model that predicts which Tweets are about real disasters and which one’s aren’t. You’ll have access to a dataset of 10,000 tweets that were hand classified.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_train <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;/tw_files/train.csv&#34;</span>)
+df_test <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;/tw_files/test.csv&#39;</span>)
+df_sample <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;sample_submission.csv&#39;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_train<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><p><img src="/tw_files/pd1.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_test<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)
+</code></pre></div><p><img src="/tw_files/pd2.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_sample<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><p><img src="/tw_files/pd3.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Check for null values</span>
+
+df_train<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()
+df_test<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()
+</code></pre></div><pre><code>id             0
+keyword       26
+location    1105
+text           0
+dtype: int64
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Calling seetviz to get a broad vision about our data</span>
+
+<span style="color:#f92672">import</span> sweetviz
+
+
+resume <span style="color:#f92672">=</span> sweetviz<span style="color:#f92672">.</span>analyze(df_train)
+
+
+resume<span style="color:#f92672">.</span>show_html(<span style="color:#e6db74">&#39;resume.html&#39;</span>)
+</code></pre></div><pre><code>                                             |                                             | [  0%]   00:00 -&gt;…
+
+
+Report relatorio.html was generated! NOTEBOOK/COLAB USERS: the web browser MAY not pop up, regardless, the report IS saved in your notebook/colab files.
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Most common keywords in train dataset</span>
+
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+
+sns<span style="color:#f92672">.</span>set_palette(<span style="color:#e6db74">&#39;husl&#39;</span>)
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">6</span>))
+sns<span style="color:#f92672">.</span>countplot(y <span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>keyword, order<span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>keyword<span style="color:#f92672">.</span>value_counts()<span style="color:#f92672">.</span>iloc[:<span style="color:#ae81ff">15</span>]<span style="color:#f92672">.</span>index)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Top 15 keywords&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/tw_files/output_9_0.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Plot to checkout null values in train data</span>
+df_train<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>plot(kind <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bar&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Plot to checkout null values in train data&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+df_test<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>plot(kind <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bar&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Plot to checkout null values in test data&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/tw_files/output_10_0.png" alt="png"></p>
+<p><img src="/tw_files/output_10_1.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Since location and keyword have a lot of null values, we can drop them from our data.</span>
+
+df_train <span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;location&#39;</span>,<span style="color:#e6db74">&#39;keyword&#39;</span>],axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+df_test <span style="color:#f92672">=</span> df_test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;location&#39;</span>,<span style="color:#e6db74">&#39;keyword&#39;</span>],axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Plot length of the train and test dataset</span>
+
+plt<span style="color:#f92672">.</span>hist(df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>len(), label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;train_tweets&#39;</span>)
+plt<span style="color:#f92672">.</span>hist(df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>len(),label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;test_tweets&#39;</span>)
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/tw_files/output_12_0.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># We can see that our variable target indicate us what is a disaster tweet (1) and what isn&#39;t (0)</span>
+<span style="color:#75715e"># So this is a boolean variable</span>
+
+df_train<span style="color:#f92672">.</span>sample(<span style="color:#ae81ff">20</span>)
+</code></pre></div><p><img src="/tw_files/pd4.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_train<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">16</span>)
+</code></pre></div><p><img src="/tw_files/pd5.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Checkout a disaster tweet</span>
+d_t <span style="color:#f92672">=</span> df_train[df_train[<span style="color:#e6db74">&#39;target&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#75715e">#Print a text from the range 0-8, if equal to 1</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>):
+    print(d_t[i])
+</code></pre></div><pre><code>Our Deeds are the Reason of this #earthquake May ALLAH Forgive us all
+Forest fire near La Ronge Sask. Canada
+All residents asked to 'shelter in place' are being notified by officers. No other evacuation or shelter in place orders are expected
+13,000 people receive #wildfires evacuation orders in California
+Just got sent this photo from Ruby #Alaska as smoke from #wildfires pours into a school
+RockyFire Update =&gt; California Hwy. 20 closed in both directions due to Lake County fire - #CAfire #wildfires
+flood #disaster Heavy rain causes flash flooding of streets in Manitou, Colorado Springs areas
+I am on top of the hill and I can see a fire in the woods
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Checkout a non disaster tweet</span>
+nd_t <span style="color:#f92672">=</span> df_train[df_train[<span style="color:#e6db74">&#39;target&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#75715e">#Print a text if different from 1</span>
+print(nd_t<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)) <span style="color:#75715e">#it starts from 15 because it is the first row to have a 0</span>
+</code></pre></div><pre><code>15                  What's up man?
+16                   I love fruits
+17                Summer is lovely
+18               My car is so fast
+19    What a goooooooaaaaaal!!!!!!
+Name: text, dtype: object
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nd_t <span style="color:#f92672">=</span> df_train[df_train[<span style="color:#e6db74">&#39;target&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;text&#39;</span>]
+print(nd_t<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>))
+</code></pre></div><pre><code>0    Our Deeds are the Reason of this #earthquake M...
+1               Forest fire near La Ronge Sask. Canada
+2    All residents asked to 'shelter in place' are ...
+3    13,000 people receive #wildfires evacuation or...
+4    Just got sent this photo from Ruby #Alaska as ...
+Name: text, dtype: object
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> plotly.express <span style="color:#66d9ef">as</span> px
+px<span style="color:#f92672">.</span>pie(df_train,names<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;target&#39;</span>,title<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Distribution of tweet categories&#39;</span>,hole<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</code></pre></div><p><img src="/tw_files/image1.jpg" alt="jpg"></p>
+<hr>
+<h3 id="data-cleaning">Data Cleaning</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> re
+<span style="color:#f92672">import</span> string
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clean_text</span>(t):
+    <span style="color:#75715e"># Convert to lower</span>
+    t <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>lower()
+    <span style="color:#75715e"># remove html tags</span>
+    t <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\[.*?\]&#39;</span>,<span style="color:#e6db74">&#39; &#39;</span>, t)
+    <span style="color:#75715e"># remove link</span>
+    t <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;https?://\S+|www\.\S+&#39;</span>,<span style="color:#e6db74">&#39; &#39;</span>, t)
+    <span style="color:#75715e">#remove line breaks</span>
+    t <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\n&#39;</span>,<span style="color:#e6db74">&#39; &#39;</span>,t)
+    <span style="color:#75715e">#Remove trailing spaces, tabs</span>
+    t  <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">&#39;\s+&#39;</span>,<span style="color:#e6db74">&#39; &#39;</span>,t)
+    <span style="color:#75715e"># remove punctuation</span>
+<span style="color:#75715e">#     t = re.sub(&#39;[%s]&#39; % re.escape(string.punctuation), t)</span>
+    <span style="color:#75715e"># Remove special characters</span>
+    t <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">&#39;\w*\d\w*&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>,t)
+    <span style="color:#66d9ef">return</span> t
+
+<span style="color:#75715e">## Apply clean function on random train string</span>
+test_str <span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">417</span>, <span style="color:#e6db74">&#39;text&#39;</span>]
+print(<span style="color:#e6db74">&#39;Original text: &#39;</span><span style="color:#f92672">+</span>test_str<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+print(<span style="color:#e6db74">&#39;Original text after cleaning: &#39;</span><span style="color:#f92672">+</span>clean_text(test_str))
+</code></pre></div><pre><code>Original text: Arson suspect linked to 30 fires caught in Northern California http://t.co/mmGsyAHDzb
+
+Original text after cleaning: arson suspect linked to  fires caught in northern california
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Applying clean function on train &amp; test sets</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span> df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x:clean_text(x))
+df_test[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span> df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x:clean_text(x))
+
+<span style="color:#75715e">## checkout train after cleaning</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>0    our deeds are the reason of this #earthquake m...
+1               forest fire near la ronge sask. canada
+2    all residents asked to 'shelter in place' are ...
+3    , people receive #wildfires evacuation orders ...
+4    just got sent this photo from ruby #alaska as ...
+Name: text, dtype: object
+</code></pre>
+<h3 id="tokenization">Tokenization</h3>
+<p>A RegexpTokenizer splits a string into substrings using a regular expression. For example, the following tokenizer forms tokens out of alphabetic sequences, money expressions, and any other non-whitespace sequences:</p>
+<p>from nltk.tokenize import RegexpTokenizer
+s = &ldquo;Good muffins cost $3.88\nin New York.  Please buy me\ntwo of them.\n\nThanks.&rdquo;</p>
+<p>tokenizer = RegexpTokenizer('\w+|$[\d.]+|\S+')</p>
+<p>tokenizer.tokenize(s)
+[&lsquo;Good&rsquo;, &lsquo;muffins&rsquo;, &lsquo;cost&rsquo;, &lsquo;in&rsquo;, &lsquo;New&rsquo;, &lsquo;York&rsquo;, &lsquo;.&rsquo;,
+&lsquo;Please&rsquo;, &lsquo;buy&rsquo;, &lsquo;me&rsquo;, &lsquo;two&rsquo;, &lsquo;of&rsquo;, &lsquo;them&rsquo;, &lsquo;.&rsquo;, &lsquo;Thanks&rsquo;, &lsquo;.']</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Tokenize the cleaned sentences</span>
+<span style="color:#f92672">import</span> nltk
+<span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> stopwords
+<span style="color:#f92672">from</span> nltk.stem <span style="color:#f92672">import</span> WordNetLemmatizer
+<span style="color:#f92672">from</span> nltk <span style="color:#f92672">import</span> RegexpTokenizer
+
+<span style="color:#75715e"># tokenizer=nltk.tokenize.RegexpTokenizer(r&#39;\w+&#39;)</span>
+tokenizer <span style="color:#f92672">=</span> RegexpTokenizer(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\w+&#39;</span>)
+<span style="color:#75715e">## Applying tokenization function on train &amp; test sets</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span> df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>map(tokenizer<span style="color:#f92672">.</span>tokenize)
+df_test[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span> df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>map(tokenizer<span style="color:#f92672">.</span>tokenize) <span style="color:#75715e">## checkout train dataset tokens</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>0    [our, deeds, are, the, reason, of, this, earth...
+1        [forest, fire, near, la, ronge, sask, canada]
+2    [all, residents, asked, to, shelter, in, place...
+3    [people, receive, wildfires, evacuation, order...
+4    [just, got, sent, this, photo, from, ruby, ala...
+Name: text, dtype: object
+</code></pre>
+<h3 id="stopwords">Stopwords:</h3>
+<p>remove unnecessary words that do not carry any meaning</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
+<span style="color:#75715e">#nltk.download(&#39;stopwords&#39;)</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_stopwords</span>(t):
+    words <span style="color:#f92672">=</span> [w <span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> t <span style="color:#66d9ef">if</span> w <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> stopwords<span style="color:#f92672">.</span>words(<span style="color:#e6db74">&#39;english&#39;</span>)]
+    <span style="color:#66d9ef">return</span> words
+
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: remove_stopwords(x))
+df_test[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: remove_stopwords(x))
+
+<span style="color:#75715e">## checkout train dataset without stopwords</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\lucas\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+
+
+
+
+
+0    [deeds, reason, earthquake, may, allah, forgiv...
+1        [forest, fire, near, la, ronge, sask, canada]
+2    [residents, asked, shelter, place, notified, o...
+3    [people, receive, wildfires, evacuation, order...
+4    [got, sent, photo, ruby, alaska, smoke, wildfi...
+Name: text, dtype: object
+</code></pre>
+<h3 id="lemmatization">Lemmatization</h3>
+<p>Lemmatization is the process of grouping together the different inflected forms of a word so they can be analyzed as a single item.</p>
+<p>Examples of lemmatization:</p>
+<p>1.playing, plays and played all these 3 letters will be converted to play after lemmatization</p>
+<p>2.change, changing, changes, changed and changer all these letters will be converted to change after lemmatization</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> nltk.stem <span style="color:#f92672">import</span> WordNetLemmatizer
+<span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> wordnet <span style="color:#66d9ef">as</span> wn
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lem_words</span>(t):
+    l <span style="color:#f92672">=</span> WordNetLemmatizer()
+    <span style="color:#66d9ef">return</span> [l<span style="color:#f92672">.</span>lemmatize(w) <span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> t]
+
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: lem_words(x))
+df_test[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: lem_words(x))
+
+<span style="color:#75715e">## checkout train dataset with lemmatized words</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>0    [deed, reason, earthquake, may, allah, forgive...
+1        [forest, fire, near, la, ronge, sask, canada]
+2    [resident, asked, shelter, place, notified, of...
+3    [people, receive, wildfire, evacuation, order,...
+4    [got, sent, photo, ruby, alaska, smoke, wildfi...
+Name: text, dtype: object
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Transform tokens into sentences</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combine_txt</span>(t):
+    c  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">.</span>join(t)
+    <span style="color:#66d9ef">return</span> c
+
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: combine_txt(x))
+df_test[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#f92672">=</span>df_test[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: combine_txt(x))
+
+<span style="color:#75715e">## checkout train dataset with lemmatized words</span>
+df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>0           deed reason earthquake may allah forgive u
+1                forest fire near la ronge sask canada
+2    resident asked shelter place notified officer ...
+3    people receive wildfire evacuation order calif...
+4    got sent photo ruby alaska smoke wildfire pour...
+Name: text, dtype: object
+</code></pre>
+<h3 id="vectorizing-text">Vectorizing text</h3>
+<p>CountVectorizer is used to transform a given text into a vector on the basis of the frequency(count) of each word that occurs in the entire text.It involves counting the number of occurences each words appears in a document(text)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> CountVectorizer
+c <span style="color:#f92672">=</span> CountVectorizer()
+tr_v <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span>fit_transform(df_train[<span style="color:#e6db74">&#39;text&#39;</span>])
+te_v <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span>fit_transform(df_test[<span style="color:#e6db74">&#39;text&#39;</span>])
+
+print(tr_v[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>todense())
+</code></pre></div><pre><code>[[0 0 0 ... 0 0 0]]
+</code></pre>
+<h3 id="tfidf">TFIDF</h3>
+<p>TF-IDF is an abbreviation for Term Frequency Inverse Document Frequency. This is very common algorithm to transform text into a meaningful representation of numbers which is used to fit machine algorithm for prediction.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> TfidfVectorizer
+
+tfidf <span style="color:#f92672">=</span> TfidfVectorizer(min_df <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, max_df <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, ngram_range <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>))
+tr_t <span style="color:#f92672">=</span> tfidf<span style="color:#f92672">.</span>fit_transform(df_train[<span style="color:#e6db74">&#39;text&#39;</span>])
+te_t <span style="color:#f92672">=</span> tfidf<span style="color:#f92672">.</span>transform(df_test[<span style="color:#e6db74">&#39;text&#39;</span>])
+
+print(tr_t) <span style="color:#75715e">#I guess its acts similar to the MinMax Scaler function, I&#39;m not so sure. It does put the data on the same scale.</span>
+</code></pre></div><pre><code>  (0, 5873)	0.42955610147525586
+  (0, 3669)	0.44400693678814745
+  (0, 217)	0.38352901903597114
+  (0, 5872)	0.2748610561491046
+  (0, 2821)	0.30473436177503666
+  (0, 7691)	0.3251016702154227
+  (0, 2367)	0.44400693678814745
+  (1, 3508)	0.48444913925709776
+  (1, 3660)	0.38022430288954495
+  (1, 1420)	0.4245572189856818
+  (1, 5208)	0.38854833425014584
+  (1, 6360)	0.3449659961644528
+  (1, 3481)	0.24109477175958982
+  (1, 3659)	0.3352486289968323
+  (2, 3169)	0.26612437031001007
+  (2, 6786)	0.23303232956162295
+  (2, 3083)	0.22163991769797922
+  (2, 6653)	0.24155906092908158
+  (2, 7147)	0.48311812185816316
+  (2, 8457)	0.6051076137408071
+  (2, 559)	0.28749423825749343
+  (2, 7866)	0.29186887289666186
+  (3, 3089)	0.4435514828166325
+  (3, 1374)	0.3034694526470505
+  (3, 10443)	0.32609893512294774
+  :	:
+  (7611, 6522)	0.16532140719718788
+  (7611, 9453)	0.17799717676076518
+  (7611, 4856)	0.16229680853699543
+  (7611, 8373)	0.16532140719718788
+  (7611, 5534)	0.13694526940984086
+  (7611, 4777)	0.12500781491887605
+  (7611, 7943)	0.17799717676076518
+  (7611, 5418)	0.11537335844993055
+  (7611, 7238)	0.11519570386568624
+  (7611, 1454)	0.11883529532673032
+  (7612, 10444)	0.3034965203639764
+  (7612, 7631)	0.2758219380452715
+  (7612, 4493)	0.27439877914747446
+  (7612, 5287)	0.2758219380452715
+  (7612, 7629)	0.2703977371970417
+  (7612, 14)	0.2958428132919883
+  (7612, 1387)	0.26674507207548637
+  (7612, 13)	0.2788217258246463
+  (7612, 6540)	0.26027395495092714
+  (7612, 6539)	0.24194091174208546
+  (7612, 5286)	0.2460065867567935
+  (7612, 4482)	0.21003310680654283
+  (7612, 6451)	0.1973567404729917
+  (7612, 1374)	0.2165545888645029
+  (7612, 10443)	0.2327028971408023
+</code></pre>
+<h2 id="observations">Observations:</h2>
+<p>The data cleaning step of a data focused on the text analysis, with few columns, is very different
+from a data with a lot of variables with numeric info. Thus, the algorithms we are going to use for machine
+learning may not be the ones we implement on a price prediction, for example.</p>
+<h4 id="always-good-to-remember-this-sheet">Always good to remember this sheet:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> IPython.display <span style="color:#f92672">import</span> Image
+</code></pre></div><p><img src="/tw_files/output_36_0.png" alt="png"></p>
+<p><img src="/tw_files/output_37_0.png" alt="png"></p>
+<h3 id="xgb-classifier">XGB Classifier:</h3>
+<p>XGBoost is an algorithm that has recently been dominating applied machine learning and Kaggle competitions for structured or tabular data. XGBoost is an implementation of gradient boosted decision trees designed for speed and performance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> xgboost <span style="color:#66d9ef">as</span> xg
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> cross_val_score
+<span style="color:#f92672">import</span> warnings
+warnings<span style="color:#f92672">.</span>filterwarnings(<span style="color:#e6db74">&#34;ignore&#34;</span>)
+
+param <span style="color:#f92672">=</span> xg<span style="color:#f92672">.</span>XGBClassifier(max_depth <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, n_estimators <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span>,
+                        learning_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.08</span>, nthread <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, colsample_bytree <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>, eval_metric <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;logloss&#34;</span>)
+
+XGB_vector_score <span style="color:#f92672">=</span> cross_val_score(param, tr_v, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;Vector score: &#34;</span>, XGB_vector_score)
+
+XGB_tfidf_score <span style="color:#f92672">=</span> cross_val_score(param, tr_t, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">TFIDF score: &#34;</span>, XGB_tfidf_score)
+</code></pre></div><pre><code>Vector score:  [0.50638298 0.40636704 0.49578415 0.40161453 0.56742557]
+
+TFIDF score:  [0.49455338 0.39425837 0.48713551 0.40162272 0.57444934]
+</code></pre>
+<h3 id="logistic-regression">Logistic Regression:</h3>
+<p>There are lots of classification problems that are available, but the logistics regression is common and is an useful regression method for solving the binary classification problem.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+
+lg <span style="color:#f92672">=</span> LogisticRegression()
+LR_vector_score <span style="color:#f92672">=</span> cross_val_score(lg, tr_v, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;LR_Vector score: &#34;</span>, LR_vector_score)
+
+LR_tfidf_score <span style="color:#f92672">=</span> cross_val_score(lg, tr_t, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">LR_TFIDF score: &#34;</span>, LR_tfidf_score)
+</code></pre></div><pre><code>LR_Vector score:  [0.62655205 0.52433817 0.6035313  0.52847806 0.7057903 ]
+
+LR_TFIDF score:  [0.5623069  0.5013876  0.56862745 0.42629905 0.67244367]
+</code></pre>
+<h3 id="naive-bayes">Naive Bayes:</h3>
+<p>Naive Bayes is the most straightforward and fast classification algorithm, which is suitable for a large chunk of data. Naive Bayes classifier is successfully used in various applications such as spam filtering, text classification, sentiment analysis, and recommender systems. It uses Bayes theorem of probability for prediction of unknown class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.naive_bayes <span style="color:#f92672">import</span> MultinomialNB <span style="color:#66d9ef">as</span> mb
+
+m <span style="color:#f92672">=</span> mb()
+NB_vector_score <span style="color:#f92672">=</span> cross_val_score(m, tr_v, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;NB_Vector score: &#34;</span>, vector_score)
+
+NB_tfidf_score <span style="color:#f92672">=</span> cross_val_score(m, tr_t, df_train[<span style="color:#e6db74">&#39;target&#39;</span>],
+                              cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1&#39;</span>)
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">NB_TFIDF score: &#34;</span>, tfidf_score)
+</code></pre></div><pre><code>NB_Vector score:  [0.64227642 0.61965812 0.67412587 0.6407465  0.73404255]
+
+NB_TFIDF score:  [0.57838364 0.58523726 0.62139219 0.59797608 0.74842767]
+</code></pre>
+<h3 id="converting-score-arrays-to-data-frames-i-guess-its-better-to-plot">Converting Score arrays to Data frames, I guess it&rsquo;s better to plot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">XGB_V <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(XGB_vector_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;XGB_Vector Score&#39;</span>])
+
+LR_V <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(LR_vector_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;LR_Vector Score&#39;</span>])
+
+NB_V <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(NB_vector_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NB_Vector Score&#39;</span>])
+
+FULL_V <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([XGB_V ,LR_V, NB_V], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, join<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inner&#34;</span>)
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,FULL_V)
+</code></pre></div><pre><code>    XGB_Vector Score  LR_Vector Score  NB_Vector Score
+0          0.506383         0.626552         0.642799
+1          0.406367         0.524338         0.617249
+2          0.495784         0.603531         0.674126
+3          0.401615         0.528478         0.640125
+4          0.567426         0.705790         0.732713
+</code></pre>
+<h3 id="plot-the-vector-scores-to-compare">Plot the Vector scores to compare</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">FULL_V<span style="color:#f92672">.</span>plot(kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bar&#34;</span>)<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center left&#39;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Algorithms Comparison&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Steps&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Score&#34;</span>)
+
+FULL_V<span style="color:#f92672">.</span>plot()<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center left&#39;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Algorithms Comparison&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Steps&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Score&#34;</span>)
+</code></pre></div><pre><code>Text(0, 0.5, 'Score')
+</code></pre>
+<p><img src="/tw_files/output_47_1.png" alt="png"></p>
+<p><img src="/tw_files/output_47_2.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">XGB_TFIDF <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(XGB_tfidf_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;XGB_TF Score&#39;</span>])
+
+LR_TFIDF <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(LR_tfidf_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;LR_TFr Score&#39;</span>])
+
+NB_TFIDF <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(NB_tfidf_score,
+             columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NB_TF Score&#39;</span>])
+
+FULL_TF <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([XGB_TFIDF,LR_TFIDF,NB_TFIDF], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, join<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inner&#34;</span>)
+print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,FULL_TF)
+</code></pre></div><pre><code>    XGB_TF Score  LR_TFr Score  NB_TF Score
+0      0.494553      0.562307     0.578947
+1      0.394258      0.501388     0.585237
+2      0.487136      0.568627     0.621392
+3      0.401623      0.426299     0.597976
+4      0.574449      0.672444     0.748428
+</code></pre>
+<h3 id="plot-the-tfidf-scores-to-compare">Plot the TFIDF scores to compare</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">FULL_TF<span style="color:#f92672">.</span>plot(kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bar&#34;</span>)<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center left&#39;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Algorithms Comparison&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Steps&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Score&#34;</span>)
+
+FULL_TF<span style="color:#f92672">.</span>plot()<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center left&#39;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Algorithms Comparison&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Steps&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Score&#34;</span>)
+</code></pre></div><pre><code>Text(0, 0.5, 'Score')
+</code></pre>
+<p><img src="/tw_files/output_50_1.png" alt="png"></p>
+<p><img src="/tw_files/output_50_2.png" alt="png"></p>
+<p>As we can see, Naive Bayes has the best results by far, so no we are going to submit.</p>
+<h3 id="prediction">Prediction</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">m<span style="color:#f92672">.</span>fit(tr_t,df_train[<span style="color:#e6db74">&#39;target&#39;</span>])
+pred <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span>predict(te_t)
+</code></pre></div><h3 id="submission-to-kaggle">Submission to Kaggle</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;Id&#39;</span>:df_test[<span style="color:#e6db74">&#39;id&#39;</span>],
+                 <span style="color:#e6db74">&#39;Target&#39;</span>:pred})
+s<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;s.csv&#39;</span>,index <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)
+s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;s.csv&#39;</span>)
+s<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
+</code></pre></div><p><img src="/tw_files/pd6.jpg" alt="jpg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/house-sales-prediction-data-science-challenge/" data-tooltip="House Sales Prediction - Data Science challenge" aria-label="PREVIOUS: House Sales Prediction - Data Science challenge">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = '\/2021\/11\/natural-language-processing-with-disaster-tweets\/';
+        
+          this.page.identifier = '\/2021\/11\/natural-language-processing-with-disaster-tweets\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Data Science Portfolio. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/house-sales-prediction-data-science-challenge/" data-tooltip="House Sales Prediction - Data Science challenge" aria-label="PREVIOUS: House Sales Prediction - Data Science challenge">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/natural-language-processing-with-disaster-tweets/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F11%2Fnatural-language-processing-with-disaster-tweets%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F11%2Fnatural-language-processing-with-disaster-tweets%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=%2F2021%2F11%2Fnatural-language-processing-with-disaster-tweets%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Data Science Portfolio</h4>
+    
+      <div id="about-card-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Biologist/Potential Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/gray.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

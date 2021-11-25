@@ -7,6 +7,7 @@ coverCaption: "A tough time"
 coverMeta: out
 coverSize: partial
 showSocial: true
+type: posts
 keywords:
 - amber
 - molecular dynamics

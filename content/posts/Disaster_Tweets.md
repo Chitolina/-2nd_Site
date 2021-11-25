@@ -1,21 +1,18 @@
 ---
 title: "Natural Language Processing with Disaster Tweets"
-date: 2021-11-25T09:04:58-03:00
-draft: true
+date: 2021-11-24T09:04:58-03:00
+draft: False
 thumbnailImagePosition: bottom
 coverImage: /post_cover/tw.jpg
 coverCaption: ""
 coverMeta: out
 coverSize: partial
 showSocial: true
+type: posts
 keywords:
 - Data Science
 - Natural Language Processing
 ---
-
-```python
-
-```
 
 Competition Description
 Twitter has become an important communication channel in times of emergency.
