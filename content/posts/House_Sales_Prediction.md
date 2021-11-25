@@ -6,6 +6,7 @@ coverCaption: ""
 coverMeta: out
 coverSize: partial
 showSocial: true
+thumbnailImagePosition: bottom
 keywords:
 - data science
 - house sales rocket
