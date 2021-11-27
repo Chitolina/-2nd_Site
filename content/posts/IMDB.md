@@ -1,5 +1,5 @@
 ---
-title: "IMDB DB Exploratory Analysis (Python & SQL)"
+title: "IMDB Exploratory Analysis (Python & SQL)"
 date: 2021-11-27T00:16:10-03:00
 draft: False
 thumbnailImagePosition: bottom
@@ -14,14 +14,14 @@ keywords:
 - SQL
 - Data Bank
 ---
-Here's Lucas! I'm glad you're here. This project is about the exploratory analysis over a databank from a movie website. This was a project teached on a free course I signed called "Python Fundamentos Para Análise de Dados 3.0" from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉. 
+Here's Lucas! I'm glad you're here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called "Python Fundamentos Para Análise de Dados 3.0" from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉. 
 
 Without further due, we are going to use some SQL knowledge and a lot of Python, focused on data analysis.
 
 **When we talk about exploratory analisys, it's usual to gather a few questions we want to clarify. 
-Thus, what questions could you ask from a movie website like IMDB?**
+Thus, what questions could you ask from a movie database IMDB?**
 
-What are the most common movies on IMDB?  
+What are the most common movies?  
 
 What is the number of titles by genre?  
 
