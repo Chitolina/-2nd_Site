@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "IMDB Exploratory Analysis (Python \u0026 SQL)",
+  
+  "image": "/post_cover/shinning.jpg",
+  
+  "datePublished": "2021-11-27T00:16:10-03:00",
+  "dateModified": "2021-11-27T00:16:10-03:00",
+  "author": {
+    "@type": "Person",
+    "name": "Data Science Portfolio",
+    
+    "image": "/realfoxnobg.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "\/2021\/11\/imdb-exploratory-analysis-python-sql\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/realfoxnobg.png"
+    }
+    
+  },
+  "description": "Here\u0026rsquo;s Lucas! I\u0026rsquo;m glad you\u0026rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called \u0026ldquo;Python Fundamentos Para Análise de Dados 3.0\u0026rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.",
+  "keywords": ["Data Science, SQL, Data Bank"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Data Science Portfolio">
+<meta name="keywords" content="Data Science, SQL, Data Bank">
+<meta name="description" content="Here&rsquo;s Lucas! I&rsquo;m glad you&rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called &ldquo;Python Fundamentos Para Análise de Dados 3.0&rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.">
+
+
+<meta property="og:description" content="Here&rsquo;s Lucas! I&rsquo;m glad you&rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called &ldquo;Python Fundamentos Para Análise de Dados 3.0&rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IMDB Exploratory Analysis (Python &amp; SQL)">
+<meta name="twitter:title" content="IMDB Exploratory Analysis (Python &amp; SQL)">
+<meta property="og:url" content="/2021/11/imdb-exploratory-analysis-python-sql/">
+<meta property="twitter:url" content="/2021/11/imdb-exploratory-analysis-python-sql/">
+<meta property="og:site_name" content="">
+<meta property="og:description" content="Here&rsquo;s Lucas! I&rsquo;m glad you&rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called &ldquo;Python Fundamentos Para Análise de Dados 3.0&rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.">
+<meta name="twitter:description" content="Here&rsquo;s Lucas! I&rsquo;m glad you&rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called &ldquo;Python Fundamentos Para Análise de Dados 3.0&rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-11-27T00:16:10">
+  
+  
+    <meta property="article:modified_time" content="2021-11-27T00:16:10">
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/realfoxnobg.png">
+  <meta property="twitter:image" content="/realfoxnobg.png">
+
+
+
+
+  <meta property="og:image" content="/post_cover/shinning.jpg">
+  <meta property="twitter:image" content="/post_cover/shinning.jpg">
+
+
+
+    <title>IMDB Exploratory Analysis (Python &amp; SQL)</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2021/11/imdb-exploratory-analysis-python-sql/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/" aria-label="Go to homepage"></a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Data Science Portfolio</h4>
+        
+          <h5 class="sidebar-profile-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Chitolina" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://instagram.com/acechitolina" title="Instagram">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-instagram" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/lucas-chitolina/" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/post_cover/shinning.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      IMDB Exploratory Analysis (Python &amp; SQL)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-11-27T00:16:10-03:00">
+        
+  November 27, 2021
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Here&rsquo;s Lucas! I&rsquo;m glad you&rsquo;re here. This project is about the exploratory analysis over a cinematography databank. This was a project teached on a free course I signed called &ldquo;Python Fundamentos Para Análise de Dados 3.0&rdquo; from the Data Science Academy, and I enjoyed so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉.</p>
+<p>Without further due, we are going to use some SQL knowledge and a lot of Python, focused on data analysis.</p>
+<p><strong>When we talk about exploratory analisys, it&rsquo;s usual to gather a few questions we want to clarify.
+Thus, what questions could you ask from a movie database IMDB?</strong></p>
+<p>What are the most common movies?</p>
+<p>What is the number of titles by genre?</p>
+<p>The median movie rating by genre and year of release?</p>
+<p>Film with longer duration?</p>
+<p>Relationship between duration and gender?</p>
+<p>Movies produced by country?</p>
+<p>The top 10? worst 10?</p>
+<hr>
+<p>So let&rsquo;s start looking for them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> platform <span style="color:#f92672">import</span> python_version
+print(python_version())
+</code></pre></div><pre><code>3.8.8
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">!</span>pip install <span style="color:#f92672">-</span>q imdb<span style="color:#f92672">-</span>sqlite
+</code></pre></div><h4 id="now-we-run-the-package-for-downloading-the-datasets-from-the-site">Now we run the package for downloading the datasets from the site</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># https://pypi.org/project/pycountry/</span>
+
+<span style="color:#960050;background-color:#1e0010">!</span>pip install <span style="color:#f92672">-</span>q pycountry
+</code></pre></div><h4 id="importing-other-usual-packages">Importing other usual packages</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> re <span style="color:#75715e">#regular expressions, text processing</span>
+<span style="color:#f92672">import</span> time <span style="color:#75715e">#shows execution time</span>
+<span style="color:#f92672">import</span> sqlite3 <span style="color:#75715e">#manipulate sqlite</span>
+<span style="color:#f92672">import</span> pycountry
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns 
+<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
+<span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> CountVectorizer <span style="color:#75715e">#vector generator to make calculations</span>
+<span style="color:#f92672">import</span> warnings
+warnings<span style="color:#f92672">.</span>filterwarnings(<span style="color:#e6db74">&#34;ignore&#34;</span>)
+sns<span style="color:#f92672">.</span>set_theme(style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;whitegrid&#34;</span>)
+</code></pre></div><h6 id="loading-data-downloading-from-site-take-a-long-time-mine-took-50min-">Loading data: Downloading from site (take a long time: mine took 50min :()</h6>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%%</span>time
+<span style="color:#960050;background-color:#1e0010">!</span>imdb<span style="color:#f92672">-</span>sqlite
+</code></pre></div><pre><code>Wall time: 31min 18s
+
+
+2021-11-26 10:41:30,329 GET https://datasets.imdbws.com/name.basics.tsv.gz -&gt; downloads\name.basics.tsv.gz
+2021-11-26 10:42:09,495 GET https://datasets.imdbws.com/title.basics.tsv.gz -&gt; downloads\title.basics.tsv.gz
+2021-11-26 10:42:35,228 GET https://datasets.imdbws.com/title.akas.tsv.gz -&gt; downloads\title.akas.tsv.gz
+2021-11-26 10:43:19,439 GET https://datasets.imdbws.com/title.principals.tsv.gz -&gt; downloads\title.principals.tsv.gz
+2021-11-26 10:44:26,200 GET https://datasets.imdbws.com/title.episode.tsv.gz -&gt; downloads\title.episode.tsv.gz
+2021-11-26 10:44:32,314 GET https://datasets.imdbws.com/title.ratings.tsv.gz -&gt; downloads\title.ratings.tsv.gz
+2021-11-26 10:44:33,488 Populating database: imdb.db
+2021-11-26 10:44:33,489 Applying schema
+2021-11-26 10:44:33,500 Importing file: downloads\name.basics.tsv.gz
+2021-11-26 10:44:33,500 Reading number of rows ...
+2021-11-26 10:44:39,672 Inserting rows into table: people
+...
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Conecting to the DB</span>
+conn <span style="color:#f92672">=</span> sqlite3<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#34;imdb.db&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Extract the table list</span>
+tables <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(<span style="color:#e6db74">&#34;SELECT NAME AS &#39;Table_Name&#39; FROM sqlite_master WHERE type = &#39;table&#39;&#34;</span>,conn)
+
+<span style="color:#75715e"># The upper words are SQL syntax and the lower are the ones we are searching on the DB</span>
+
+<span style="color:#75715e"># We make a query</span>
+<span style="color:#75715e"># select name as = alias created</span>
+<span style="color:#75715e"># from sqlite master catalog</span>
+<span style="color:#75715e"># table type filtered</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">type(tables)
+</code></pre></div><pre><code>pandas.core.frame.DataFrame
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tables<span style="color:#f92672">.</span>head()
+
+Table_Name
+<span style="color:#ae81ff">0</span>	people
+<span style="color:#ae81ff">1</span>	titles
+<span style="color:#ae81ff">2</span>	akas
+<span style="color:#ae81ff">3</span>	crew
+<span style="color:#ae81ff">4</span>	episodes
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Convert df into list</span>
+tables <span style="color:#f92672">=</span> tables[<span style="color:#e6db74">&#34;Table_Name&#34;</span>]<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>tolist()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Run the table list at the db and extract the scheme (details) from each one</span>
+
+<span style="color:#66d9ef">for</span> table <span style="color:#f92672">in</span> tables:
+    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PRAGMA TABLE_INFO(</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">.</span>format(table)
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query,conn)
+    print(<span style="color:#e6db74">&#34;Table:&#34;</span>, table)
+    display(result)
+    print(<span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>) <span style="color:#75715e">#pk = primary key</span>
+
+        Table: people
+       cid	name	    type	notnull	dflt_value	pk
+    <span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0</span>	person_id	VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	<span style="color:#ae81ff">1</span>
+    <span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">1</span>	name	    VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	<span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">2</span>	born	    INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	<span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">3</span>	died	    INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	<span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+
+
+        Table: titles
+        cid	        name	    type	  notnull	dflt_value	pk
+    <span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0</span>	title_id	        VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">1</span>
+    <span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">1</span>	type	            VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">2</span>	primary_title	    VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">3</span>	original_title	    VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">4</span>	is_adult	        INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">5</span>	<span style="color:#ae81ff">5</span>	premiered	        INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">6</span>	<span style="color:#ae81ff">6</span>	ended	            INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">7</span>	<span style="color:#ae81ff">7</span>	runtime_minutes     INTEGER	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+    <span style="color:#ae81ff">8</span>	<span style="color:#ae81ff">8</span>	genres	            VARCHAR	    <span style="color:#ae81ff">0</span>	    <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+
+
+        Table: akas
+    cid	    name	            type	            notnull	    dflt_value	      pk
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0</span>	title_id	            VARCHAR 	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">1</span>	title	                VARCHAR 	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">2</span>	region	                VARCHAR 	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">3</span>	language	            VARCHAR	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">4</span>	types	                VARCHAR	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">5</span>	<span style="color:#ae81ff">5</span>	attributes	            ARCHAR	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">6</span>	<span style="color:#ae81ff">6</span>	is_original_title	    INTEGER	            <span style="color:#ae81ff">0</span>	        <span style="color:#66d9ef">None</span>	       <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+
+
+Table: crew
+    cid	   name	        type	      notnull 	    dflt_value      pk
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0</span>	title_id	    VARCHAR	        <span style="color:#ae81ff">0</span>	            <span style="color:#66d9ef">None</span>	        <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">1</span>	person_id	    VARCHAR	        <span style="color:#ae81ff">0</span>	            <span style="color:#66d9ef">None</span>	        <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">2</span>	category	    VARCHAR	        <span style="color:#ae81ff">0</span>	            <span style="color:#66d9ef">None</span>	        <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">3</span>	job	            VARCHAR	        <span style="color:#ae81ff">0</span>	            <span style="color:#66d9ef">None</span>	        <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">4</span>	characters	    VARCHAR	        <span style="color:#ae81ff">0</span>	            <span style="color:#66d9ef">None</span>	        <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+
+
+Table: episodes
+cid	     name	                type	 notnull      dflt_value         pk
+<span style="color:#ae81ff">0</span>	    episode_title_id         INTEGER     <span style="color:#ae81ff">0</span>         <span style="color:#66d9ef">None</span>            <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>	    show_title_id	        INTEGER	    <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	         <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">2</span>	    season_number	        INTEGER	    <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	         <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">3</span>	    eposide_number	        INTEGER	    <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	         <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+
+
+Table: ratings
+    cid	    name	type	notnull	dflt_value	pk
+<span style="color:#ae81ff">0</span>	 <span style="color:#ae81ff">0</span>	title_id	VARCHAR	  <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">1</span>	 <span style="color:#ae81ff">1</span>	rating	    INTEGER	  <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">2</span>	 <span style="color:#ae81ff">2</span>	votes	    INTEGER	  <span style="color:#ae81ff">0</span>	     <span style="color:#66d9ef">None</span>	    <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">----------------------------------------------------------------------------------------------------</span>
+</code></pre></div><h3 id="exploratory-analysis">Exploratory Analysis</h3>
+<h4 id="which-are-the-main-types-categories-from-the-titles-movies">Which are the main types (categories) from the titles (movies)?</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Create the SQL query</span>
+query1 <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;&#39;&#39;SELECT type, COUNT(*) AS COUNT FROM titles GROUP BY type&#39;&#39;&#39;</span>
+
+<span style="color:#75715e"># SELCT the category</span>
+<span style="color:#75715e"># COUNT = register number</span>
+<span style="color:#75715e"># FROM titles table</span>
+<span style="color:#75715e"># GROUP BY type = cluster for type</span>
+
+<span style="color:#75715e"># How do I know which table to query? I must seek in the doc</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#75715e">#Result extracting</span>
+
+result1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query1, conn) <span style="color:#75715e">#make the query on my open conection conn</span>
+display(result1)
+
+    type	            COUNT
+<span style="color:#ae81ff">0</span>	movie	            <span style="color:#ae81ff">594996</span>
+<span style="color:#ae81ff">1</span>	short	            <span style="color:#ae81ff">843498</span>
+<span style="color:#ae81ff">2</span>	tvEpisode	        <span style="color:#ae81ff">6282068</span>
+<span style="color:#ae81ff">3</span>	tvMiniSeries	    <span style="color:#ae81ff">40802</span>
+<span style="color:#ae81ff">4</span>	tvMovie	            <span style="color:#ae81ff">133772</span>
+<span style="color:#ae81ff">5</span>	tvPilot	            <span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">6</span>	tvSeries	        <span style="color:#ae81ff">216832</span>
+<span style="color:#ae81ff">7</span>	tvShort	            <span style="color:#ae81ff">10366</span>
+<span style="color:#ae81ff">8</span>	tvSpecial	        <span style="color:#ae81ff">34958</span>
+<span style="color:#ae81ff">9</span>	video	            <span style="color:#ae81ff">254872</span>
+<span style="color:#ae81ff">10</span>	videoGame	        <span style="color:#ae81ff">29785</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Lets calculate the percentual for each type</span>
+result1[<span style="color:#e6db74">&#34;percentage&#34;</span>] <span style="color:#f92672">=</span> (result1[<span style="color:#e6db74">&#34;COUNT&#34;</span>]<span style="color:#f92672">/</span>result1[<span style="color:#e6db74">&#34;COUNT&#34;</span>]<span style="color:#f92672">.</span>sum())<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>
+
+<span style="color:#75715e"># each category total from the COUNT table and divide it by the COUNT records sum</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(result1)
+
+    type	        COUNT	percentual
+<span style="color:#ae81ff">0</span>	movie	        <span style="color:#ae81ff">594996</span>	 <span style="color:#ae81ff">7.048086</span>
+<span style="color:#ae81ff">1</span>	short	        <span style="color:#ae81ff">843498</span>	 <span style="color:#ae81ff">9.991742</span>
+<span style="color:#ae81ff">2</span>	tvEpisode	   <span style="color:#ae81ff">6282068</span>	<span style="color:#ae81ff">74.414883</span>
+<span style="color:#ae81ff">3</span>	tvMiniSeries	 <span style="color:#ae81ff">40802</span>	 <span style="color:#ae81ff">0.483324</span>
+<span style="color:#ae81ff">4</span>	tvMovie	        <span style="color:#ae81ff">133772</span>	 <span style="color:#ae81ff">1.584610</span>
+<span style="color:#ae81ff">5</span>	tvPilot	             <span style="color:#ae81ff">2</span>	 <span style="color:#ae81ff">0.000024</span>
+<span style="color:#ae81ff">6</span>	tvSeries	    <span style="color:#ae81ff">216832</span>	 <span style="color:#ae81ff">2.568506</span>
+<span style="color:#ae81ff">7</span>	tvShort	         <span style="color:#ae81ff">10366</span>	 <span style="color:#ae81ff">0.122792</span>
+<span style="color:#ae81ff">8</span>	tvSpecial	     <span style="color:#ae81ff">34958</span>	 <span style="color:#ae81ff">0.414099</span>
+<span style="color:#ae81ff">9</span>	video	        <span style="color:#ae81ff">254872</span>	 <span style="color:#ae81ff">3.019113</span>
+<span style="color:#ae81ff">10</span>	videoGame	     <span style="color:#ae81ff">29785</span>	 <span style="color:#ae81ff">0.352821</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># But what if I just wanna deliver 4 categories:</span>
+<span style="color:#75715e"># The 3 ones with most titles and a last one with all the rest</span>
+
+<span style="color:#75715e">#Make an empy dict</span>
+others<span style="color:#f92672">=</span>{}
+
+<span style="color:#75715e">#Filter the percentual at 5% and sum the total</span>
+others[<span style="color:#e6db74">&#34;COUNT&#34;</span>] <span style="color:#f92672">=</span>  result1[result1[<span style="color:#e6db74">&#34;percentage&#34;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>][<span style="color:#e6db74">&#34;COUNT&#34;</span>]<span style="color:#f92672">.</span>sum()
+
+<span style="color:#75715e">#Save the percentual</span>
+others[<span style="color:#e6db74">&#34;percentage&#34;</span>] <span style="color:#f92672">=</span> result1[result1[<span style="color:#e6db74">&#34;percentage&#34;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>][<span style="color:#e6db74">&#39;percentage&#39;</span>]<span style="color:#f92672">.</span>sum()
+
+<span style="color:#75715e">#Name adjusting</span>
+others[<span style="color:#e6db74">&#34;type&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;others&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">others <span style="color:#75715e">#any category with less than 5% went to the others category</span>
+</code></pre></div><pre><code>{'COUNT': 721389, 'percentual': 8.545287694752078, 'type': 'others'}
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filter the result from df</span>
+
+result1 <span style="color:#f92672">=</span>  result1[result1[<span style="color:#e6db74">&#39;percentage&#39;</span>]<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">5</span>]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Append the top 3 result with the &#34;others&#34;: less than 5%</span>
+
+result1 <span style="color:#f92672">=</span> result1<span style="color:#f92672">.</span>append(others, ignore_index<span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ordering the result</span>
+result1 <span style="color:#f92672">=</span>  result1<span style="color:#f92672">.</span>sort_values(by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;COUNT&#34;</span>,ascending<span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result1<span style="color:#f92672">.</span>head()
+
+    type	    COUNT	 percentual
+<span style="color:#ae81ff">0</span>	movie	    <span style="color:#ae81ff">594996</span>	  <span style="color:#ae81ff">7.048086</span>
+<span style="color:#ae81ff">3</span>	others  	<span style="color:#ae81ff">721389</span>	  <span style="color:#ae81ff">8.545288</span>
+<span style="color:#ae81ff">1</span>	short	    <span style="color:#ae81ff">843498</span>	  <span style="color:#ae81ff">9.991742</span>
+<span style="color:#ae81ff">2</span>	tvEpisode   <span style="color:#ae81ff">6282068</span>   <span style="color:#ae81ff">74.414883</span>   
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Now lets adjust the labels, that is a list comprehension (in one function a serie of commands)</span>
+
+labels <span style="color:#f92672">=</span>[str(result1[<span style="color:#e6db74">&#39;type&#39;</span>][i])<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;[&#39;</span><span style="color:#f92672">+</span>str(round(result1[<span style="color:#e6db74">&#39;percentage&#39;</span>][i],<span style="color:#ae81ff">2</span>))<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;]&#34;</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> result1<span style="color:#f92672">.</span>index]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Plot</span>
+
+<span style="color:#75715e"># We can see some parameters to make it on our own style at matplot colormap tips</span>
+
+cs<span style="color:#f92672">=</span> cm<span style="color:#f92672">.</span>Set3(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">100</span>))
+
+<span style="color:#75715e">#Make the figure</span>
+f <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+
+<span style="color:#75715e"># Pie Plot</span>
+
+plt<span style="color:#f92672">.</span>pie(result1[<span style="color:#e6db74">&#34;COUNT&#34;</span>], labeldistance<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, radius<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, colors<span style="color:#f92672">=</span>cs, wedgeprops<span style="color:#f92672">=</span> dict(width<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>))
+plt<span style="color:#f92672">.</span>legend(labels<span style="color:#f92672">=</span>labels,loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;center&#34;</span>,prop<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;size&#34;</span>:<span style="color:#ae81ff">15</span>})
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Title Distribution&#34;</span>, loc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Center&#34;</span>,fontdict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;fontsize&#34;</span>:<span style="color:#ae81ff">20</span>,<span style="color:#e6db74">&#34;fontweight&#34;</span>:<span style="color:#ae81ff">30</span>})
+plt<span style="color:#f92672">.</span>show
+</code></pre></div><p><img src="/IMDB/output_29_1.png" alt="png"></p>
+<h3 id="what-is-the-number-of-titles-by-genre">What is the number of titles by genre?</h3>
+<p>1º calculate the number of movies by genre<br>
+2º deliver the result in percentual</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Create the SQL query</span>
+
+query2 <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;&#39;&#39;SELECT genres, COUNT(*) FROM titles WHERE type = &#34;movie&#34; GROUP BY genres&#39;&#39;&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query2,conn)
+display(result2)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Convert the strings from upper to lower case</span>
+
+result2[<span style="color:#e6db74">&#34;genres&#34;</span>] <span style="color:#f92672">=</span> result2[<span style="color:#e6db74">&#34;genres&#34;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>values
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Removing NA values</span>
+
+temp <span style="color:#f92672">=</span> result2[<span style="color:#e6db74">&#34;genres&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</code></pre></div><p>Now we must try to find a way to count the number of movies for each genre</p>
+<h4 id="count-vectorizer-sparse-matrix">Count Vectorizer (Sparse matrix)</h4>
+<p>It is used to transform a given text into a vector (<strong>one-hot-encoded</strong>) on the basis of the frequency (count) of each word that occurs in the entire text. It involves counting the number of occurences each words appears in a document (text).</p>
+<p>The result of this method is a <strong>Sparse matrix</strong>.They are matrices in which most positions are filled with zeros. For these arrays, we can save significant memory space if only nonzero terms are stored.</p>
+<p>Ex:</p>
+<pre><code>Movies --&gt; Terror  Romance  Action  
+
+Horror        1       0        0  
+Action        0       0        1  
+Romance       0       1        0
+Horror        1       0        0
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#So now we are gonna create a vector using the regular expression to filter the strings</span>
+<span style="color:#75715e"># We can search html re strings on python library</span>
+
+usual <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(?u)</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">b[</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">w-]+</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">b&#34;</span>
+
+vector <span style="color:#f92672">=</span> CountVectorizer(token_pattern <span style="color:#f92672">=</span> usual, analyzer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;word&#34;</span>)<span style="color:#f92672">.</span>fit(temp)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">type(vector)
+</code></pre></div><pre><code>sklearn.feature_extraction.text.CountVectorizer
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Apply the vectorization to the df</span>
+
+matrix <span style="color:#f92672">=</span> vector<span style="color:#f92672">.</span>transform(temp) 
+type(matrix)
+</code></pre></div><pre><code>scipy.sparse.csr.csr_matrix
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Returning unique genres</span>
+
+unique_genres <span style="color:#f92672">=</span> vector<span style="color:#f92672">.</span>get_feature_names()
+unique_genres
+</code></pre></div><pre><code>['action',
+ 'adult',
+ 'adventure',
+ 'animation',
+ 'biography',
+ 'comedy',
+ 'crime',
+ 'documentary',
+ 'drama',
+ 'family',
+ 'fantasy',
+ 'film-noir',
+ 'game-show',
+ 'history',
+ 'horror',
+ 'music',
+ 'musical',
+ 'mystery',
+ 'n',
+ 'news',
+ 'reality-tv',
+ 'romance',
+ 'sci-fi',
+ 'short',
+ 'sport',
+ 'talk-show',
+ 'thriller',
+ 'war',
+ 'western']
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">genres <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(matrix<span style="color:#f92672">.</span>todense(),columns<span style="color:#f92672">=</span>unique_genres,index<span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span>index)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">genres<span style="color:#f92672">.</span>info()
+</code></pre></div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 1451 entries, 0 to 1450
+Data columns (total 29 columns):
+ #   Column       Non-Null Count  Dtype
+---  ------       --------------  -----
+ 0   action       1451 non-null   int64
+ 1   adult        1451 non-null   int64
+ 2   adventure    1451 non-null   int64
+ 3   animation    1451 non-null   int64
+ 4   biography    1451 non-null   int64
+ 5   comedy       1451 non-null   int64
+ 6   crime        1451 non-null   int64
+ 7   documentary  1451 non-null   int64
+ 8   drama        1451 non-null   int64
+ 9   family       1451 non-null   int64
+ 10  fantasy      1451 non-null   int64
+ 11  film-noir    1451 non-null   int64
+ 12  game-show    1451 non-null   int64
+ 13  history      1451 non-null   int64
+ 14  horror       1451 non-null   int64
+ 15  music        1451 non-null   int64
+ 16  musical      1451 non-null   int64
+ 17  mystery      1451 non-null   int64
+ 18  n            1451 non-null   int64
+ 19  news         1451 non-null   int64
+ 20  reality-tv   1451 non-null   int64
+ 21  romance      1451 non-null   int64
+ 22  sci-fi       1451 non-null   int64
+ 23  short        1451 non-null   int64
+ 24  sport        1451 non-null   int64
+ 25  talk-show    1451 non-null   int64
+ 26  thriller     1451 non-null   int64
+ 27  war          1451 non-null   int64
+ 28  western      1451 non-null   int64
+dtypes: int64(29)
+memory usage: 340.1 KB
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Drop the n column</span>
+
+genres <span style="color:#f92672">=</span> genres<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;n&#34;</span>,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Calculating the percentual</span>
+
+genres_percentage <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span><span style="color:#f92672">*</span>pd<span style="color:#f92672">.</span>Series(genres<span style="color:#f92672">.</span>sum())<span style="color:#f92672">.</span>sort_values(ascending <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)<span style="color:#f92672">/</span>genres<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">genres_percentage<span style="color:#f92672">.</span>head()
+</code></pre></div><pre><code>drama          18.401103
+comedy         16.884907
+documentary    15.920055
+adventure      14.886285
+action         14.472777
+dtype: float64
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">8</span>))
+sns<span style="color:#f92672">.</span>barplot(x <span style="color:#f92672">=</span> genres_percentual<span style="color:#f92672">.</span>values, y <span style="color:#f92672">=</span> genres_percentual<span style="color:#f92672">.</span>index, orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h&#34;</span>, palette <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cubehelix&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Genre&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Movie Percentage (%)&#34;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Percentage of Titles by Genre</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/IMDB/output_48_0.png" alt="png"></p>
+<h3 id="what-is-the-median-of-ratings-by-gender">What is the median of ratings by gender?</h3>
+<p>Why median and not the mean?</p>
+<p>Mean = affected by outliers<br>
+Median = is not affected by outliers, safer</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Query</span>
+
+query3 <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">        SELECT rating, genres FROM
+</span><span style="color:#e6db74">        ratings JOIN titles ON ratings.title_id = titles.title_id
+</span><span style="color:#e6db74">        WHERE premiered &lt;= 2022 AND type = &#39;movie&#39;
+</span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
+<span style="color:#75715e"># SELECTING rating and genres from 2 tables (ratings and titles) and joining them</span>
+<span style="color:#75715e"># Then we filter(WHERE, not when) asking what was the year that movie was first released</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result3 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query3, conn)
+display(result3)
+
+	  rating	    genres
+<span style="color:#ae81ff">0</span>	    <span style="color:#ae81ff">4.5</span>	        \N
+<span style="color:#ae81ff">1</span>	    <span style="color:#ae81ff">6.1</span>	        Action,Adventure,Biography
+<span style="color:#ae81ff">2</span>	    <span style="color:#ae81ff">5.2</span>	        Drama
+<span style="color:#ae81ff">3</span>	    <span style="color:#ae81ff">4.5</span>	        Drama
+<span style="color:#ae81ff">4</span>	    <span style="color:#ae81ff">3.8</span>	        Drama
+<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+<span style="color:#ae81ff">271240</span>	<span style="color:#ae81ff">3.6</span>	        Action,Adventure,Thriller
+<span style="color:#ae81ff">271241</span>	<span style="color:#ae81ff">5.8</span>	        Thriller
+<span style="color:#ae81ff">271242</span>	<span style="color:#ae81ff">6.4</span>	        Drama,History
+<span style="color:#ae81ff">271243</span>	<span style="color:#ae81ff">3.8</span>	        Adventure,History,War
+<span style="color:#ae81ff">271244</span>	<span style="color:#ae81ff">8.3</span>	        Drama
+
+<span style="color:#ae81ff">271245</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">2</span> columns
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Now lets create a function to return the genres</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">genres_return</span>(df):
+    df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>values
+    temp <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">.</span>dropna()
+    vector<span style="color:#f92672">=</span> CountVectorizer(token_pattern<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(?u)</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">b[</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">w-]+</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">b&#34;</span>,analyzer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;word&#34;</span>)<span style="color:#f92672">.</span>fit(temp)
+    unique_genre <span style="color:#f92672">=</span> vector<span style="color:#f92672">.</span>get_feature_names()
+    unique_genre <span style="color:#f92672">=</span> [genre <span style="color:#66d9ef">for</span> genre <span style="color:#f92672">in</span> unique_genre <span style="color:#66d9ef">if</span> len(genre)<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>]
+    <span style="color:#66d9ef">return</span> unique_genre
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">unique_genres<span style="color:#f92672">=</span> genres_return(result3)
+unique_genres
+</code></pre></div><pre><code>['action',
+ 'adult',
+ 'adventure',
+ 'animation',
+ 'biography',
+ 'comedy',
+ 'crime',
+ 'documentary',
+ 'drama',
+ 'family',
+ 'fantasy',
+ 'film-noir',
+ 'game-show',
+ 'history',
+ 'horror',
+ 'music',
+ 'musical',
+ 'mystery',
+ 'news',
+ 'reality-tv',
+ 'romance',
+ 'sci-fi',
+ 'short',
+ 'sport',
+ 'talk-show',
+ 'thriller',
+ 'war',
+ 'western']
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Create empty lists to make the count</span>
+genre_counts <span style="color:#f92672">=</span>[]
+genre_ratings <span style="color:#f92672">=</span>[]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> unique_genres:
+    
+    <span style="color:#75715e">#Return the movie count by genres</span>
+    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SELECT COUNT(rating) FROM ratings JOIN titles ON ratings.title_id=titles.title_id WHERE genres LIKE &#39;</span><span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span>item<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND type=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span>   
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query,conn)
+    genre_counts<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>values[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>])
+    
+    <span style="color:#75715e">#return the ratings by genre</span>
+    query <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;SELECT rating FROM ratings JOIN titles ON ratings.title_id=titles.title_id WHERE genres LIKE &#39;</span><span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span>item<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND type=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span>
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query,conn)
+    genre_ratings<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>median(result[<span style="color:#e6db74">&#34;rating&#34;</span>])) <span style="color:#75715e">#calculating the median</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Preparing the final df</span>
+
+df_genre_ratings <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+df_genre_ratings[<span style="color:#e6db74">&#39;genres&#39;</span>] <span style="color:#f92672">=</span> unique_genres
+df_genre_ratings[<span style="color:#e6db74">&#39;count&#39;</span>] <span style="color:#f92672">=</span> genre_counts
+df_genre_ratings[<span style="color:#e6db74">&#39;rating&#39;</span>] <span style="color:#f92672">=</span> genre_ratings
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_genre_ratings<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">20</span>)
+
+    genres	    count	rating
+<span style="color:#ae81ff">0</span>	action	    <span style="color:#ae81ff">28137</span>	 <span style="color:#ae81ff">5.8</span>
+<span style="color:#ae81ff">1</span>	adult	     <span style="color:#ae81ff">4164</span>	 <span style="color:#ae81ff">5.8</span>
+<span style="color:#ae81ff">2</span>	adventure	<span style="color:#ae81ff">17143</span>	 <span style="color:#ae81ff">6.0</span>
+<span style="color:#ae81ff">3</span>	animation	 <span style="color:#ae81ff">4773</span>	 <span style="color:#ae81ff">6.4</span>
+<span style="color:#ae81ff">4</span>	biography	 <span style="color:#ae81ff">8168</span>	 <span style="color:#ae81ff">7.0</span>
+<span style="color:#ae81ff">5</span>	comedy	    <span style="color:#ae81ff">67288</span>	 <span style="color:#ae81ff">6.0</span>
+<span style="color:#ae81ff">6</span>	crime	    <span style="color:#ae81ff">23156</span>	 <span style="color:#ae81ff">6.1</span>
+<span style="color:#ae81ff">7</span>	documentary	<span style="color:#ae81ff">39995</span>	 <span style="color:#ae81ff">7.3</span>
+<span style="color:#ae81ff">8</span>	drama	   <span style="color:#ae81ff">120287</span>	 <span style="color:#ae81ff">6.4</span>
+<span style="color:#ae81ff">9</span>	family	    <span style="color:#ae81ff">10260</span>	 <span style="color:#ae81ff">6.3</span>
+<span style="color:#ae81ff">10</span>	fantasy	     <span style="color:#ae81ff">8023</span>	 <span style="color:#ae81ff">6.1</span>
+<span style="color:#ae81ff">11</span>	film<span style="color:#f92672">-</span>noir	  <span style="color:#ae81ff">761</span>	 <span style="color:#ae81ff">6.6</span>
+<span style="color:#ae81ff">12</span>	game<span style="color:#f92672">-</span>show	    <span style="color:#ae81ff">2</span>	 <span style="color:#ae81ff">6.8</span>
+<span style="color:#ae81ff">13</span>	history	     <span style="color:#ae81ff">7452</span>	 <span style="color:#ae81ff">6.9</span>
+<span style="color:#ae81ff">14</span>	horror	    <span style="color:#ae81ff">19219</span>	 <span style="color:#ae81ff">5.0</span>
+<span style="color:#ae81ff">15</span>	music	    <span style="color:#ae81ff">12161</span>	 <span style="color:#ae81ff">6.6</span>
+<span style="color:#ae81ff">16</span>	musical	     <span style="color:#ae81ff">5982</span>	 <span style="color:#ae81ff">6.3</span>
+<span style="color:#ae81ff">17</span>	mystery	    <span style="color:#ae81ff">10117</span>	 <span style="color:#ae81ff">6.0</span>
+<span style="color:#ae81ff">18</span>	news	      <span style="color:#ae81ff">664</span>	 <span style="color:#ae81ff">7.3</span>
+<span style="color:#ae81ff">19</span>	reality<span style="color:#f92672">-</span>tv	   <span style="color:#ae81ff">41</span>	 <span style="color:#ae81ff">6.2</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Drop the news column</span>
+
+df_genre_ratings <span style="color:#f92672">=</span> df_genre_ratings<span style="color:#f92672">.</span>drop(index<span style="color:#f92672">=</span><span style="color:#ae81ff">18</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Sorting the result</span>
+df_genre_ratings <span style="color:#f92672">=</span> df_genre_ratings<span style="color:#f92672">.</span>sort_values(by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rating&#34;</span>,ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">8</span>))
+sns<span style="color:#f92672">.</span>barplot(x <span style="color:#f92672">=</span> df_genre_ratings<span style="color:#f92672">.</span>rating, y <span style="color:#f92672">=</span> df_genre_ratings<span style="color:#f92672">.</span>genres, orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h&#34;</span>)
+
+<span style="color:#75715e"># Graphic text</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(df_genre_ratings<span style="color:#f92672">.</span>index)):
+    
+    plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">4.0</span>, 
+             i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.25</span>, 
+             str(df_genre_ratings[<span style="color:#e6db74">&#39;count&#39;</span>][df_genre_ratings<span style="color:#f92672">.</span>index[i]]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Movies&#34;</span>)
+    
+    plt<span style="color:#f92672">.</span>text(df_genre_ratings<span style="color:#f92672">.</span>rating[df_genre_ratings<span style="color:#f92672">.</span>index[i]],
+             i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.25</span>,
+             round(df_genre_ratings[<span style="color:#e6db74">&#34;rating&#34;</span>][df_genre_ratings<span style="color:#f92672">.</span>index[i]],<span style="color:#ae81ff">2</span>))
+
+
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Genre&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Ratings&#34;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Genre Rating Median</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+
+<span style="color:#75715e"># Without each movies total, the info could be biased. </span>
+<span style="color:#75715e"># Look at the top 2 ratings and the total of each one.</span>
+</code></pre></div><p><img src="/IMDB/output_60_0.png" alt="png"></p>
+<h3 id="what-is-the-median-rating-of-movies-in-relation-to-the-release-year">What is the median rating of movies in relation to the release year?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query4 <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">        SELECT rating as Ratings, premiered FROM 
+</span><span style="color:#e6db74">        ratings JOIN titles ON ratings.title_id = titles.title_id
+</span><span style="color:#e6db74">        WHERE premiered &lt;= 2022 AND type = &#39;movie&#39;
+</span><span style="color:#e6db74">        ORDER by premiered&#39;&#39;&#39;</span>
+
+
+<span style="color:#75715e"># on the oficial doc there is a column called premiered that contains the year each movie was released</span>
+<span style="color:#75715e"># it is always important to query the raw info</span>
+        
+
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result4 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query4,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(result4)
+
+    Ratings	   premiered
+<span style="color:#ae81ff">0</span>	    <span style="color:#ae81ff">6.4</span>	    <span style="color:#ae81ff">1896</span>
+<span style="color:#ae81ff">1</span>	    <span style="color:#ae81ff">4.5</span>	    <span style="color:#ae81ff">1897</span>
+<span style="color:#ae81ff">2</span>	    <span style="color:#ae81ff">3.9</span>	    <span style="color:#ae81ff">1899</span>
+<span style="color:#ae81ff">3</span>	    <span style="color:#ae81ff">3.7</span>	    <span style="color:#ae81ff">1899</span>
+<span style="color:#ae81ff">4</span>	    <span style="color:#ae81ff">6.0</span>	    <span style="color:#ae81ff">1900</span>
+<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+<span style="color:#ae81ff">271240</span>	<span style="color:#ae81ff">8.6</span>	    <span style="color:#ae81ff">2021</span>
+<span style="color:#ae81ff">271241</span>	<span style="color:#ae81ff">7.7</span>	    <span style="color:#ae81ff">2021</span>
+<span style="color:#ae81ff">271242</span>	<span style="color:#ae81ff">5.6</span>	    <span style="color:#ae81ff">2021</span>
+<span style="color:#ae81ff">271243</span>	<span style="color:#ae81ff">6.0</span>	    <span style="color:#ae81ff">2021</span>
+<span style="color:#ae81ff">271244</span>	<span style="color:#ae81ff">8.2</span>	    <span style="color:#ae81ff">2021</span>
+
+<span style="color:#ae81ff">271245</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">2</span> columns
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Calculate the median over time</span>
+
+ratings <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> year <span style="color:#f92672">in</span> set(result4[<span style="color:#e6db74">&#34;premiered&#34;</span>]):
+    ratings<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>median(result4[result4[<span style="color:#e6db74">&#34;premiered&#34;</span>]<span style="color:#f92672">==</span>year][<span style="color:#e6db74">&#39;Ratings&#39;</span>]))
+    
+<span style="color:#75715e">#We are going to travel each year for each movie, and then calculate the median</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">years <span style="color:#f92672">=</span> list(set(result4[<span style="color:#e6db74">&#39;premiered&#39;</span>]))
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(years,ratings)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Year&#34;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Median of the Ratings&#34;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Median rating of films in relation to the release year</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/IMDB/output_68_0.png" alt="png"></p>
+<h3 id="what-is-the-number-of-movies-rated-by-genre-regarding-to-the-release-year">What is the number of movies rated by genre regarding to the release year?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query5<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;SELECT genres FROM titles&#39;&#39;&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result5 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query5,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(result5)
+
+                genres
+<span style="color:#ae81ff">0</span>	        Documentary,Short
+<span style="color:#ae81ff">1</span>	        Animation,Short
+<span style="color:#ae81ff">2</span>	        Animation,Comedy,Romance
+<span style="color:#ae81ff">3</span>	        Animation,Short
+<span style="color:#ae81ff">4</span>	        Comedy,Short
+<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+<span style="color:#ae81ff">8441946</span>	    Action,Drama,Family
+<span style="color:#ae81ff">8441947</span>	    Action,Drama,Family
+<span style="color:#ae81ff">8441948</span>	    Action,Drama,Family
+<span style="color:#ae81ff">8441949</span>	    Short
+<span style="color:#ae81ff">8441950</span>	    Adventure,Animation,Comedy
+
+<span style="color:#ae81ff">8441951</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">1</span> columns
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Returning single genre, I guess it suits better than unique XD</span>
+
+single_genre <span style="color:#f92672">=</span> genres_return(result5)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Now we count</span>
+
+genre_count <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> single_genre:
+    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SELECT COUNT(*) COUNT FROM  titles  WHERE genres LIKE &#39;</span><span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span>item<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND type=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND premiered &lt;= 2022&#39;</span>
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query, conn)
+    genre_count<span style="color:#f92672">.</span>append(result[<span style="color:#e6db74">&#39;COUNT&#39;</span>]<span style="color:#f92672">.</span>values[<span style="color:#ae81ff">0</span>])
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Preparing the df</span>
+df_genre_count <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+df_genre_count[<span style="color:#e6db74">&#39;genre&#39;</span>]<span style="color:#f92672">=</span> single_genre
+df_genre_count[<span style="color:#e6db74">&#39;count&#39;</span>]<span style="color:#f92672">=</span> genre_count
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Calculating the top 5</span>
+df_genre_count <span style="color:#f92672">=</span> df_genre_count[df_genre_count[<span style="color:#e6db74">&#39;genre&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;n&#39;</span>] <span style="color:#75715e">#everything that isn&#39;t n</span>
+df_genre_count <span style="color:#f92672">=</span> df_genre_count<span style="color:#f92672">.</span>sort_values(by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;count&#39;</span>, ascending <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)
+top_genre <span style="color:#f92672">=</span> df_genre_count<span style="color:#f92672">.</span>head()[<span style="color:#e6db74">&#39;genre&#39;</span>]<span style="color:#f92672">.</span>values
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+<span style="color:#75715e"># Fig</span>
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># Loop and Plot</span>
+<span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> top_genre:
+    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SELECT COUNT(*) Number_of_movies, premiered Year FROM  titles  WHERE genres LIKE &#39;</span><span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span>item<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND type=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND Year &lt;=2022 GROUP BY Year&#39;</span>
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query, conn)
+    plt<span style="color:#f92672">.</span>plot(result[<span style="color:#e6db74">&#39;Year&#39;</span>], result[<span style="color:#e6db74">&#39;Number_of_movies&#39;</span>])
+    
+plt<span style="color:#f92672">.</span>grid(b<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Ano&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Number of movies avaliated&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Númber of movies avaliated by genre regarding to their release</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+plt<span style="color:#f92672">.</span>legend(labels <span style="color:#f92672">=</span> top_genre)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/IMDB/output_77_0.png" alt="png"></p>
+<h3 id="what-is-the-longest-movie-compute-the-percentis">What is the longest movie? Compute the Percentis</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query6<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">        SELECT runtime_minutes Runtime
+</span><span style="color:#e6db74">        FROm titles
+</span><span style="color:#e6db74">        WHERE type = &#34;movie&#34; AND Runtime != &#34;NaN&#34;
+</span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
+        
+<span style="color:#75715e">#Percentis allow you to divide your data in 100 equal parts</span>
+<span style="color:#75715e">#It is a way to identify outliers. The clusters 1 and 100 may present theses extreme values.</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result6 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query6,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(result6)
+
+        Runtime
+<span style="color:#ae81ff">0</span>	    <span style="color:#ae81ff">100</span>
+<span style="color:#ae81ff">1</span>	    <span style="color:#ae81ff">70</span>
+<span style="color:#ae81ff">2</span>	    <span style="color:#ae81ff">90</span>
+<span style="color:#ae81ff">3</span>	    <span style="color:#ae81ff">120</span>
+<span style="color:#ae81ff">4</span>	    <span style="color:#ae81ff">58</span>
+<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+<span style="color:#ae81ff">374083</span>	<span style="color:#ae81ff">123</span>
+<span style="color:#ae81ff">374084</span>	<span style="color:#ae81ff">57</span>
+<span style="color:#ae81ff">374085</span>	<span style="color:#ae81ff">100</span>
+<span style="color:#ae81ff">374086</span>	<span style="color:#ae81ff">116</span>
+<span style="color:#ae81ff">374087</span>	<span style="color:#ae81ff">49</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Percentil Loop</span>
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">101</span>):
+    val <span style="color:#f92672">=</span> i
+    perc <span style="color:#f92672">=</span> round(np<span style="color:#f92672">.</span>percentile(result6[<span style="color:#e6db74">&#34;Runtime&#34;</span>]<span style="color:#f92672">.</span>values,val),<span style="color:#ae81ff">2</span>)
+    print(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> percentil of the duration(runtime)is: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(val,perc))      
+</code></pre></div><pre><code>0 percentil of the duration(runtime)is: 1.0
+1 percentil of the duration(runtime)is: 45.0
+2 percentil of the duration(runtime)is: 48.0
+3 percentil of the duration(runtime)is: 50.0
+4 percentil of the duration(runtime)is: 50.0
+5 percentil of the duration(runtime)is: 52.0
+6 percentil of the duration(runtime)is: 52.0
+7 percentil of the duration(runtime)is: 54.0
+8 percentil of the duration(runtime)is: 55.0
+9 percentil of the duration(runtime)is: 56.0
+10 percentil of the duration(runtime)is: 58.0
+11 percentil of the duration(runtime)is: 59.0
+12 percentil of the duration(runtime)is: 60.0
+13 percentil of the duration(runtime)is: 60.0
+14 percentil of the duration(runtime)is: 60.0
+15 percentil of the duration(runtime)is: 62.0
+16 percentil of the duration(runtime)is: 63.0
+17 percentil of the duration(runtime)is: 65.0
+18 percentil of the duration(runtime)is: 66.0
+19 percentil of the duration(runtime)is: 68.0
+20 percentil of the duration(runtime)is: 70.0
+21 percentil of the duration(runtime)is: 70.0
+22 percentil of the duration(runtime)is: 71.0
+23 percentil of the duration(runtime)is: 72.0
+24 percentil of the duration(runtime)is: 73.0
+25 percentil of the duration(runtime)is: 74.0
+26 percentil of the duration(runtime)is: 75.0
+27 percentil of the duration(runtime)is: 75.0
+28 percentil of the duration(runtime)is: 76.0
+29 percentil of the duration(runtime)is: 77.0
+30 percentil of the duration(runtime)is: 78.0
+31 percentil of the duration(runtime)is: 79.0
+32 percentil of the duration(runtime)is: 80.0
+33 percentil of the duration(runtime)is: 80.0
+34 percentil of the duration(runtime)is: 80.0
+35 percentil of the duration(runtime)is: 81.0
+36 percentil of the duration(runtime)is: 82.0
+37 percentil of the duration(runtime)is: 82.0
+38 percentil of the duration(runtime)is: 83.0
+39 percentil of the duration(runtime)is: 84.0
+40 percentil of the duration(runtime)is: 84.0
+41 percentil of the duration(runtime)is: 85.0
+42 percentil of the duration(runtime)is: 85.0
+43 percentil of the duration(runtime)is: 85.0
+44 percentil of the duration(runtime)is: 86.0
+45 percentil of the duration(runtime)is: 86.0
+46 percentil of the duration(runtime)is: 87.0
+47 percentil of the duration(runtime)is: 87.0
+48 percentil of the duration(runtime)is: 88.0
+49 percentil of the duration(runtime)is: 88.0
+50 percentil of the duration(runtime)is: 89.0
+51 percentil of the duration(runtime)is: 90.0
+52 percentil of the duration(runtime)is: 90.0
+53 percentil of the duration(runtime)is: 90.0
+54 percentil of the duration(runtime)is: 90.0
+55 percentil of the duration(runtime)is: 90.0
+56 percentil of the duration(runtime)is: 90.0
+57 percentil of the duration(runtime)is: 90.0
+58 percentil of the duration(runtime)is: 91.0
+59 percentil of the duration(runtime)is: 91.0
+60 percentil of the duration(runtime)is: 92.0
+61 percentil of the duration(runtime)is: 92.0
+62 percentil of the duration(runtime)is: 93.0
+63 percentil of the duration(runtime)is: 93.0
+64 percentil of the duration(runtime)is: 94.0
+65 percentil of the duration(runtime)is: 94.0
+66 percentil of the duration(runtime)is: 95.0
+67 percentil of the duration(runtime)is: 95.0
+68 percentil of the duration(runtime)is: 96.0
+69 percentil of the duration(runtime)is: 96.0
+70 percentil of the duration(runtime)is: 97.0
+71 percentil of the duration(runtime)is: 98.0
+72 percentil of the duration(runtime)is: 98.0
+73 percentil of the duration(runtime)is: 99.0
+74 percentil of the duration(runtime)is: 100.0
+75 percentil of the duration(runtime)is: 100.0
+76 percentil of the duration(runtime)is: 100.0
+77 percentil of the duration(runtime)is: 101.0
+78 percentil of the duration(runtime)is: 102.0
+79 percentil of the duration(runtime)is: 103.0
+80 percentil of the duration(runtime)is: 104.0
+81 percentil of the duration(runtime)is: 105.0
+82 percentil of the duration(runtime)is: 106.0
+83 percentil of the duration(runtime)is: 107.0
+84 percentil of the duration(runtime)is: 108.0
+85 percentil of the duration(runtime)is: 110.0
+86 percentil of the duration(runtime)is: 110.0
+87 percentil of the duration(runtime)is: 112.0
+88 percentil of the duration(runtime)is: 115.0
+89 percentil of the duration(runtime)is: 116.0
+90 percentil of the duration(runtime)is: 119.0
+91 percentil of the duration(runtime)is: 120.0
+92 percentil of the duration(runtime)is: 122.0
+93 percentil of the duration(runtime)is: 126.0
+94 percentil of the duration(runtime)is: 130.0
+95 percentil of the duration(runtime)is: 135.0
+96 percentil of the duration(runtime)is: 139.0
+97 percentil of the duration(runtime)is: 145.0
+98 percentil of the duration(runtime)is: 153.0
+99 percentil of the duration(runtime)is: 168.0
+100 percentil of the duration(runtime)is: 51420.0    
+</code></pre>
+<p><strong>This analysis showed us that our data do have outliers, as we see on the 1 and 100 clusters.
+It doesn&rsquo;t mean that these outliers are errors.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query6 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">            SELECT runtime_minutes Runtime, primary_title
+</span><span style="color:#e6db74">            FROM titles 
+</span><span style="color:#e6db74">            WHERE type = &#39;movie&#39; AND Runtime != &#39;NaN&#39;
+</span><span style="color:#e6db74">            ORDER BY Runtime DESC
+</span><span style="color:#e6db74">            LIMIT 1
+</span><span style="color:#e6db74">            &#39;&#39;&#39;</span> 
+
+<span style="color:#75715e"># Im going to grab runtime_minutes (as Runtime) and primary_title from titles</span>
+<span style="color:#75715e"># The type is Movie, different from NaN</span>
+<span style="color:#75715e"># Order by the Runtime column in descending order</span>
+<span style="color:#75715e"># Limit = 1 to bring the first record</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result6 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query6,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result6
+
+    Runtime	   primary_title
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">51420</span>	    Logistics
+</code></pre></div><h3 id="what-is-the-relationship-between-genre-and-duration">What is the relationship between genre and duration?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query7 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">         SELECT AVG(runtime_minutes) Runtime, genres
+</span><span style="color:#e6db74">         FROM titles
+</span><span style="color:#e6db74">         WHERE type = &#34;movie&#34;
+</span><span style="color:#e6db74">         AND runtime_minutes != &#34;NaN&#34;
+</span><span style="color:#e6db74">         GROUP BY genres
+</span><span style="color:#e6db74">         &#39;&#39;&#39;</span>
+<span style="color:#75715e"># Call avg function on the runtime_minutes columns by the nickname Runtime</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result7<span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query7, conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">single_genres <span style="color:#f92672">=</span>  genres_return(result7) <span style="color:#75715e">#returning single genres</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">single_genres
+</code></pre></div><pre><code>['action',
+ 'adult',
+ 'adventure',
+ 'animation',
+ 'biography',
+ 'comedy',
+ 'crime',
+ 'documentary',
+ 'drama',
+ 'family',
+ 'fantasy',
+ 'film-noir',
+ 'game-show',
+ 'history',
+ 'horror',
+ 'music',
+ 'musical',
+ 'mystery',
+ 'news',
+ 'reality-tv',
+ 'romance',
+ 'sci-fi',
+ 'short',
+ 'sport',
+ 'talk-show',
+ 'thriller',
+ 'war',
+ 'western']
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Calculating duration by genre</span>
+genre_runtime <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> single_genres:
+    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SELECT runtime_minutes Runtime FROM  titles  WHERE genres LIKE &#39;</span><span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span>item<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;%&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND type=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> AND Runtime!=</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">NaN</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span>
+    result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query, conn)
+    genre_runtime<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>median(result[<span style="color:#e6db74">&#39;Runtime&#39;</span>]))
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Preparing the df</span>
+
+df_genre_runtime <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+df_genre_runtime[<span style="color:#e6db74">&#34;genre&#34;</span>] <span style="color:#f92672">=</span> single_genre
+df_genre_runtime[<span style="color:#e6db74">&#34;runtime&#34;</span>]<span style="color:#f92672">=</span> genre_runtime
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Removing index 18 (news), we know he has NaN</span>
+
+df_genre_runtime<span style="color:#f92672">=</span>df_genre_runtime<span style="color:#f92672">.</span>drop(index<span style="color:#f92672">=</span><span style="color:#ae81ff">18</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+<span style="color:#75715e"># Fig size</span>
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">10</span>))
+
+<span style="color:#75715e"># Barplot</span>
+sns<span style="color:#f92672">.</span>barplot(y <span style="color:#f92672">=</span> df_genre_runtime<span style="color:#f92672">.</span>genre, x <span style="color:#f92672">=</span> df_genre_runtime<span style="color:#f92672">.</span>runtime, orient <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;h&#34;</span>, palette<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viridis&#34;</span>)
+
+<span style="color:#75715e"># Loop</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(df_genre_runtime<span style="color:#f92672">.</span>index)):
+    plt<span style="color:#f92672">.</span>text(df_genre_runtime<span style="color:#f92672">.</span>runtime[df_genre_runtime<span style="color:#f92672">.</span>index[i]],
+             i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.25</span>,
+             round(df_genre_runtime[<span style="color:#e6db74">&#34;runtime&#34;</span>][df_genre_runtime<span style="color:#f92672">.</span>index[i]], <span style="color:#ae81ff">2</span>))
+
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Gênre&#39;</span>)             
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Duration Median&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Genre x Duration</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/IMDB/output_95_0.png" alt="png"></p>
+<h3 id="what-is-the-amount-of-movies-made-by-country">What is the amount of movies made by country?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query8 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">         SELECT region, COUNT(*) Number_of_movies FROM 
+</span><span style="color:#e6db74">         akas JOIN titles ON 
+</span><span style="color:#e6db74">         akas.title_id = titles.title_id
+</span><span style="color:#e6db74">         WHERE region != &#39;None&#39;
+</span><span style="color:#e6db74">         AND type = </span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">movie</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">         GROUP BY region
+</span><span style="color:#e6db74">         &#39;&#39;&#39;</span> 
+<span style="color:#75715e"># Joining tables akas and titles</span>
+
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result8 <span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>read_sql_query(query8,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(result8) <span style="color:#75715e"># country codes appear</span>
+
+region	Number_of_movies
+<span style="color:#ae81ff">0</span>	AD	      <span style="color:#ae81ff">22</span>
+<span style="color:#ae81ff">1</span>	AE	    <span style="color:#ae81ff">2996</span>
+<span style="color:#ae81ff">2</span>	AF	     <span style="color:#ae81ff">109</span>
+<span style="color:#ae81ff">3</span>	AG	      <span style="color:#ae81ff">12</span>
+<span style="color:#ae81ff">4</span>	AL	    <span style="color:#ae81ff">1248</span>
+<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+<span style="color:#ae81ff">229</span>	YUCS	 <span style="color:#ae81ff">147</span>
+<span style="color:#ae81ff">230</span>	ZA	    <span style="color:#ae81ff">3098</span>
+<span style="color:#ae81ff">231</span>	ZM	      <span style="color:#ae81ff">12</span>
+<span style="color:#ae81ff">232</span>	ZRCD	   <span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">233</span>	ZW	      <span style="color:#ae81ff">49</span>
+
+<span style="color:#ae81ff">234</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">2</span> columns
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result8<span style="color:#f92672">.</span>shape
+</code></pre></div><pre><code>(234, 2)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Empty variables</span>
+
+country_names <span style="color:#f92672">=</span>[]
+count <span style="color:#f92672">=</span> []
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Loop to obtain the country according to the region</span>
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(result8<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]):
+    <span style="color:#66d9ef">try</span>:
+        coun <span style="color:#f92672">=</span> result8[<span style="color:#e6db74">&#39;region&#39;</span>]<span style="color:#f92672">.</span>values[i]
+        country_names<span style="color:#f92672">.</span>append(pycountry<span style="color:#f92672">.</span>countries<span style="color:#f92672">.</span>get(alpha_2 <span style="color:#f92672">=</span> coun)<span style="color:#f92672">.</span>name)
+        count<span style="color:#f92672">.</span>append(result8[<span style="color:#e6db74">&#39;Number_of_movies&#39;</span>]<span style="color:#f92672">.</span>values[i])
+    <span style="color:#66d9ef">except</span>: 
+        <span style="color:#66d9ef">continue</span>
+        
+<span style="color:#75715e"># This is also a loop to error treatment</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Preparing the dataframe</span>
+df_country_movies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+df_country_movies[<span style="color:#e6db74">&#34;country&#34;</span>] <span style="color:#f92672">=</span> country_names
+df_country_movies[<span style="color:#e6db74">&#34;Movie_Count&#34;</span>] <span style="color:#f92672">=</span> count
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Sort the results</span>
+
+df_country_movies <span style="color:#f92672">=</span> df_country_movies<span style="color:#f92672">.</span>sort_values(by <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Movie_Count&#39;</span>, ascending <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_country_movies<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)
+
+    country	        Movie_Count
+<span style="color:#ae81ff">199</span>	United States	<span style="color:#ae81ff">302396</span>
+<span style="color:#ae81ff">65</span>	United Kingdom	<span style="color:#ae81ff">155171</span>
+<span style="color:#ae81ff">96</span>	Japan	         <span style="color:#ae81ff">89719</span>
+<span style="color:#ae81ff">63</span>	France	         <span style="color:#ae81ff">82770</span>
+<span style="color:#ae81ff">89</span>	India	         <span style="color:#ae81ff">76828</span>
+<span style="color:#ae81ff">32</span>	Canada	         <span style="color:#ae81ff">73183</span>
+<span style="color:#ae81ff">47</span>	Germany	         <span style="color:#ae81ff">68141</span>
+<span style="color:#ae81ff">93</span>	Italy	         <span style="color:#ae81ff">64232</span>
+<span style="color:#ae81ff">58</span>	Spain	         <span style="color:#ae81ff">63750</span>
+<span style="color:#ae81ff">26</span>	Brazil	         <span style="color:#ae81ff">63702</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot</span>
+
+<span style="color:#75715e"># Figure</span>
+plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># Barplot</span>
+sns<span style="color:#f92672">.</span>barplot(y <span style="color:#f92672">=</span> df_country_movies[:<span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>country, x <span style="color:#f92672">=</span> df_country_movies[:<span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>Movie_Count, orient <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;h&#34;</span>, palette <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;crest&#34;</span>)
+
+<span style="color:#75715e"># Loop</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>):
+    plt<span style="color:#f92672">.</span>text(df_country_movies<span style="color:#f92672">.</span>Movie_Count[df_country_movies<span style="color:#f92672">.</span>index[i]]<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,
+             i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.30</span>,
+             round(df_country_movies[<span style="color:#e6db74">&#34;Movie_Count&#34;</span>][df_country_movies<span style="color:#f92672">.</span>index[i]],<span style="color:#ae81ff">2</span>))
+
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Country&#39;</span>)             
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Number of Movies&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Number of movies producted by each Country</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/IMDB/output_106_0.png" alt="png"></p>
+<hr>
+<h3 id="now-the-best-one-accordint-to-the-site-what-are-the-top-10-movies">Now the best one: accordint to the site, what are the top 10 movies?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query9 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">            SELECT primary_title AS Movie_Name, genres, rating
+</span><span style="color:#e6db74">            FROM 
+</span><span style="color:#e6db74">            titles JOIN ratings
+</span><span style="color:#e6db74">            ON  titles.title_id = ratings.title_id
+</span><span style="color:#e6db74">            WHERE titles.type = &#39;movie&#39; AND ratings.votes &gt;= 25000
+</span><span style="color:#e6db74">            ORDER BY rating DESC 
+</span><span style="color:#e6db74">            LIMIT 10          
+</span><span style="color:#e6db74">            &#39;&#39;&#39;</span> 
+
+<span style="color:#75715e"># Select primary... as nickname Movie_name</span>
+<span style="color:#75715e"># genres and rating from Titles table</span>
+<span style="color:#75715e"># and joining to the ratings table</span>
+<span style="color:#75715e"># where titles.type are going to be called movie and the only the ones with rating number &gt; 25k</span>
+
+<span style="color:#75715e">#If I was seeking the 10 worst I would switch DESC for ASC</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">top10 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query9,conn)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(top10)
+</code></pre></div><p><img src="/IMDB/pds1.png" alt="png"></p>
+<p>Now we arrived to the end of this project. This is a very didactic material and I enjoyed so much. I expect you also had a great learnign about that, like I did ;)</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/natural-language-processing-with-disaster-tweets/" data-tooltip="Natural Language Processing with Disaster Tweets" aria-label="PREVIOUS: Natural Language Processing with Disaster Tweets">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = '\/2021\/11\/imdb-exploratory-analysis-python-sql\/';
+        
+          this.page.identifier = '\/2021\/11\/imdb-exploratory-analysis-python-sql\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Data Science Portfolio. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/natural-language-processing-with-disaster-tweets/" data-tooltip="Natural Language Processing with Disaster Tweets" aria-label="PREVIOUS: Natural Language Processing with Disaster Tweets">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/11/imdb-exploratory-analysis-python-sql/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F11%2Fimdb-exploratory-analysis-python-sql%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F11%2Fimdb-exploratory-analysis-python-sql%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=%2F2021%2F11%2Fimdb-exploratory-analysis-python-sql%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/realfoxnobg.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Data Science Portfolio</h4>
+    
+      <div id="about-card-bio">Hi I&rsquo;m Lucas Chitolina, passionated about learning and the worlds you discover through it. I&rsquo;m qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Biologist/Potential Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/gray.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
