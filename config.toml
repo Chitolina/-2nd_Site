@@ -143,6 +143,8 @@ canonifyurls = true
   # Syntax highlighter, possible choice between: "highlight.js" and "prism.js"
   # You can comment it to disable syntax highlighting
   syntaxHighlighter = "highlight.js"
+  # Enable syntax highlighting and copy buttons on code blocks with Prism
+  #prism_syntax_highlighting = true
 
   # -----------
   # Date format

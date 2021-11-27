@@ -556,8 +556,15 @@ df_train[<span style="color:#e6db74">&#39;text&#39;</span>]<span style="color:#f
 4    got sent photo ruby alaska smoke wildfire pour...
 Name: text, dtype: object
 </code></pre>
-<h3 id="vectorizing-text">Vectorizing text</h3>
-<p>CountVectorizer is used to transform a given text into a vector on the basis of the frequency(count) of each word that occurs in the entire text.It involves counting the number of occurences each words appears in a document(text)</p>
+<h3 id="vectorizing-text-sparse-matrice">Vectorizing text (Sparse Matrice)</h3>
+<p>It is used to transform a given text into a vector (one-hot-encoded) on the basis of the frequency (count) of each word that occurs in the entire text. It involves counting the number of occurences each words appears in a document (text).</p>
+<p>The result of this method is a Sparse matrice.They are matrices in which most positions are filled with zeros. For these arrays, we can save significant memory space if only nonzero terms are stored.</p>
+<p>Ex:</p>
+<p>Movies &ndash;&gt; Terror  Romance  Action</p>
+<p>Terror        1       0        0<br>
+Action        0       0        1<br>
+Romance       0       1        0
+Terror        1       0        0</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> CountVectorizer
 c <span style="color:#f92672">=</span> CountVectorizer()
 tr_v <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span>fit_transform(df_train[<span style="color:#e6db74">&#39;text&#39;</span>])
@@ -782,7 +789,7 @@ s<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/imdb-db-exploratory-analysis-python-sql/" data-tooltip="IMDB DB Exploratory Analysis (Python &amp; SQL)" aria-label="NEXT: IMDB DB Exploratory Analysis (Python &amp; SQL)">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -889,7 +896,7 @@ s<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">5</span>)
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/imdb-db-exploratory-analysis-python-sql/" data-tooltip="IMDB DB Exploratory Analysis (Python &amp; SQL)" aria-label="NEXT: IMDB DB Exploratory Analysis (Python &amp; SQL)">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
