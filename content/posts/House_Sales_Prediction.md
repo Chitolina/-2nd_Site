@@ -13,15 +13,14 @@ keywords:
 - house sales rocket
 ---
 
-So, I'm gonna start to post my Data Science challenges, usually taken from Kaggle site.
-
-House Rocket is a digital platform whose business model is the purchase and sale of the properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, year they were built, if/when they were reformed and other attributes. Following these informations, we can find some questions:
+So, I'm gonna start to post my Data Science challenges, usually taken from the Kaggle site.
+House Rocket is a digital platform whose business model is the purchase and sale of properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, the year they were built, if/when they were reformed and other attributes. Following this information, we can find some questions:
 1. Which of the houses should be bought, why, and how to predict a good sale price?
 2. Theres is a right time to sell them?
 3. Is it a good idea to spend on a reform to raise the sale price?
 
 So, lets see how we can start.  
-On data analysis is very commom start calling our Python **libraries**:
+On data analysis is very common start calling our Python **libraries**:
 
 ````python
 import pandas as pd
