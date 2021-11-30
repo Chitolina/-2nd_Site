@@ -13,13 +13,11 @@ keywords:
 - molecular dynamics
 ---  
 
-Hi, I'm Lucas Chitolina, and this is my first post 🌱.    
+Hi, I'm Lucas Chitolina, and this is my first post 🌱.  
+I always wanted to show the scaffold of my MSc in Molecular Biology project. I worked with bioinformatics, simulating a protein behavior hypothesis on the computer through a Classical Molecular Dynamics methodology.  
+The objective of MD simulation is to study the dynamics of a particular system. Since we do an in silico study, we have to suit the environment of our structure as close as possible to the real system. So the core methodology was all about creating scripts and adjusting the right parameters to make the functions work and simulate the biological system properly.  
+I'll try to dissect the steps and leave some set of scripts that were used to execute the MD through Amber software. The software works calling statistical and biophysical functions to test a model/problem, and adjusting its parameters was an important part of the job. I hope this material can at least bring you enlightenment about how a terminal software and the molecular dynamic process itself works.  
 
-I always wanted to show the scaffold of my MSc in Molecular Biology project. I worked with bioinformatics, simulating a protein behavior hipothesys on the computer through a Classic Molecular Dynamics methodology.  
-
-The objective of MD simulation is to study the dynamics of a particular system. Since we do an in silico study, we have to suit the environment of our structure as close as possible to the real system. So the core metodology was all about creating scripts and adjusting the right parameters to make the functions work and simulate the biological system properly.  
-
-I'll try to dissect the steps and leave some set of scripts that were used to execute the MD through Amber software. The software works calling statistical and biophysical functions to test a model/problem, and adjust its parameters was an important part of the job. I hope this material can at least bring you enlightment about how a terminal software and the molecular dynamic process itself works.
 ### First step: preparing your structure    
 
 (i) I prepared the molecules (Receptor and Ligands) through the Chimaera software, to be accepted on antechamber module from amber, which is the second step on the protein preparation. Here are a few references that helped me to set the first step.
