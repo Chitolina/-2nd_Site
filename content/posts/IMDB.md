@@ -14,11 +14,11 @@ keywords:
 - SQL
 - Data Bank
 ---
-Here’s Lucas! I’m glad you’re here. This project is about the exploratory analysis of a cinematography databank. This was a project taught on a free course I signed called “Python Fundamentos Para Análise de Dados 3.0” from the Data Science Academy, and I enjoyed it so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉. 
+Here’s Lucas! I’m glad you’re here. This project is about the exploratory analysis of the IMDb databank, the world's most popular and authoritative source for movie, TV and celebrity content. This was a project taught on a free course I signed called “Python Fundamentos Para Análise de Dados 3.0” from the Data Science Academy, and I enjoyed it so much because it focused a lot on data munging and graph production. Thus, I saw it was important to post my step by step records, so I can come back to reuse some useful code and maybe it can teach a curious viewer 🦉. 
 
 Without further due, we are going to use some SQL knowledge and a lot of Python, focused on data analysis.
 
-**When we talk about exploratory analisys, it's usual to gather a few questions we want to clarify. 
+**When we talk about exploratory analysis, it's usual to gather a few questions we want to clarify. 
 Thus, what questions could you ask from a movie database IMDB?**
 
 What are the most common movies?  
@@ -27,7 +27,7 @@ What is the number of titles by genre?
 
 The median movie rating by genre and year of release?
 
-Film with longer duration?  
+The film with the longer duration?  
 
 Relationship between duration and gender?  
 
