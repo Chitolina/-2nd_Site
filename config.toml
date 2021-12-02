@@ -103,7 +103,7 @@ canonifyurls = true
     weight = 1
     identifier = "instagram"
     name = "Instagram"
-    pre = "<img src="https://icons.iconarchive.com/icons/uiconstock/socialmedia/128/Instagram-icon.png" style="margin-top:3px" loading="lazy" width="128" height="128" alt="Instagram icon" title="Instagram icon">"
+    <img src="https://icons.iconarchive.com/icons/uiconstock/socialmedia/128/Instagram-icon.png" style="margin-top:3px" loading="lazy" width="128" height="128" alt="Instagram icon" title="Instagram icon">
     url = "https://instagram.com/acechitolina"
 
 
