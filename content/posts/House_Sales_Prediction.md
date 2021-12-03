@@ -173,7 +173,7 @@ plt.show()
 ```
 ![Yellow Duck](/house_sale/rooms.png 'Yellow Duck')
 
-The number of rooms, when above 8, does not show much correction with prices.
+The number of rooms, when above 8, does not show too much correlation with the prices.
 
 *By commom sense we would think bedroom is an atribute that usually follows the properties price, but it is not very wise to count on this, because you take the risk of getting biased results.*
 
