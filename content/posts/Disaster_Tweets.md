@@ -2,13 +2,17 @@
 title: "Natural Language Processing with Disaster Tweets"
 date: 2021-11-24T09:04:58-03:00
 draft: False
-thumbnailImagePosition: bottom
-coverImage: /post_cover/tw.jpg
+thumbnailImagePosition: left
+thumbnailImage: /post_cover/tw.png
+coverImage: /post_cover/tw.png
 coverCaption: ""
-coverMeta: out
-coverSize: partial
+metaAlignment: center
 showSocial: true
 type: posts
+categories:
+- Natural Language Processing
+- Machine Learning
+
 keywords:
 - Data Science
 - Natural Language Processing

@@ -2,12 +2,14 @@
 title: "IMDB Exploratory Analysis (Python & SQL)"
 date: 2021-11-27T00:16:10-03:00
 draft: False
-thumbnailImagePosition: bottom
-coverImage: /post_cover/shinning.jpg
-coverCaption: ""
-coverMeta: out
-coverSize: partial
+autoThumbnailImage: false
+thumbnailImagePosition: "top"
+thumbnailImage: /post_cover/movies.png
+coverImage: /post_cover/movies.png
+metaAlignment: center
 showSocial: true
+categories:
+- Exploratory analysis
 type: posts
 keywords:
 - Data Science

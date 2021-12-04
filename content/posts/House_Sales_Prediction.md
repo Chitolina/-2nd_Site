@@ -1,13 +1,16 @@
 ---
 title: "House Sales Prediction - Data Science challenge"
 date: 2021-11-19T16:50:18-03:00
-coverImage: /post_cover/lego.jpg
+thumbnailImagePosition: left
+thumbnailImage: /post_cover/lego.png
+coverImage: /post_cover/lego.png
 coverCaption: ""
-coverMeta: out
-coverSize: partial
+metaAlignment: center
 showSocial: true
-thumbnailImagePosition: bottom
 type: posts
+categories:
+- Exploratory Analysis
+- Machine Learning
 keywords:
 - data science
 - house sales rocket

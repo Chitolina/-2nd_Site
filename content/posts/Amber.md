@@ -3,8 +3,11 @@ title: "Amber - Molecular Dynamics Project"
 date: 2021-11-19T11:09:07-03:00
 #tags: ["Project"]
 coverImage: /post_cover/Tertiary.jpg
+thumbnailImagePosition: left
 coverCaption: "A tough time"
 coverMeta: out
+categories:
+- Molecular Dynamics
 coverSize: partial
 showSocial: true
 type: posts
