@@ -14,17 +14,14 @@ keywords:
 - Natural Language Processing
 ---
 
-Competition Description
-Twitter has become an important communication channel in times of emergency.
-The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).  
 
-But, it’s not always clear whether a person’s words are actually announcing a disaster.
+But, it’s not always clear whether a person’s words are announcing a disaster.  
 
-Take this example: "Looked at the sky at night yesterday, it was ablaze"
+Take this example: "Looked at the sky at night yesterday, it was ablaze".  
 
 The author explicitly uses the word “ABLAZE” but means it metaphorically. This is clear to a human right away, especially with the visual aid. But it’s less clear to a machine.
-
-In this competition, you’re challenged to build a machine learning model that predicts which Tweets are about real disasters and which one’s aren’t. You’ll have access to a dataset of 10,000 tweets that were hand classified.
+In this competition, you’re challenged to build a machine learning model that predicts which Tweets are about real disasters and which ones aren’t. You’ll have access to a dataset of 10,000 tweets that were hand classified.
 
 
 ```python
@@ -420,13 +417,15 @@ It is used to transform a given text into a vector (one-hot-encoded) on the basi
 The result of this method is a Sparse matrice.They are matrices in which most positions are filled with zeros. For these arrays, we can save significant memory space if only nonzero terms are stored.
 
 Ex:
-
+```python
 Movies --> Terror  Romance  Action  
 
 Terror        1       0        0  
 Action        0       0        1  
 Romance       0       1        0
 Terror        1       0        0
+
+```
 
 ```python
 from sklearn.feature_extraction.text import CountVectorizer
@@ -745,3 +744,4 @@ s.head(5)
 ```python
 
 ```
+And now we arrived to the end of our analysis. The next step would be the machine learning deployment and improvement of the models. I hope you enjoyed and learned something from this material. Thank you ;)

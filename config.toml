@@ -45,14 +45,14 @@ canonifyurls = true
 # ------
 [author]
   name = "Data Science Portfolio"
-  bio = "Hi I'm Lucas Chitolina, passionated about learning and the worlds you discover through it. I'm qualified to M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts I expect to improve my skills, and will appreciate your time coming by."
+  bio = "Hi, I’m Lucas Chitolina, passionate about learning and the worlds you discover through it. I’m qualified for M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts, I expect to improve my skills and will appreciate your time coming by."
   job = "Biologist/Potential Data Scientist"
   location = "Brazil"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   #gravatarEmail = ""
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-  picture = "1nobg.png"
+  picture = "w8y.gif"
   # Your Twitter username without the @. E.g : thibaudlepretre
   # twitter = "thibaudlepretre"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
