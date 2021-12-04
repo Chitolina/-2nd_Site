@@ -417,13 +417,15 @@ It is used to transform a given text into a vector (one-hot-encoded) on the basi
 The result of this method is a Sparse matrice.They are matrices in which most positions are filled with zeros. For these arrays, we can save significant memory space if only nonzero terms are stored.
 
 Ex:
-
+```python
 Movies --> Terror  Romance  Action  
 
 Terror        1       0        0  
 Action        0       0        1  
 Romance       0       1        0
 Terror        1       0        0
+
+```
 
 ```python
 from sklearn.feature_extraction.text import CountVectorizer
