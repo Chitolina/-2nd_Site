@@ -744,3 +744,4 @@ s.head(5)
 ```python
 
 ```
+And now we arrived to the end of our analysis. The next step would be the machine learning deployment and improvement of the models. I hope you enjoyed and learned something from this material. Thank you ;)
