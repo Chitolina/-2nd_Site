@@ -18,7 +18,7 @@ keywords:
 - Natural Language Processing
 ---
 
-Competition Description Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).  
+Description: Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).  
 
 But, it’s not always clear whether a person’s words are announcing a disaster.  
 
@@ -27,6 +27,7 @@ Take this example: "Looked at the sky at night yesterday, it was ablaze".
 The author explicitly uses the word “ABLAZE” but means it metaphorically. This is clear to a human right away, especially with the visual aid. But it’s less clear to a machine.
 In this competition, you’re challenged to build a machine learning model that predicts which Tweets are about real disasters and which ones aren’t. You’ll have access to a dataset of 10,000 tweets that were hand classified.
 
+So, let's start our job calling the first libs:
 
 ```python
 import numpy as np
@@ -64,7 +65,6 @@ df_sample.head(5)
 
 df_train.isnull().sum()
 df_test.isnull().sum()
-```
 
     id             0
     keyword       26
@@ -72,26 +72,8 @@ df_test.isnull().sum()
     text           0
     dtype: int64
 
-```python
-# Calling seetviz to get a broad vision about our data
-
-import sweetviz
-
-
-resume = sweetviz.analyze(df_train)
-
-
-resume.show_html('resume.html')
 ```
 
-                                                 |                                             | [  0%]   00:00 ->…
-
-
-    Report relatorio.html was generated! NOTEBOOK/COLAB USERS: the web browser MAY not pop up, regardless, the report IS saved in your notebook/colab files.
-
-
-
-```python
 # Most common keywords in train dataset
 
 import matplotlib.pyplot as plt
