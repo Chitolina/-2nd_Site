@@ -18,7 +18,7 @@ keywords:
 - Natural Language Processing
 ---
 
-Description: Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).  
+**Description**: Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).  
 
 But, it’s not always clear whether a person’s words are announcing a disaster.  
 
@@ -27,7 +27,7 @@ Take this example: "Looked at the sky at night yesterday, it was ablaze".
 The author explicitly uses the word “ABLAZE” but means it metaphorically. This is clear to a human right away, especially with the visual aid. But it’s less clear to a machine.
 In this competition, you’re challenged to build a machine learning model that predicts which Tweets are about real disasters and which ones aren’t. You’ll have access to a dataset of 10,000 tweets that were hand classified.
 
-So, let's start our job calling the first libs:
+**So, let's start our job calling the first libs:**
 
 ```python
 import numpy as np
@@ -45,6 +45,7 @@ df_sample = pd.read_csv('sample_submission.csv')
 ```python
 df_train.head(5)
 ```
+
 ![jpg](/tw_files/pd1.jpg)
 
 
@@ -52,12 +53,14 @@ df_train.head(5)
 ```python
 df_test.head(10)
 ```
+
 ![jpg](/tw_files/pd2.jpg)
 
 
 ```python
 df_sample.head(5)
 ```
+
 ![jpg](/tw_files/pd3.jpg)
 
 ```python
@@ -79,12 +82,14 @@ df_test.isnull().sum()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+```python
 sns.set_palette('husl')
 plt.figure(figsize=(9,6))
 sns.countplot(y = df_train.keyword, order= df_train.keyword.value_counts().iloc[:15].index)
 plt.title('Top 15 keywords')
 plt.show()
 ```
+
 ![png](/tw_files/output_9_0.png)
 
 ```python
