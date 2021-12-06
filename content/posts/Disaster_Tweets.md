@@ -12,7 +12,7 @@ type: posts
 categories:
 - Natural Language Processing
 - Machine Learning
-
+tags: ["Natural Language Processing", "hot-encoder"]
 keywords:
 - Data Science
 - Natural Language Processing

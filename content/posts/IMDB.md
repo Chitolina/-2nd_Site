@@ -10,6 +10,7 @@ metaAlignment: center
 showSocial: true
 categories:
 - Exploratory analysis
+tags: ["SQL", "Database"] 
 type: posts
 keywords:
 - Data Science

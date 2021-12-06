@@ -11,6 +11,7 @@ type: posts
 categories:
 - Exploratory Analysis
 - Machine Learning
+tags: ["Price prediction", "Exploratory Analysis"]
 keywords:
 - data science
 - house sales rocket
