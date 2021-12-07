@@ -2624,6 +2624,9 @@ kdf = ks.DataFrame({'speed': speed,
                    'lifespan': lifespan}, index=index)
 kdf.plot.bar()
 ```
+ 
+ *CRTL + to zoom it*
+ 
 ![png](/images/newplot.png)
 
 **Using SQL no Koalas**
