@@ -5,6 +5,61 @@
     <link>/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Dec 2021 19:36:52 -0300</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Big Data</title>
+      <link>/categories/big-data/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/categories/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PySpark</title>
+      <link>/categories/pyspark/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/categories/pyspark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploratory Analysis</title>
+      <link>/categories/exploratory-analysis/</link>
+      <pubDate>Sat, 27 Nov 2021 00:16:10 -0300</pubDate>
+      
+      <guid>/categories/exploratory-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/categories/machine-learning/</link>
+      <pubDate>Wed, 24 Nov 2021 09:04:58 -0300</pubDate>
+      
+      <guid>/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing</title>
+      <link>/categories/natural-language-processing/</link>
+      <pubDate>Wed, 24 Nov 2021 09:04:58 -0300</pubDate>
+      
+      <guid>/categories/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Molecular Dynamics</title>
+      <link>/categories/molecular-dynamics/</link>
+      <pubDate>Fri, 19 Nov 2021 11:09:07 -0300</pubDate>
+      
+      <guid>/categories/molecular-dynamics/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

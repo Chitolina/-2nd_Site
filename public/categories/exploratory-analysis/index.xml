@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exploratory Analysis on </title>
+    <link>/categories/exploratory-analysis/</link>
+    <description>Recent content in Exploratory Analysis on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Nov 2021 00:16:10 -0300</lastBuildDate><atom:link href="/categories/exploratory-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IMDB Exploratory Analysis (Python &amp; SQL)</title>
+      <link>/2021/11/imdb-exploratory-analysis-python-sql/</link>
+      <pubDate>Sat, 27 Nov 2021 00:16:10 -0300</pubDate>
+      
+      <guid>/2021/11/imdb-exploratory-analysis-python-sql/</guid>
+      <description>Here’s Lucas! I’m glad you’re here. This project is about the exploratory analysis of the IMDb databank, the world&amp;rsquo;s most popular and authoritative source for movie, TV and celebrity content. This was a project taught on a free course I signed called “Python Fundamentos Para Análise de Dados 3.0” from the Data Science Academy, and I enjoyed it so much because it focused a lot on data munging and graph production.</description>
+    </item>
+    
+    <item>
+      <title>House Sales Prediction - Data Science challenge</title>
+      <link>/2021/11/house-sales-prediction-data-science-challenge/</link>
+      <pubDate>Fri, 19 Nov 2021 16:50:18 -0300</pubDate>
+      
+      <guid>/2021/11/house-sales-prediction-data-science-challenge/</guid>
+      <description>So, I&amp;rsquo;m gonna start to post my Data Science challenges, usually taken from the Kaggle site. House Rocket is a digital platform whose business model is the purchase and sale of properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, the year they were built, if/when they were reformed and other attributes. Following this information, we can find some questions:</description>
+    </item>
+    
+  </channel>
+</rss>

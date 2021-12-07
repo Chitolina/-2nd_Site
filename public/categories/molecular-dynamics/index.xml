@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Molecular Dynamics on </title>
+    <link>/categories/molecular-dynamics/</link>
+    <description>Recent content in Molecular Dynamics on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Nov 2021 11:09:07 -0300</lastBuildDate><atom:link href="/categories/molecular-dynamics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amber - Molecular Dynamics Project</title>
+      <link>/2021/11/amber-molecular-dynamics-project/</link>
+      <pubDate>Fri, 19 Nov 2021 11:09:07 -0300</pubDate>
+      
+      <guid>/2021/11/amber-molecular-dynamics-project/</guid>
+      <description>Hi, I&amp;rsquo;m Lucas Chitolina, and this is my first post 🌱.
+I always wanted to show the scaffold of my MSc in Molecular Biology project. I worked with bioinformatics, simulating a protein behavior hypothesis on the computer through a Classical Molecular Dynamics methodology.
+The objective of MD simulation is to study the dynamics of a particular system. Since we do an in silico study, we have to suit the environment of our structure as close as possible to the real system.</description>
+    </item>
+    
+  </channel>
+</rss>

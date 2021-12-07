@@ -2,10 +2,10 @@
 title: "IMDB Exploratory Analysis (Python & SQL)"
 date: 2021-11-27T00:16:10-03:00
 draft: False
-autoThumbnailImage: false
-thumbnailImagePosition: "top"
+thumbnailImagePosition: left
 thumbnailImage: /post_cover/movies.png
 coverImage: /post_cover/movies.png
+coverCaption: ""
 metaAlignment: center
 showSocial: true
 categories:

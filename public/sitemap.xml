@@ -3,27 +3,74 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/tags/big-data/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/categories/big-data/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/2021/12/big-data-pyspark-sql/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/tags/database/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/tags/databricks/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/categories/pyspark/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/tags/sql/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-12-06T19:36:52-03:00</lastmod>
+  </url><url>
+    <loc>/categories/exploratory-analysis/</loc>
     <lastmod>2021-11-27T00:16:10-03:00</lastmod>
   </url><url>
     <loc>/2021/11/imdb-exploratory-analysis-python-sql/</loc>
     <lastmod>2021-11-27T00:16:10-03:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-11-27T00:16:10-03:00</lastmod>
+    <loc>/tags/hot-encoder/</loc>
+    <lastmod>2021-11-24T09:04:58-03:00</lastmod>
+  </url><url>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2021-11-24T09:04:58-03:00</lastmod>
+  </url><url>
+    <loc>/tags/natural-language-processing/</loc>
+    <lastmod>2021-11-24T09:04:58-03:00</lastmod>
+  </url><url>
+    <loc>/categories/natural-language-processing/</loc>
+    <lastmod>2021-11-24T09:04:58-03:00</lastmod>
   </url><url>
     <loc>/2021/11/natural-language-processing-with-disaster-tweets/</loc>
     <lastmod>2021-11-24T09:04:58-03:00</lastmod>
   </url><url>
+    <loc>/tags/exploratory-analysis/</loc>
+    <lastmod>2021-11-19T16:50:18-03:00</lastmod>
+  </url><url>
     <loc>/2021/11/house-sales-prediction-data-science-challenge/</loc>
+    <lastmod>2021-11-19T16:50:18-03:00</lastmod>
+  </url><url>
+    <loc>/tags/price-prediction/</loc>
     <lastmod>2021-11-19T16:50:18-03:00</lastmod>
   </url><url>
     <loc>/2021/11/amber-molecular-dynamics-project/</loc>
     <lastmod>2021-11-19T11:09:07-03:00</lastmod>
   </url><url>
+    <loc>/categories/molecular-dynamics/</loc>
+    <lastmod>2021-11-19T11:09:07-03:00</lastmod>
+  </url><url>
     <loc>/archives/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
   </url>
 </urlset>

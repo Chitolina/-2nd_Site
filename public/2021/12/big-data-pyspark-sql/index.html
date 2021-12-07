@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Big Data - PySpark \u0026 SQL",
+  
+  "image": "/post_cover/disq.png",
+  
+  "datePublished": "2021-12-06T19:36:52-03:00",
+  "dateModified": "2021-12-06T19:36:52-03:00",
+  "author": {
+    "@type": "Person",
+    "name": "Data Science Portfolio",
+    
+    "image": "https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "\/2021\/12\/big-data-pyspark-sql\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif"
+    }
+    
+  },
+  "description": "Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from \u0026ldquo;Stack Academy - Big Data for Data Scientist\u0026rdquo; that, for its massive importance and content, I decided to bring to my portfolio.",
+  "keywords": ["Data Science, SQL, Data Bank"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Data Science Portfolio">
+<meta name="keywords" content="Data Science, SQL, Data Bank">
+<meta name="description" content="Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &ldquo;Stack Academy - Big Data for Data Scientist&rdquo; that, for its massive importance and content, I decided to bring to my portfolio.">
+
+
+<meta property="og:description" content="Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &ldquo;Stack Academy - Big Data for Data Scientist&rdquo; that, for its massive importance and content, I decided to bring to my portfolio.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Big Data - PySpark &amp; SQL">
+<meta name="twitter:title" content="Big Data - PySpark &amp; SQL">
+<meta property="og:url" content="/2021/12/big-data-pyspark-sql/">
+<meta property="twitter:url" content="/2021/12/big-data-pyspark-sql/">
+<meta property="og:site_name" content="">
+<meta property="og:description" content="Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &ldquo;Stack Academy - Big Data for Data Scientist&rdquo; that, for its massive importance and content, I decided to bring to my portfolio.">
+<meta name="twitter:description" content="Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &ldquo;Stack Academy - Big Data for Data Scientist&rdquo; that, for its massive importance and content, I decided to bring to my portfolio.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-12-06T19:36:52">
+  
+  
+    <meta property="article:modified_time" content="2021-12-06T19:36:52">
+  
+  
+  
+    
+      <meta property="article:section" content="Big Data">
+    
+      <meta property="article:section" content="PySpark">
+    
+  
+  
+    
+      <meta property="article:tag" content="SQL">
+    
+      <meta property="article:tag" content="Database">
+    
+      <meta property="article:tag" content="Big Data">
+    
+      <meta property="article:tag" content="DataBricks">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif">
+  <meta property="twitter:image" content="https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif">
+
+
+
+
+  <meta property="og:image" content="/post_cover/disq.png">
+  <meta property="twitter:image" content="/post_cover/disq.png">
+
+
+  <meta property="og:image" content="/post_cover/disq.png">
+  <meta property="twitter:image" content="/post_cover/disq.png">
+
+
+    <title>Big Data - PySpark &amp; SQL</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2021/12/big-data-pyspark-sql/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/" aria-label="Go to homepage"></a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Data Science Portfolio</h4>
+        
+          <h5 class="sidebar-profile-bio">Hi, I’m Lucas Chitolina, passionate about learning and the worlds you discover through it. I’m qualified for M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts, I expect to improve my skills and will appreciate your time coming by.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Chitolina" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://instagram.com/acechitolina" title="Instagram">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-instagram" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/lucas-chitolina/" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/post_cover/disq.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title">
+      Big Data - PySpark &amp; SQL
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-12-06T19:36:52-03:00">
+        
+  December 6, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/big-data">Big Data</a>, 
+    
+      <a class="category-link" href="/categories/pyspark">PySpark</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <h1 id="big-data-for-data-scientists---from-mega-to-giga">Big Data for Data Scientists - From Mega to Giga</h1>
+<p>In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology.
+Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &ldquo;Stack Academy - Big Data for Data Scientist&rdquo; that, for its massive importance and content, I decided to bring to my portfolio.</p>
+<p>Without further ado, some tools we are going to use are:</p>
+<ul>
+<li>
+<p><strong>DataBricks</strong>: Azure Databricks is a fully managed service which provides powerful ETL (Extract, Transform and Load), analytics, and machine learning capabilities. It gives a simple collaborative environment to run interactive, and scheduled data analysis workloads.</p>
+</li>
+<li>
+<p><strong>PySpark</strong>: PySpark is a Python-based API for utilizing the Spark framework in combination with Python. While Spark is a Big Data computational engine, Python is a programming language.</p>
+</li>
+<li>
+<p><strong>SQL</strong>: SQL, in full structured query language, computer language designed for eliciting information from databases.</p>
+</li>
+</ul>
+<p>So, let&rsquo;s start with small .json files</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Reading the data file</span>
+arquivo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/FileStore/tables/shit/2015_summary.json&#34;</span>
+</code></pre></div><p><strong>inferSchema</strong> = True.</p>
+<p>A column can be of type String, Double, Long, etc.  Using inferSchema=false (default option) will give a dataframe where all columns are strings   (StringType). Depending on what you want to do, strings may not work. <br>
+For example, if you want to add numbers from different columns, then those columns should be of some numeric type.</p>
+<p><strong>header</strong> = True.</p>
+<p>This will use the first row in the csv file as the dataframe&rsquo;s column names. Setting header=false (default option) will result in a dataframe with default column names: _c0, _c1, _c2, etc.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">flightData2015 <span style="color:#f92672">=</span> spark\
+<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>csv(arquivo)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># print the datatypes from the df columns</span>
+flightData2015<span style="color:#f92672">.</span>printSchema()
+
+root <span style="color:#f92672">--</span> DEST_COUNTRY_NAME: string (nullable <span style="color:#f92672">=</span> true) <span style="color:#f92672">--</span> ORIGIN_COUNTRY_NAME: string (nullable <span style="color:#f92672">=</span> true) <span style="color:#f92672">--</span> count: integer (nullable <span style="color:#f92672">=</span> true)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># print the type of the feature</span>
+type(flightData2015)
+
+pyspark<span style="color:#f92672">.</span>sql<span style="color:#f92672">.</span>dataframe<span style="color:#f92672">.</span>DataFrame
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># return the first 5 lines in array format</span>
+flightData2015<span style="color:#f92672">.</span>take(<span style="color:#ae81ff">5</span>)
+
+[Row(DEST_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;United States&#39;</span>, ORIGIN_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Romania&#39;</span>, count<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>), Row(DEST_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;United States&#39;</span>, ORIGIN_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Croatia&#39;</span>, count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), Row(DEST_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;United States&#39;</span>, ORIGIN_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Ireland&#39;</span>, count<span style="color:#f92672">=</span><span style="color:#ae81ff">344</span>), Row(DEST_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Egypt&#39;</span>, ORIGIN_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;United States&#39;</span>, count<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>), Row(DEST_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;United States&#39;</span>, ORIGIN_COUNTRY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;India&#39;</span>, count<span style="color:#f92672">=</span><span style="color:#ae81ff">62</span>)]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(flightData2015<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">3</span>))
+
+DEST_COUNTRY_NAME<span style="color:#f92672">|</span>ORIGIN_COUNTRY_NAME<span style="color:#f92672">|</span>count<span style="color:#f92672">|</span>
+<span style="color:#f92672">+-----------------+-------------------+-----+</span>
+    United States<span style="color:#f92672">|</span>            Romania<span style="color:#f92672">|</span>   <span style="color:#ae81ff">15</span><span style="color:#f92672">|</span>
+    United States<span style="color:#f92672">|</span>            Croatia<span style="color:#f92672">|</span>    <span style="color:#ae81ff">1</span><span style="color:#f92672">|</span>
+    United States<span style="color:#f92672">|</span>            Ireland<span style="color:#f92672">|</span>  <span style="color:#ae81ff">344</span><span style="color:#f92672">|</span>
+<span style="color:#f92672">+-----------------+-------------------+-----+</span>
+only showing top <span style="color:#ae81ff">3</span> rows
+
+
+<span style="color:#960050;background-color:#1e0010">```</span>python
+flightData2015<span style="color:#f92672">.</span>count()
+
+<span style="color:#ae81ff">256</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># turning off the inferSchema, we can spot the difference on the loading time</span>
+
+flightData2015 <span style="color:#f92672">=</span> spark\
+<span style="color:#f92672">.</span>read\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;False&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>json(arquivo)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># reading the json files from a new dir created on databricks (I&#39;m sorry about the name, I just couldn&#39;t change when already made)</span>
+
+df <span style="color:#f92672">=</span> spark\
+<span style="color:#f92672">.</span>read\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>json(<span style="color:#e6db74">&#34;/FileStore/tables/shit/*.json&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+
+
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|    United States|            Romania|   15|
+|    United States|            Croatia|    1|
+|    United States|            Ireland|  344|
+|            Egypt|      United States|   15|
+|    United States|              India|   62|
+|    United States|          Singapore|    1|
+|    United States|            Grenada|   62|
+|       Costa Rica|      United States|  588|
+|          Senegal|      United States|   40|
+|          Moldova|      United States|    1|
++-----------------+-------------------+-----+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>count()
+ <span style="color:#ae81ff">1502</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+
+DEST_COUNTRY_NAME	ORIGIN_COUNTRY_NAME	           count
+United States	    Romania	                           <span style="color:#ae81ff">1</span>
+United States	    Ireland	                         <span style="color:#ae81ff">264</span>
+United States	    India	                          <span style="color:#ae81ff">69</span>
+Egypt	            United States	                  <span style="color:#ae81ff">24</span>
+Equatorial Guinea	United States	                   <span style="color:#ae81ff">1</span>
+United States	    Singapore	                      <span style="color:#ae81ff">25</span>
+United States	    Grenada	                          <span style="color:#ae81ff">54</span>
+Costa Rica	        United States	                 <span style="color:#ae81ff">477</span>
+Senegal	            United States	                  <span style="color:#ae81ff">29</span>
+United States	    Marshall Islands	                  <span style="color:#ae81ff">44</span>
+
+</code></pre></div><h3 id="now-we-are-going-to-work-with-sql">Now we are going to work with SQL</h3>
+<ul>
+<li>When you&rsquo;re working at databricks notebook, we must indicate the reference to the language when they are different from python.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql 
+DROP TABLE IF EXISTS all_files;
+
+<span style="color:#75715e"># erase the table all_files because I&#39;m going to create a table named all_files on the next block,  </span>
+<span style="color:#75715e"># that is the reason why we need to delete an existing one</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+CREATE TABLE all_files
+USING json
+OPTIONS (path <span style="color:#e6db74">&#34;/FileStore/tables/shit/*.json&#34;</span>, header <span style="color:#e6db74">&#34;true&#34;</span>)
+
+<span style="color:#75715e"># the data from the &#34;shit&#34; folder are going to fill the table &#34;all_files&#34;</span>
+</code></pre></div><h3 id="querying-the-data">Querying the data</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+SELECT <span style="color:#f92672">*</span> FROM all_files;
+
+DEST_COUNTRY_NAME	ORIGIN_COUNTRY_NAME	          count
+United States	       Romania	                     <span style="color:#ae81ff">15</span>
+United States	        Croatia	                      <span style="color:#ae81ff">1</span>
+United States	        Ireland	                    <span style="color:#ae81ff">344</span>
+Egypt	            United States	                 <span style="color:#ae81ff">15</span>
+United States	        India	                     <span style="color:#ae81ff">62</span>
+United States	       Singapore	                      <span style="color:#ae81ff">1</span>
+United States	        Grenada	                     <span style="color:#ae81ff">62</span>
+Costa Rica	        United States	                <span style="color:#ae81ff">588</span>
+Senegal	            United States	                 <span style="color:#ae81ff">40</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+SELECT count(<span style="color:#f92672">*</span>) FROM all_files;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+<span style="color:#f92672">--</span> selecting the avg of the countries
+
+SELECT DEST_COUNTRY_NAME
+       ,avg(count) AS Quantidade_Paises
+FROM all_files
+GROUP BY DEST_COUNTRY_NAME
+ORDER BY DEST_COUNTRY_NAME;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> max
+df<span style="color:#f92672">.</span>select(max(<span style="color:#e6db74">&#34;count&#34;</span>))<span style="color:#f92672">.</span>take(<span style="color:#ae81ff">1</span>)
+</code></pre></div><pre><code>Out[97]: [Row(max(count)=370002)]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filtering lines with filter</span>
+df<span style="color:#f92672">.</span>filter(<span style="color:#e6db74">&#34;count &lt; 2&#34;</span>)<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">2</span>)
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|    United States|            Croatia|    1|
+|    United States|          Singapore|    1|
++-----------------+-------------------+-----+
+only showing top 2 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Where, an alias for the filter method</span>
+df<span style="color:#f92672">.</span>where(<span style="color:#e6db74">&#34;count &lt; 2&#34;</span>)<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">2</span>)
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|    United States|            Croatia|    1|
+|    United States|          Singapore|    1|
++-----------------+-------------------+-----+
+only showing top 2 rows
+</code></pre>
+<h3 id="manipulating-dataframes">Manipulating Dataframes</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>sort(<span style="color:#e6db74">&#34;count&#34;</span>)<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>+--------------------+-------------------+-----+
+|   DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++--------------------+-------------------+-----+
+|Saint Vincent and...|      United States|    1|
+|              Malawi|      United States|    1|
+|            Slovakia|      United States|    1|
+|          Kazakhstan|      United States|    1|
+|       United States|       Saint Martin|    1|
++--------------------+-------------------+-----+
+only showing top 5 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> desc, asc, expr
+
+<span style="color:#75715e"># sorting in desc</span>
+
+df<span style="color:#f92672">.</span>orderBy(expr(<span style="color:#e6db74">&#34;count desc&#34;</span>))<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|         Suriname|      United States|    1|
+|    United States|             Cyprus|    1|
+|    United States|          Gibraltar|    1|
+|           Cyprus|      United States|    1|
+|          Moldova|      United States|    1|
+|     Burkina Faso|      United States|    1|
+|    United States|            Croatia|    1|
+|         Djibouti|      United States|    1|
+|           Zambia|      United States|    1|
+|    United States|            Estonia|    1|
++-----------------+-------------------+-----+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># descritive statistics</span>
+df<span style="color:#f92672">.</span>describe()<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+-------+-----------------+-------------------+------------------+
+|summary|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|             count|
++-------+-----------------+-------------------+------------------+
+|  count|             1502|               1502|              1502|
+|   mean|             null|               null|1718.3189081225032|
+| stddev|             null|               null|22300.368619668894|
+|    min|      Afghanistan|        Afghanistan|                 1|
+|    max|         Zimbabwe|           Zimbabwe|            370002|
++-------+-----------------+-------------------+------------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> lower, upper, col
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;DEST_COUNTRY_NAME&#34;</span>),lower(col(<span style="color:#e6db74">&#34;DEST_COUNTRY_NAME&#34;</span>)),upper(lower(col(<span style="color:#e6db74">&#34;DEST_COUNTRY_NAME&#34;</span>))))<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+-----------------+------------------------+-------------------------------+
+|DEST_COUNTRY_NAME|lower(DEST_COUNTRY_NAME)|upper(lower(DEST_COUNTRY_NAME))|
++-----------------+------------------------+-------------------------------+
+|    United States|           united states|                  UNITED STATES|
+|    United States|           united states|                  UNITED STATES|
+|    United States|           united states|                  UNITED STATES|
+|            Egypt|                   egypt|                          EGYPT|
+|    United States|           united states|                  UNITED STATES|
+|    United States|           united states|                  UNITED STATES|
+|    United States|           united states|                  UNITED STATES|
+|       Costa Rica|              costa rica|                     COSTA RICA|
+|          Senegal|                 senegal|                        SENEGAL|
+|          Moldova|                 moldova|                        MOLDOVA|
++-----------------+------------------------+-------------------------------+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>orderBy(<span style="color:#e6db74">&#34;count&#34;</span>, <span style="color:#e6db74">&#34;DEST_COUNTRY_NAME&#34;</span>)<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|       Azerbaijan|      United States|    1|
+|          Belarus|      United States|    1|
+|          Belarus|      United States|    1|
+|           Brunei|      United States|    1|
+|         Bulgaria|      United States|    1|
++-----------------+-------------------+-----+
+only showing top 5 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> desc, asc
+df<span style="color:#f92672">.</span>orderBy(expr(<span style="color:#e6db74">&#34;count desc&#34;</span>))<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">2</span>)
+df<span style="color:#f92672">.</span>orderBy(col(<span style="color:#e6db74">&#34;count&#34;</span>)<span style="color:#f92672">.</span>desc(), col(<span style="color:#e6db74">&#34;DEST_COUNTRY_NAME&#34;</span>)<span style="color:#f92672">.</span>asc())<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">2</span>)
+</code></pre></div><pre><code>+-----------------+-------------------+-----+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|
++-----------------+-------------------+-----+
+|    United States|            Romania|    1|
+|Equatorial Guinea|      United States|    1|
++-----------------+-------------------+-----+
+only showing top 2 rows
+
++-----------------+-------------------+------+
+|DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME| count|
++-----------------+-------------------+------+
+|    United States|      United States|370002|
+|    United States|      United States|358354|
++-----------------+-------------------+------+
+only showing top 2 rows
+</code></pre>
+<h3 id="reading-modes">Reading modes</h3>
+<ul>
+<li>
+<p><strong>permissive</strong>: <em>Set all fields to NULL when it finds records and situations all records in a column called _corrupt_record</em> (default).</p>
+</li>
+<li>
+<p><strong>dropMalformed</strong>: <em>Deletes a corrupted or unreadable line.</em></p>
+</li>
+<li>
+<p><strong>failFast</strong>: <em>Fails immediately when it finds a row it doesn&rsquo;t.</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Reading csv</span>
+spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;mode&#34;</span>, <span style="color:#e6db74">&#34;permissive&#34;</span>)
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;path&#34;</span>, <span style="color:#e6db74">&#34;path/to/file(s)&#34;</span>)
+<span style="color:#f92672">.</span>schema(someSchema)
+<span style="color:#f92672">.</span>load()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;mode&#34;</span>, <span style="color:#e6db74">&#34;permissive&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/2010_12_01.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="creating-a-schema">Creating a schema</h4>
+<ul>
+<li>The <strong>infer_schema</strong> option will not always define the best datatype..</li>
+<li>Improves performance when reading large databases.</li>
+<li>Allows customization of column types.</li>
+<li>It&rsquo;s an important skill that can help you on the app rewriting (pandas code)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>printSchema()
+</code></pre></div><pre><code>root
+ |-- InvoiceNo: string (nullable = true)
+ |-- StockCode: string (nullable = true)
+ |-- Description: string (nullable = true)
+ |-- Quantity: integer (nullable = true)
+ |-- InvoiceDate: string (nullable = true)
+ |-- UnitPrice: double (nullable = true)
+ |-- CustomerID: double (nullable = true)
+ |-- Country: string (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Using the StructType object can make you define the type of each variable. Invoice was a string and now I want pyspark to change to int</span>
+
+<span style="color:#f92672">from</span> pyspark.sql.types <span style="color:#f92672">import</span> StructType, StructField, IntegerType, StringType, DateType, DoubleType, TimestampType
+schema_df <span style="color:#f92672">=</span> StructType([
+    StructField(<span style="color:#e6db74">&#34;InvoiceNo&#34;</span>, IntegerType()),
+    StructField(<span style="color:#e6db74">&#34;StockCode&#34;</span>, IntegerType()),
+    StructField(<span style="color:#e6db74">&#34;Description&#34;</span>, StringType()),
+    StructField(<span style="color:#e6db74">&#34;Quantity&#34;</span>, IntegerType()),
+    StructField(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>, TimestampType()),
+    StructField(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>, DoubleType()),
+    StructField(<span style="color:#e6db74">&#34;CustomerID&#34;</span>, DoubleType()),
+    StructField(<span style="color:#e6db74">&#34;Country&#34;</span>, StringType())
+])
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># checking the schema_df type</span>
+type(schema_df)
+</code></pre></div><pre><code>Out[114]: pyspark.sql.types.StructType
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># using the schema() parameter</span>
+
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>schema(schema_df)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;timestampFormat&#34;</span>,<span style="color:#e6db74">&#39;yyyy-/MM/DD hh:mm:ss&#39;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/2010_12_01.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>printSchema()
+</code></pre></div><pre><code>root
+ |-- InvoiceNo: integer (nullable = true)
+ |-- StockCode: integer (nullable = true)
+ |-- Description: string (nullable = true)
+ |-- Quantity: integer (nullable = true)
+ |-- InvoiceDate: timestamp (nullable = true)
+ |-- UnitPrice: double (nullable = true)
+ |-- CustomerID: double (nullable = true)
+ |-- Country: string (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+
+<span style="color:#75715e"># We defined the StockCode to be integer, but some values have int AND strings mixed, so it will not be able to transform these values into int</span>
+<span style="color:#75715e"># The mixed values are going to be presented AS NULL by the permissive mode.</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="what-if-we-switch-our-reading-mode">What if we switch our reading mode?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Switching to failfast instead of permissive</span>
+
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>schema(schema_df)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;mode&#34;</span>,<span style="color:#e6db74">&#34;failfast&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;timestampFormat&#34;</span>,<span style="color:#e6db74">&#39;yyyy-/MM/DD hh:mm:ss&#39;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/2010_12_01.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># StockCode - int</span>
+df<span style="color:#f92672">.</span>printSchema()
+</code></pre></div><pre><code>root
+ |-- InvoiceNo: integer (nullable = true)
+ |-- StockCode: integer (nullable = true)
+ |-- Description: string (nullable = true)
+ |-- Quantity: integer (nullable = true)
+ |-- InvoiceDate: timestamp (nullable = true)
+ |-- UnitPrice: double (nullable = true)
+ |-- CustomerID: double (nullable = true)
+ |-- Country: string (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>collect()) <span style="color:#75715e"># Reading error, failfast does not allow the error that permisssive does</span>
+</code></pre></div><h3 id="json-files">JSON Files</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_json <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;json&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;mode&#34;</span>, <span style="color:#e6db74">&#34;FAILFAST&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/shit/2010_summary.json&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_json<span style="color:#f92672">.</span>printSchema()
+</code></pre></div><pre><code>root
+ |-- DEST_COUNTRY_NAME: string (nullable = true)
+ |-- ORIGIN_COUNTRY_NAME: string (nullable = true)
+ |-- count: long (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df_json<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="writing-files">Writing files</h3>
+<ul>
+<li><strong>append</strong> : Adds output files to the list of files that already exist in the location.</li>
+<li><strong>overwrite</strong> : Overwrite files on destination.</li>
+<li><strong>erroIfExists</strong> : Issues an error and stops if files already exist in the destination.</li>
+<li><strong>ignore</strong> : If there is data already in the destination, it does nothing.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># writing csv</span>
+df<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>mode(<span style="color:#e6db74">&#34;overwrite&#34;</span>) \
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;sep&#34;</span>, <span style="color:#e6db74">&#34;,&#34;</span>) \
+<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/saida_2010_12_01.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/FileStore/tables/bronze/saida_2010_12_01.csv/part-00000-tid-513137111285552141-fa5fcb38-55a1-4a12-ac99-df3fa327627c-83-1-c000.csv&#34;</span>
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;timestampFormat&#34;</span>,<span style="color:#e6db74">&#39;yyyy-/MM/DD hh:mm:ss&#39;</span>)\
+<span style="color:#f92672">.</span>load(file)
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="paralel-writing">Paralel writing</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># slicing the csv</span>
+<span style="color:#75715e"># it created a new dir on the bronze dir</span>
+df<span style="color:#f92672">.</span>repartition(<span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>mode(<span style="color:#e6db74">&#34;overwrite&#34;</span>) \
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;sep&#34;</span>, <span style="color:#e6db74">&#34;,&#34;</span>) \
+<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/saida_2010_12_01.csv&#34;</span>)
+</code></pre></div><h3 id="parquet-file">Parquet File</h3>
+<ul>
+<li>Optimized, column-oriented compression.</li>
+<li>Encoded by dictionary.</li>
+</ul>
+<p><strong>Converting .csv to .parquet</strong></p>
+<ul>
+<li>Dataset .csv from <a href="https://www.kaggle.com/nhs/general-practice-prescribing-data">https://www.kaggle.com/nhs/general-practice-prescribing-data</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Reading the csv files (&gt;4GB)</span>
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>,<span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bigdata/*.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>printSchema()
+</code></pre></div><pre><code>root
+ |-- practice: string (nullable = true)
+ |-- bnf_code: string (nullable = true)
+ |-- bnf_name: string (nullable = true)
+ |-- items: string (nullable = true)
+ |-- nic: string (nullable = true)
+ |-- act_cost: string (nullable = true)
+ |-- quantity: string (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>count()
+</code></pre></div><pre><code>Out[5]: 131020089
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># writing in parquet file</span>
+<span style="color:#75715e"># try to pay attention on the spark version, always work on the version you converted</span>
+df<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;parquet&#34;</span>)\
+<span style="color:#f92672">.</span>mode(<span style="color:#e6db74">&#34;overwrite&#34;</span>)\
+<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/df-parquet-file.parquet&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>fs
+ls <span style="color:#f92672">/</span>FileStore<span style="color:#f92672">/</span>tables<span style="color:#f92672">/</span>bronze<span style="color:#f92672">/</span>df<span style="color:#f92672">-</span>parquet<span style="color:#f92672">-</span>file<span style="color:#f92672">.</span>parquet
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># reading parquet, way faster than csv and json</span>
+<span style="color:#75715e"># csv took 5min, parquet 96s</span>
+df_parquet <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;parquet&#34;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/df-parquet-file.parquet&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># csv took 2min, parquet 10s</span>
+df_parquet<span style="color:#f92672">.</span>count()
+</code></pre></div><pre><code>Out[7]: 131020089
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df_parquet<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># checking files size</span>
+display(dbutils<span style="color:#f92672">.</span>fs<span style="color:#f92672">.</span>ls(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/df-parquet-file.parquet&#34;</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>scala
+<span style="color:#f92672">//</span> script to get size <span style="color:#f92672">in</span> Gyga
+val path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/FileStore/tables/bronze/df-parquet-file.parquet&#34;</span>
+val filelist<span style="color:#f92672">=</span>dbutils<span style="color:#f92672">.</span>fs<span style="color:#f92672">.</span>ls(path)
+val df_temp <span style="color:#f92672">=</span> filelist<span style="color:#f92672">.</span>toDF()
+df_temp<span style="color:#f92672">.</span>createOrReplaceTempView(<span style="color:#e6db74">&#34;adlsSize&#34;</span>)
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+<span style="color:#f92672">--</span> query the created view
+<span style="color:#f92672">--</span> csv <span style="color:#ae81ff">4</span>GB <span style="color:#f92672">/</span> parquet <span style="color:#ae81ff">1.3</span>k
+select round(sum(size)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1024</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1024</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1024</span>),<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">as</span> sizeInGB <span style="color:#f92672">from</span> adlsSize
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="spark--postgresql">Spark + PostgreSQL</h3>
+<ul>
+<li>Query and writes on a relational database</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># It is similar to: select * from pg_catalog.pg_tables</span>
+<span style="color:#75715e"># jdbc:postgresql://pgserver-1.postgres.database.azure.com:5432/{your_database}?user=stack_user@pgserver-1&amp;password={your_password}&amp;sslmode=require</span>
+<span style="color:#75715e"># We also need to Put our server to receive remote access at the azure server</span>
+
+pgDF <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;jdbc&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;driver&#34;</span>, <span style="color:#e6db74">&#34;org.postgresql.Driver&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;url&#34;</span>, <span style="color:#e6db74">&#34;jdbc:postgresql://pgserver-1.postgres.database.azure.com:5432/postgres?user=stack_user@pgserver-1&amp;password=Newdata2021!&amp;sslmode=require&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;dbtable&#34;</span>, <span style="color:#e6db74">&#34;pg_catalog.pg_tables&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;stack_user&#34;</span>)<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;password&#34;</span>, <span style="color:#e6db74">&#34;Newdata2021!&#34;</span>)<span style="color:#f92672">.</span>load()
+
+<span style="color:#75715e">#dbtable= means that I query the &#39;pg_catalog.pg_tables&#39; and call the function &#39;select * from pg_catalog.pg_tables&#39;</span>
+<span style="color:#75715e">#infos to access (user and password)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># printing all the lines</span>
+display(pgDF<span style="color:#f92672">.</span>collect())
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># query from schemaname</span>
+pgDF<span style="color:#f92672">.</span>select(<span style="color:#e6db74">&#34;schemaname&#34;</span>)<span style="color:#f92672">.</span>distinct()<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+------------------+
+|        schemaname|
++------------------+
+|information_schema|
+|            public|
+|        pg_catalog|
++------------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Specific query</span>
+<span style="color:#75715e"># Useful to avoid &#34;select * from.&#34;</span>
+pgDF <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;jdbc&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;driver&#34;</span>, <span style="color:#e6db74">&#34;org.postgresql.Driver&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;url&#34;</span>, <span style="color:#e6db74">&#34;jdbc:postgresql://pgserver-1.postgres.database.azure.com:5432/postgres?user=stack_user@pgserver-1&amp;password=Newdata2021!&amp;sslmode=require&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;query&#34;</span>, <span style="color:#e6db74">&#34;select schemaname,tablename from pg_catalog.pg_tables&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;stack_user&#34;</span>)<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;password&#34;</span>, <span style="color:#e6db74">&#34;Newdata2021!&#34;</span>)<span style="color:#f92672">.</span>load()
+
+<span style="color:#75715e"># query = specific consulting restricting data and selecting columns, avoiding a broad query</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(pgDF<span style="color:#f92672">.</span>collect())
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># creating the &#34;produtos&#34; table from the df data</span>
+pgDF<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>mode(<span style="color:#e6db74">&#34;overwrite&#34;</span>)\
+<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;jdbc&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;url&#34;</span>, <span style="color:#e6db74">&#34;jdbc:postgresql://pgserver-1.postgres.database.azure.com:5432/postgres?user=stack_user@pgserver-1&amp;password=Newdata2021!&amp;sslmode=require&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;dbtable&#34;</span>, <span style="color:#e6db74">&#34;produtos&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;stack_user&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;password&#34;</span>, <span style="color:#e6db74">&#34;Newdata2021!&#34;</span>)\
+<span style="color:#f92672">.</span>save()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># creating the dataframe df_produtos from the created table</span>
+df_produtos <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;jdbc&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;driver&#34;</span>, <span style="color:#e6db74">&#34;org.postgresql.Driver&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;url&#34;</span>, <span style="color:#e6db74">&#34;jdbc:postgresql://pgserver-1.postgres.database.azure.com:5432/postgres?user=stack_user@pgserver-1&amp;password=Newdata2021!&amp;sslmode=require&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;dbtable&#34;</span>, <span style="color:#e6db74">&#34;produtos&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;stack_user&#34;</span>)<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;password&#34;</span>, <span style="color:#e6db74">&#34;Newdata2021!&#34;</span>)<span style="color:#f92672">.</span>load()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># printing all the rows</span>
+display(df_produtos<span style="color:#f92672">.</span>collect())
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="advancing-with-pyspark">Advancing with Pyspark</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+|InvoiceNo|StockCode|         Description|Quantity|        InvoiceDate|UnitPrice|CustomerID|       Country|
++---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+|   536365|   85123A|WHITE HANGING HEA...|       6|2010-12-01 08:26:00|     2.55|   17850.0|United Kingdom|
+|   536365|    71053| WHITE METAL LANTERN|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|   84406B|CREAM CUPID HEART...|       8|2010-12-01 08:26:00|     2.75|   17850.0|United Kingdom|
+|   536365|   84029G|KNITTED UNION FLA...|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|   84029E|RED WOOLLY HOTTIE...|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|    22752|SET 7 BABUSHKA NE...|       2|2010-12-01 08:26:00|     7.65|   17850.0|United Kingdom|
+|   536365|    21730|GLASS STAR FROSTE...|       6|2010-12-01 08:26:00|     4.25|   17850.0|United Kingdom|
+|   536366|    22633|HAND WARMER UNION...|       6|2010-12-01 08:28:00|     1.85|   17850.0|United Kingdom|
+|   536366|    22632|HAND WARMER RED P...|       6|2010-12-01 08:28:00|     1.85|   17850.0|United Kingdom|
+|   536367|    84879|ASSORTED COLOUR B...|      32|2010-12-01 08:34:00|     1.69|   13047.0|United Kingdom|
++---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># I sum the unit price for each country</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>sum(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+------------------+
+|       Country|    sum(UnitPrice)|
++--------------+------------------+
+|       Germany| 93.82000000000002|
+|        France|             55.29|
+|          EIRE|133.64000000000001|
+|        Norway|            102.67|
+|     Australia|              73.9|
+|United Kingdom|12428.080000000024|
+|   Netherlands|             16.85|
++--------------+------------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Showing how much data each country has</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>count()<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+-----+
+|       Country|count|
++--------------+-----+
+|       Germany|   29|
+|        France|   20|
+|          EIRE|   21|
+|        Norway|   73|
+|     Australia|   14|
+|United Kingdom| 2949|
+|   Netherlands|    2|
++--------------+-----+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Now we get the min value by country</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>min(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+--------------+
+|       Country|min(UnitPrice)|
++--------------+--------------+
+|       Germany|          0.42|
+|        France|          0.42|
+|          EIRE|          0.65|
+|        Norway|          0.29|
+|     Australia|          0.85|
+|United Kingdom|           0.0|
+|   Netherlands|          1.85|
++--------------+--------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># the max price by country</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>max(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+--------------+
+|       Country|max(UnitPrice)|
++--------------+--------------+
+|       Germany|          18.0|
+|        France|          18.0|
+|          EIRE|          50.0|
+|        Norway|          7.95|
+|     Australia|           8.5|
+|United Kingdom|        607.49|
+|   Netherlands|          15.0|
++--------------+--------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># the average unit price by country</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>avg(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+------------------+
+|       Country|    avg(UnitPrice)|
++--------------+------------------+
+|       Germany| 3.235172413793104|
+|        France|            2.7645|
+|          EIRE|6.3638095238095245|
+|        Norway|1.4064383561643836|
+|     Australia| 5.278571428571429|
+|United Kingdom|4.2143370634113335|
+|   Netherlands|             8.425|
++--------------+------------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>)<span style="color:#f92672">.</span>mean(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+------------------+
+|       Country|    avg(UnitPrice)|
++--------------+------------------+
+|       Germany| 3.235172413793104|
+|        France|            2.7645|
+|          EIRE|6.3638095238095245|
+|        Norway|1.4064383561643836|
+|     Australia| 5.278571428571429|
+|United Kingdom|4.2143370634113335|
+|   Netherlands|             8.425|
++--------------+------------------+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># GroupBy multiple columns</span>
+df<span style="color:#f92672">.</span>groupBy(<span style="color:#e6db74">&#34;Country&#34;</span>,<span style="color:#e6db74">&#34;CustomerID&#34;</span>) \
+    <span style="color:#f92672">.</span>sum(<span style="color:#e6db74">&#34;UnitPrice&#34;</span>) \
+    <span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------+----------+------------------+
+|       Country|CustomerID|    sum(UnitPrice)|
++--------------+----------+------------------+
+|United Kingdom|   17420.0| 38.99999999999999|
+|United Kingdom|   15922.0|              48.5|
+|United Kingdom|   16250.0|             47.27|
+|United Kingdom|   13065.0| 73.11000000000001|
+|United Kingdom|   18074.0|62.150000000000006|
+|United Kingdom|   16048.0|12.969999999999999|
+|       Germany|   12472.0|             49.45|
+|United Kingdom|   18085.0|              34.6|
+|United Kingdom|   17905.0|109.90000000000003|
+|United Kingdom|   17841.0|254.63999999999982|
+|United Kingdom|   15291.0|               6.0|
+|United Kingdom|   17951.0|22.000000000000004|
+|United Kingdom|   13255.0|27.299999999999997|
+|United Kingdom|   17690.0|              34.8|
+|United Kingdom|   18229.0|             48.65|
+|United Kingdom|   15605.0| 58.20000000000002|
+|United Kingdom|   18011.0| 66.10999999999999|
+|United Kingdom|   17809.0|              1.45|
+|United Kingdom|   14307.0|115.35000000000004|
+|United Kingdom|   13705.0|183.98999999999998|
++--------------+----------+------------------+
+only showing top 20 rows
+</code></pre>
+<h4 id="working-with-data">Working with data</h4>
+<ul>
+<li>There are several functions in Pyspark to manipulate dates and timestamp..</li>
+<li>Avoid writing your own functions for this.
+<ul>
+<li>current_day():</li>
+<li>date_format(dateExpr,format):</li>
+<li>to_date():</li>
+<li>to_date(column, fmt):</li>
+<li>add_months(Column, numMonths):</li>
+<li>date_add(column, days):</li>
+<li>date_sub(column, days):</li>
+<li>datediff(end, start)</li>
+<li>current_timestamp():</li>
+<li>hour(column):</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Bringing the df from bronze and printing it</span>
+
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;mode&#34;</span>, <span style="color:#e6db74">&#34;permissive&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>)\
+<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;/FileStore/tables/bronze/2010_12_01.csv&#34;</span>)
+
+df<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+|InvoiceNo|StockCode|         Description|Quantity|        InvoiceDate|UnitPrice|CustomerID|       Country|
++---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+|   536365|   85123A|WHITE HANGING HEA...|       6|2010-12-01 08:26:00|     2.55|   17850.0|United Kingdom|
+|   536365|    71053| WHITE METAL LANTERN|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|   84406B|CREAM CUPID HEART...|       8|2010-12-01 08:26:00|     2.75|   17850.0|United Kingdom|
+|   536365|   84029G|KNITTED UNION FLA...|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|   84029E|RED WOOLLY HOTTIE...|       6|2010-12-01 08:26:00|     3.39|   17850.0|United Kingdom|
+|   536365|    22752|SET 7 BABUSHKA NE...|       2|2010-12-01 08:26:00|     7.65|   17850.0|United Kingdom|
+|   536365|    21730|GLASS STAR FROSTE...|       6|2010-12-01 08:26:00|     4.25|   17850.0|United Kingdom|
+|   536366|    22633|HAND WARMER UNION...|       6|2010-12-01 08:28:00|     1.85|   17850.0|United Kingdom|
+|   536366|    22632|HAND WARMER RED P...|       6|2010-12-01 08:28:00|     1.85|   17850.0|United Kingdom|
+|   536367|    84879|ASSORTED COLOUR B...|      32|2010-12-01 08:34:00|     1.69|   13047.0|United Kingdom|
+|   536367|    22745|POPPY'S PLAYHOUSE...|       6|2010-12-01 08:34:00|      2.1|   13047.0|United Kingdom|
+|   536367|    22748|POPPY'S PLAYHOUSE...|       6|2010-12-01 08:34:00|      2.1|   13047.0|United Kingdom|
+|   536367|    22749|FELTCRAFT PRINCES...|       8|2010-12-01 08:34:00|     3.75|   13047.0|United Kingdom|
+|   536367|    22310|IVORY KNITTED MUG...|       6|2010-12-01 08:34:00|     1.65|   13047.0|United Kingdom|
+|   536367|    84969|BOX OF 6 ASSORTED...|       6|2010-12-01 08:34:00|     4.25|   13047.0|United Kingdom|
+|   536367|    22623|BOX OF VINTAGE JI...|       3|2010-12-01 08:34:00|     4.95|   13047.0|United Kingdom|
+|   536367|    22622|BOX OF VINTAGE AL...|       2|2010-12-01 08:34:00|     9.95|   13047.0|United Kingdom|
+|   536367|    21754|HOME BUILDING BLO...|       3|2010-12-01 08:34:00|     5.95|   13047.0|United Kingdom|
+|   536367|    21755|LOVE BUILDING BLO...|       3|2010-12-01 08:34:00|     5.95|   13047.0|United Kingdom|
+|   536367|    21777|RECIPE BOX WITH M...|       4|2010-12-01 08:34:00|     7.95|   13047.0|United Kingdom|
++---------+---------+--------------------+--------+-------------------+---------+----------+--------------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>printSchema()
+
+<span style="color:#75715e"># We can notice that the InvoiceDate wasn&#39;t recognize as a date, but string</span>
+</code></pre></div><pre><code>root
+ |-- InvoiceNo: string (nullable = true)
+ |-- StockCode: string (nullable = true)
+ |-- Description: string (nullable = true)
+ |-- Quantity: integer (nullable = true)
+ |-- InvoiceDate: string (nullable = true)
+ |-- UnitPrice: double (nullable = true)
+ |-- CustomerID: double (nullable = true)
+ |-- Country: string (nullable = true)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<span style="color:#75715e"># importing the date funcions</span>
+<span style="color:#75715e"># current_date()</span>
+df<span style="color:#f92672">.</span>select(current_date()<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;current_date&#34;</span>))<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">#selecting a column and creating an alias for it</span>
+</code></pre></div><pre><code>+------------+
+|current_date|
++------------+
+|  2021-12-06|
++------------+
+only showing top 1 row
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#date_format()</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>), \
+          date_format(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>), <span style="color:#e6db74">&#34;dd-MM-yyyy hh:mm:ss&#34;</span>)\
+          <span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;date_format&#34;</span>))<span style="color:#f92672">.</span>show()
+<span style="color:#75715e">#date_format : I call the column I want to format and the formatting type I want my data</span>
+</code></pre></div><pre><code>+-------------------+-------------------+
+|        InvoiceDate|        date_format|
++-------------------+-------------------+
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:26:00|01-12-2010 08:26:00|
+|2010-12-01 08:28:00|01-12-2010 08:28:00|
+|2010-12-01 08:28:00|01-12-2010 08:28:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
+|2010-12-01 08:34:00|01-12-2010 08:34:00|
++-------------------+-------------------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># datediff: return the difference between dates</span>
+<span style="color:#75715e"># So I want to compare the current date (days) with my df date</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>),
+    datediff(current_date(),col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;datediff&#34;</span>)  
+  )<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+-------------------+--------+
+|        InvoiceDate|datediff|
++-------------------+--------+
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:26:00|    4023|
+|2010-12-01 08:28:00|    4023|
+|2010-12-01 08:28:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
+|2010-12-01 08:34:00|    4023|
++-------------------+--------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#months_between()</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>), 
+    months_between(current_date(),col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;months_between&#34;</span>)  
+  )<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+-------------------+--------------+
+|        InvoiceDate|months_between|
++-------------------+--------------+
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:26:00|   132.1499552|
+|2010-12-01 08:28:00|  132.14991039|
+|2010-12-01 08:28:00|  132.14991039|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
+|2010-12-01 08:34:00|  132.14977599|
++-------------------+--------------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Extracting year, month, next day, week day</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>), 
+     year(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;year&#34;</span>), 
+     month(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;month&#34;</span>), 
+     next_day(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>),<span style="color:#e6db74">&#34;Sunday&#34;</span>)<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;next_day&#34;</span>), 
+     weekofyear(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;weekofyear&#34;</span>) 
+  )<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+-------------------+----+-----+----------+----------+
+|        InvoiceDate|year|month|  next_day|weekofyear|
++-------------------+----+-----+----------+----------+
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:26:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:28:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:28:00|2010|   12|2010-12-05|        48|
+|2010-12-01 08:34:00|2010|   12|2010-12-05|        48|
++-------------------+----+-----+----------+----------+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Day of the week, day of the month, day of the year</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>),  
+     dayofweek(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;dayofweek&#34;</span>), 
+     dayofmonth(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;dayofmonth&#34;</span>), 
+     dayofyear(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;dayofyear&#34;</span>), 
+  )<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+-------------------+---------+----------+---------+
+|        InvoiceDate|dayofweek|dayofmonth|dayofyear|
++-------------------+---------+----------+---------+
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:26:00|        4|         1|      335|
+|2010-12-01 08:28:00|        4|         1|      335|
+|2010-12-01 08:28:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
+|2010-12-01 08:34:00|        4|         1|      335|
++-------------------+---------+----------+---------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># printing current timestamp, it brings the cluster fuse</span>
+df<span style="color:#f92672">.</span>select(current_timestamp()<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;current_timestamp&#34;</span>)
+  )<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">1</span>,truncate<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</code></pre></div><pre><code>+-----------------------+
+|current_timestamp      |
++-----------------------+
+|2021-12-06 13:09:37.916|
++-----------------------+
+only showing top 1 row
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># returning hour, min, second</span>
+df<span style="color:#f92672">.</span>select(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>), 
+    hour(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;hour&#34;</span>), 
+    minute(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;minute&#34;</span>),
+    second(col(<span style="color:#e6db74">&#34;InvoiceDate&#34;</span>))<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;second&#34;</span>) 
+  )<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+-------------------+----+------+------+
+|        InvoiceDate|hour|minute|second|
++-------------------+----+------+------+
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:26:00|   8|    26|     0|
+|2010-12-01 08:28:00|   8|    28|     0|
+|2010-12-01 08:28:00|   8|    28|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
+|2010-12-01 08:34:00|   8|    34|     0|
++-------------------+----+------+------+
+only showing top 20 rows
+</code></pre>
+<h4 id="missing-values-with-pyspark">Missing Values with Pyspark</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># So we are going to bring some examples of data with missing values</span>
+
+display(dbutils<span style="color:#f92672">.</span>fs<span style="color:#f92672">.</span>ls(<span style="color:#e6db74">&#34;/databricks-datasets&#34;</span>))
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># inferSchema = True</span>
+<span style="color:#75715e"># header = True</span>
+
+arquivo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dbfs:/databricks-datasets/flights/&#34;</span>
+
+df <span style="color:#f92672">=</span> spark \
+<span style="color:#f92672">.</span>read<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;csv&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;inferSchema&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;header&#34;</span>, <span style="color:#e6db74">&#34;True&#34;</span>)\
+<span style="color:#f92672">.</span>csv(arquivo)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
+|01061215|   -6|     602|   ABE|        ATL|
+|01061725|   69|     602|   ABE|        ATL|
+|01061230|    0|     369|   ABE|        DTW|
+|01060625|   -3|     602|   ABE|        ATL|
+|01070600|    0|     369|   ABE|        DTW|
+|01071725|    0|     602|   ABE|        ATL|
+|01071230|    0|     369|   ABE|        DTW|
+|01070625|    0|     602|   ABE|        ATL|
+|01071219|    0|     569|   ABE|        ORD|
+|01080600|    0|     369|   ABE|        DTW|
++--------+-----+--------+------+-----------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filtering the missing values inside my dataset</span>
+df<span style="color:#f92672">.</span>filter(<span style="color:#e6db74">&#34;delay is NULL&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------------------+-----+--------+------+-----------+
+|                date|delay|distance|origin|destination|
++--------------------+-----+--------+------+-----------+
+|Abbotsford	BC	Can...| null|    null|  null|       null|
+| Aberdeen	SD	USA	ABR| null|    null|  null|       null|
+|  Abilene	TX	USA	ABI| null|    null|  null|       null|
+|    Akron	OH	USA	CAK| null|    null|  null|       null|
+|  Alamosa	CO	USA	ALS| null|    null|  null|       null|
+|   Albany	GA	USA	ABY| null|    null|  null|       null|
+|   Albany	NY	USA	ALB| null|    null|  null|       null|
+|Albuquerque	NM	US...| null|    null|  null|       null|
+|Alexandria	LA	USA...| null|    null|  null|       null|
+|Allentown	PA	USA	ABE| null|    null|  null|       null|
+| Alliance	NE	USA	AIA| null|    null|  null|       null|
+|   Alpena	MI	USA	APN| null|    null|  null|       null|
+|  Altoona	PA	USA	AOO| null|    null|  null|       null|
+| Amarillo	TX	USA	AMA| null|    null|  null|       null|
+|Anahim Lake	BC	Ca...| null|    null|  null|       null|
+|Anchorage	AK	USA	ANC| null|    null|  null|       null|
+| Appleton	WI	USA	ATW| null|    null|  null|       null|
+|Arviat	NWT	Canada...| null|    null|  null|       null|
+|Asheville	NC	USA	AVL| null|    null|  null|       null|
+|    Aspen	CO	USA	ASE| null|    null|  null|       null|
++--------------------+-----+--------+------+-----------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># similar function </span>
+df<span style="color:#f92672">.</span>filter(df<span style="color:#f92672">.</span>delay<span style="color:#f92672">.</span>isNull())<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filling NULL with 0 value</span>
+df<span style="color:#f92672">.</span>na<span style="color:#f92672">.</span>fill(value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
+|01061215|   -6|     602|   ABE|        ATL|
+|01061725|   69|     602|   ABE|        ATL|
+|01061230|    0|     369|   ABE|        DTW|
+|01060625|   -3|     602|   ABE|        ATL|
+|01070600|    0|     369|   ABE|        DTW|
+|01071725|    0|     602|   ABE|        ATL|
+|01071230|    0|     369|   ABE|        DTW|
+|01070625|    0|     602|   ABE|        ATL|
+|01071219|    0|     569|   ABE|        ORD|
+|01080600|    0|     369|   ABE|        DTW|
+|01081230|   33|     369|   ABE|        DTW|
+|01080625|    1|     602|   ABE|        ATL|
+|01080607|    5|     569|   ABE|        ORD|
+|01081219|   54|     569|   ABE|        ORD|
+|01091215|   43|     602|   ABE|        ATL|
+|01090600|  151|     369|   ABE|        DTW|
+|01091725|    0|     602|   ABE|        ATL|
+|01091230|   -4|     369|   ABE|        DTW|
+|01090625|    8|     602|   ABE|        ATL|
+|01091219|   83|     569|   ABE|        ORD|
++--------+-----+--------+------+-----------+
+only showing top 30 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filling NULL with 0 value (applied just on delay column)</span>
+df<span style="color:#f92672">.</span>na<span style="color:#f92672">.</span>fill(value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, subset<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;delay&#39;</span>])<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
+|01061215|   -6|     602|   ABE|        ATL|
+|01061725|   69|     602|   ABE|        ATL|
+|01061230|    0|     369|   ABE|        DTW|
+|01060625|   -3|     602|   ABE|        ATL|
+|01070600|    0|     369|   ABE|        DTW|
+|01071725|    0|     602|   ABE|        ATL|
+|01071230|    0|     369|   ABE|        DTW|
+|01070625|    0|     602|   ABE|        ATL|
+|01071219|    0|     569|   ABE|        ORD|
+|01080600|    0|     369|   ABE|        DTW|
++--------+-----+--------+------+-----------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># All the NUll will be filled with empty string</span>
+df<span style="color:#f92672">.</span>na<span style="color:#f92672">.</span>fill(<span style="color:#e6db74">&#34;&#34;</span>)<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">100</span>)
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
+|01061215|   -6|     602|   ABE|        ATL|
+|01061725|   69|     602|   ABE|        ATL|
+|01061230|    0|     369|   ABE|        DTW|
+|01060625|   -3|     602|   ABE|        ATL|
+|01070600|    0|     369|   ABE|        DTW|
+|01071725|    0|     602|   ABE|        ATL|
+|01071230|    0|     369|   ABE|        DTW|
+|01070625|    0|     602|   ABE|        ATL|
+|01071219|    0|     569|   ABE|        ORD|
+|01080600|    0|     369|   ABE|        DTW|
+|01081230|   33|     369|   ABE|        DTW|
+|01080625|    1|     602|   ABE|        ATL|
+|01080607|    5|     569|   ABE|        ORD|
+|01081219|   54|     569|   ABE|        ORD|
+|01091215|   43|     602|   ABE|        ATL|
+|01090600|  151|     369|   ABE|        DTW|
+|01091725|    0|     602|   ABE|        ATL|
+|01091230|   -4|     369|   ABE|        DTW|
+|01090625|    8|     602|   ABE|        ATL|
+|01091219|   83|     569|   ABE|        ORD|
+|01101215|   -5|     602|   ABE|        ATL|
+|01100600|   -5|     369|   ABE|        DTW|
+|01101725|    7|     602|   ABE|        ATL|
+|01101230|   -8|     369|   ABE|        DTW|
+|01100625|   52|     602|   ABE|        ATL|
+|01101219|    0|     569|   ABE|        ORD|
+|01111215|  127|     602|   ABE|        ATL|
+|01110600|   -9|     369|   ABE|        DTW|
+|01110625|   -4|     602|   ABE|        ATL|
+|01121215|   -5|     602|   ABE|        ATL|
+|01121725|   -1|     602|   ABE|        ATL|
+|01131215|   14|     602|   ABE|        ATL|
+|01130600|   -7|     369|   ABE|        DTW|
+|01131725|   -6|     602|   ABE|        ATL|
+|01131230|  -13|     369|   ABE|        DTW|
+|01130625|   29|     602|   ABE|        ATL|
+|01131219|   -8|     569|   ABE|        ORD|
+|01140600|   -9|     369|   ABE|        DTW|
+|01141725|   -9|     602|   ABE|        ATL|
+|01141230|   -8|     369|   ABE|        DTW|
+|01140625|   -5|     602|   ABE|        ATL|
+|01141219|  -10|     569|   ABE|        ORD|
+|01150600|    0|     369|   ABE|        DTW|
+|01151725|   -6|     602|   ABE|        ATL|
+|01151230|    0|     369|   ABE|        DTW|
+|01150625|    0|     602|   ABE|        ATL|
+|01150607|    0|     569|   ABE|        ORD|
+|01151219|    0|     569|   ABE|        ORD|
+|01161215|  -10|     602|   ABE|        ATL|
+|01160600|   -1|     369|   ABE|        DTW|
+|01161725|   -6|     602|   ABE|        ATL|
+|01161230|   -7|     369|   ABE|        DTW|
+|01160625|   -4|     602|   ABE|        ATL|
+|01161219|   68|     569|   ABE|        ORD|
+|01171215|   -8|     602|   ABE|        ATL|
+|01170600|   -5|     369|   ABE|        DTW|
+|01171725|    5|     602|   ABE|        ATL|
+|01171230|  -10|     369|   ABE|        DTW|
+|01170625|   -6|     602|   ABE|        ATL|
+|01171219|  -10|     569|   ABE|        ORD|
+|01181215|  -12|     602|   ABE|        ATL|
+|01180600|  -13|     369|   ABE|        DTW|
+|01180625|    0|     602|   ABE|        ATL|
+|01191215|  -16|     602|   ABE|        ATL|
+|01191725|   -5|     602|   ABE|        ATL|
+|01201215|   -8|     602|   ABE|        ATL|
+|01201725|   -5|     602|   ABE|        ATL|
+|01201230|  -11|     369|   ABE|        DTW|
+|01200625|   -7|     602|   ABE|        ATL|
+|01201219|   -6|     569|   ABE|        ORD|
+|01210600|   89|     369|   ABE|        DTW|
+|01211725|    0|     602|   ABE|        ATL|
+|01211230|   44|     369|   ABE|        DTW|
+|01210625|   -6|     602|   ABE|        ATL|
+|01211219|    9|     569|   ABE|        ORD|
+|01220600|   80|     369|   ABE|        DTW|
+|01221230|   -5|     369|   ABE|        DTW|
+|01220625|  333|     602|   ABE|        ATL|
+|01220607|  219|     569|   ABE|        ORD|
+|01221219|   15|     569|   ABE|        ORD|
+|01231215|  -12|     602|   ABE|        ATL|
+|01230600|   -3|     369|   ABE|        DTW|
+|01231725|  180|     602|   ABE|        ATL|
+|01231230|   -5|     369|   ABE|        DTW|
+|01230625|   -8|     602|   ABE|        ATL|
+|01231219|  -13|     569|   ABE|        ORD|
+|01241215|  -11|     602|   ABE|        ATL|
+|01240600|   -3|     369|   ABE|        DTW|
+|01241725|    2|     602|   ABE|        ATL|
+|01241230|   -5|     369|   ABE|        DTW|
++--------+-----+--------+------+-----------+
+only showing top 100 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>filter(<span style="color:#e6db74">&#34;delay is NULL&#34;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Removing null rows, may not be the best practice since you remove the fully row</span>
+df<span style="color:#f92672">.</span>na<span style="color:#f92672">.</span>drop()<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
+|01061215|   -6|     602|   ABE|        ATL|
+|01061725|   69|     602|   ABE|        ATL|
+|01061230|    0|     369|   ABE|        DTW|
+|01060625|   -3|     602|   ABE|        ATL|
+|01070600|    0|     369|   ABE|        DTW|
+|01071725|    0|     602|   ABE|        ATL|
+|01071230|    0|     369|   ABE|        DTW|
+|01070625|    0|     602|   ABE|        ATL|
+|01071219|    0|     569|   ABE|        ORD|
+|01080600|    0|     369|   ABE|        DTW|
++--------+-----+--------+------+-----------+
+only showing top 20 rows
+</code></pre>
+<h4 id="basic-tasks">Basic tasks</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Adding a column to a df</span>
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>withColumn(<span style="color:#e6db74">&#39;Nova Coluna&#39;</span>, df[<span style="color:#e6db74">&#39;delay&#39;</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Calling the name of my new column, which are going to present delay +2 </span>
+df<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+-----------+
+|    date|delay|distance|origin|destination|Nova Coluna|
++--------+-----+--------+------+-----------+-----------+
+|01011245|    6|     602|   ABE|        ATL|        8.0|
+|01020600|   -8|     369|   ABE|        DTW|       -6.0|
+|01021245|   -2|     602|   ABE|        ATL|        0.0|
+|01020605|   -4|     602|   ABE|        ATL|       -2.0|
+|01031245|   -4|     602|   ABE|        ATL|       -2.0|
+|01030605|    0|     602|   ABE|        ATL|        2.0|
+|01041243|   10|     602|   ABE|        ATL|       12.0|
+|01040605|   28|     602|   ABE|        ATL|       30.0|
+|01051245|   88|     602|   ABE|        ATL|       90.0|
+|01050605|    9|     602|   ABE|        ATL|       11.0|
++--------+-----+--------+------+-----------+-----------+
+only showing top 10 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Renaming a column</span>
+df<span style="color:#f92672">.</span>withColumnRenamed(<span style="color:#e6db74">&#39;Nova Coluna&#39;</span>,<span style="color:#e6db74">&#39;Delay_2&#39;</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+-------+
+|    date|delay|distance|origin|destination|Delay_2|
++--------+-----+--------+------+-----------+-------+
+|01011245|    6|     602|   ABE|        ATL|    8.0|
+|01020600|   -8|     369|   ABE|        DTW|   -6.0|
+|01021245|   -2|     602|   ABE|        ATL|    0.0|
+|01020605|   -4|     602|   ABE|        ATL|   -2.0|
+|01031245|   -4|     602|   ABE|        ATL|   -2.0|
+|01030605|    0|     602|   ABE|        ATL|    2.0|
+|01041243|   10|     602|   ABE|        ATL|   12.0|
+|01040605|   28|     602|   ABE|        ATL|   30.0|
+|01051245|   88|     602|   ABE|        ATL|   90.0|
+|01050605|    9|     602|   ABE|        ATL|   11.0|
+|01061215|   -6|     602|   ABE|        ATL|   -4.0|
+|01061725|   69|     602|   ABE|        ATL|   71.0|
+|01061230|    0|     369|   ABE|        DTW|    2.0|
+|01060625|   -3|     602|   ABE|        ATL|   -1.0|
+|01070600|    0|     369|   ABE|        DTW|    2.0|
+|01071725|    0|     602|   ABE|        ATL|    2.0|
+|01071230|    0|     369|   ABE|        DTW|    2.0|
+|01070625|    0|     602|   ABE|        ATL|    2.0|
+|01071219|    0|     569|   ABE|        ORD|    2.0|
+|01080600|    0|     369|   ABE|        DTW|    2.0|
++--------+-----+--------+------+-----------+-------+
+only showing top 20 rows
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Removing the new column</span>
+
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;Nova Coluna&#39;</span>)
+df<span style="color:#f92672">.</span>show(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>+--------+-----+--------+------+-----------+
+|    date|delay|distance|origin|destination|
++--------+-----+--------+------+-----------+
+|01011245|    6|     602|   ABE|        ATL|
+|01020600|   -8|     369|   ABE|        DTW|
+|01021245|   -2|     602|   ABE|        ATL|
+|01020605|   -4|     602|   ABE|        ATL|
+|01031245|   -4|     602|   ABE|        ATL|
+|01030605|    0|     602|   ABE|        ATL|
+|01041243|   10|     602|   ABE|        ATL|
+|01040605|   28|     602|   ABE|        ATL|
+|01051245|   88|     602|   ABE|        ATL|
+|01050605|    9|     602|   ABE|        ATL|
++--------+-----+--------+------+-----------+
+only showing top 10 rows
+</code></pre>
+<h4 id="working-with-udfs">Working with UDFs</h4>
+<ul>
+<li>Integration of code between APIs</li>
+<li>Care must be taken with code performance using UDFs</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.types <span style="color:#f92672">import</span> LongType
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quadrado</span>(s):
+  <span style="color:#66d9ef">return</span> s <span style="color:#f92672">*</span> s
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># registering in spark database and adjusting the returning type</span>
+
+<span style="color:#f92672">from</span> pyspark.sql.types <span style="color:#f92672">import</span> LongType
+spark<span style="color:#f92672">.</span>udf<span style="color:#f92672">.</span>register(<span style="color:#e6db74">&#34;Func_Py_Quadrado&#34;</span>, quadrado, LongType())
+
+<span style="color:#75715e"># naming my registered function(&#34;Func_PY...&#34;), then calling the function quadrado and the LongType imported</span>
+</code></pre></div><pre><code>Out[57]: &lt;function __main__.quadrado(s)&gt;
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># generating random values</span>
+spark<span style="color:#f92672">.</span>range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>)<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+---+
+| id|
++---+
+|  1|
+|  2|
+|  3|
+|  4|
+|  5|
+|  6|
+|  7|
+|  8|
+|  9|
+| 10|
+| 11|
+| 12|
+| 13|
+| 14|
+| 15|
+| 16|
+| 17|
+| 18|
+| 19|
++---+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># create a view &#34;View_temp&#34; that was created from the random values we made </span>
+spark<span style="color:#f92672">.</span>range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>)<span style="color:#f92672">.</span>createOrReplaceTempView(<span style="color:#e6db74">&#34;View_temp&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>sql
+<span style="color:#f92672">--</span> Using a python function mixed <span style="color:#66d9ef">with</span> SQL code
+
+select id, Func_Py_Quadrado(id) <span style="color:#66d9ef">as</span> id_ao_quadrado
+<span style="color:#f92672">from</span> View_temp
+
+<span style="color:#f92672">--</span> calling the function (Fun_Py<span style="color:#f92672">...</span>)<span style="color:#f92672">and</span> bringing the id value (the square) <span style="color:#66d9ef">as</span> id_ao_quadrado
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h5 id="fdus-with-dataframes">FDUs with Dataframes</h5>
+<h6 id="functions-defined-by-user-fdu">Functions defined by user (FDU)</h6>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pyspark.sql.functions <span style="color:#f92672">import</span> udf
+<span style="color:#f92672">from</span> pyspark.sql.types <span style="color:#f92672">import</span> LongType
+Func_Py_Quadrado <span style="color:#f92672">=</span> udf(quadrado, LongType())
+
+<span style="color:#75715e"># obviously the square function already exists, but we are going to register as an object type UDF</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Creating a dataframe from my view</span>
+
+df <span style="color:#f92672">=</span> spark<span style="color:#f92672">.</span>table(<span style="color:#e6db74">&#34;View_temp&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>+---+
+| id|
++---+
+|  1|
+|  2|
+|  3|
+|  4|
+|  5|
+|  6|
+|  7|
+|  8|
+|  9|
+| 10|
+| 11|
+| 12|
+| 13|
+| 14|
+| 15|
+| 16|
+| 17|
+| 18|
+| 19|
++---+
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">display(df<span style="color:#f92672">.</span>select(<span style="color:#e6db74">&#34;id&#34;</span>, Func_Py_Quadrado(<span style="color:#e6db74">&#34;id&#34;</span>)<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;id_quadrado&#34;</span>)))
+
+<span style="color:#75715e"># Calling the Func_... on the &#34;id&#34; feature and naming the result as &#34;id_quadrado&#34;</span>
+<span style="color:#75715e"># So a python function was created and then used inside a df</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="koalas">Koalas</h4>
+<ul>
+<li>Translation of python code to pyspark</li>
+<li>Koalas is an open source project that offers an immediate replacement for pandas.</li>
+<li>Koalas fills this gap by providing pandas-equivalent APIs that run on Apache Spark.</li>
+<li>Koalas is useful not only for panda users but also for PySpark users.
+<ul>
+<li>Koalas support many tasks that they need to do with PySpark, for example, plot data directly from a PySpark DataFrame.</li>
+</ul>
+</li>
+<li>Koalas support SQL directly in their dataframes.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> databricks.koalas <span style="color:#66d9ef">as</span> ks
+
+<span style="color:#75715e"># As we can see koalas is a project from databricks</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pdf <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;A&#39;</span>: np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>),
+                    <span style="color:#e6db74">&#39;B&#39;</span>: np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>)})
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">type(pdf)
+</code></pre></div><pre><code>Out[65]: pandas.core.frame.DataFrame
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Creating a koala df</span>
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;A&#39;</span>: np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>),
+                    <span style="color:#e6db74">&#39;B&#39;</span>: np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>)})
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">type(kdf)
+</code></pre></div><pre><code>Out[67]: databricks.koalas.frame.DataFrame
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Creating a koala df from a pd df</span>
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>DataFrame(pdf)
+type(kdf)
+</code></pre></div><pre><code>Out[68]: databricks.koalas.frame.DataFrame
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># other ways to transform</span>
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>from_pandas(pdf)
+type(kdf)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pdf<span style="color:#f92672">.</span>head()
+
+     A	            B
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.813516</span>	<span style="color:#ae81ff">0.527949</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">0.576319</span>	<span style="color:#ae81ff">0.378034</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">0.313028</span>	<span style="color:#ae81ff">0.762469</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kdf<span style="color:#f92672">.</span>head()
+
+        A	        B
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.599634</span>	<span style="color:#ae81ff">0.706762</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.534563</span>	<span style="color:#ae81ff">0.055601</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.704126</span>	<span style="color:#ae81ff">0.035550</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">0.161522</span>	<span style="color:#ae81ff">0.768715</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">0.304619</span>	<span style="color:#ae81ff">0.921843</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kdf<span style="color:#f92672">.</span>describe()
+
+            A	        B
+count	<span style="color:#ae81ff">5.000000</span>	<span style="color:#ae81ff">5.000000</span>
+mean	<span style="color:#ae81ff">0.460893</span>	<span style="color:#ae81ff">0.497694</span>
+std	    <span style="color:#ae81ff">0.222420</span>	<span style="color:#ae81ff">0.420145</span>
+min	    <span style="color:#ae81ff">0.161522</span>	<span style="color:#ae81ff">0.035550</span>
+<span style="color:#ae81ff">25</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">0.304619</span>	<span style="color:#ae81ff">0.055601</span>
+<span style="color:#ae81ff">50</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">0.534563</span>	<span style="color:#ae81ff">0.706762</span>
+<span style="color:#ae81ff">75</span><span style="color:#f92672">%</span>	    <span style="color:#ae81ff">0.599634</span>	<span style="color:#ae81ff">0.768715</span>
+max	    <span style="color:#ae81ff">0.704126</span>	<span style="color:#ae81ff">0.921843</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># sorting a df</span>
+kdf<span style="color:#f92672">.</span>sort_values(by<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;B&#39;</span>)
+
+        A	        B
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.704126</span>	<span style="color:#ae81ff">0.035550</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.534563</span>	<span style="color:#ae81ff">0.055601</span>
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.599634</span>	<span style="color:#ae81ff">0.706762</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">0.161522</span>	<span style="color:#ae81ff">0.768715</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">0.304619</span>	<span style="color:#ae81ff">0.921843</span>
+
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># cell layout setting</span>
+
+<span style="color:#f92672">from</span> databricks.koalas.config <span style="color:#f92672">import</span> set_option, get_option
+ks<span style="color:#f92672">.</span>get_option(<span style="color:#e6db74">&#39;compute.max_rows&#39;</span>)
+ks<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;compute.max_rows&#39;</span>, <span style="color:#ae81ff">2000</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># slice</span>
+kdf[[<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>]]
+
+      A             B
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.813516</span>	<span style="color:#ae81ff">0.527949</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">0.576319</span>	<span style="color:#ae81ff">0.378034</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">0.313028</span>	<span style="color:#ae81ff">0.762469</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># loc</span>
+kdf<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span>]
+
+
+        A	        B
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># iloc</span>
+kdf<span style="color:#f92672">.</span>iloc[:<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span>]
+
+        B
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.527949</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.468637</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.058884</span>
+</code></pre></div><p>** Using python functions with koala**</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quadrado</span>(x):
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># enabling frame and series data</span>
+<span style="color:#f92672">from</span> databricks.koalas.config <span style="color:#f92672">import</span> set_option, reset_option
+set_option(<span style="color:#e6db74">&#34;compute.ops_on_diff_frames&#34;</span>, <span style="color:#66d9ef">True</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># creating a column from a python function, and to do that we call apply</span>
+kdf[<span style="color:#e6db74">&#39;C&#39;</span>] <span style="color:#f92672">=</span> kdf<span style="color:#f92672">.</span>A<span style="color:#f92672">.</span>apply(quadrado)
+</code></pre></div><pre><code>/databricks/spark/python/pyspark/sql/pandas/functions.py:386: UserWarning: In Python 3.6+ and Spark 3.0+, it is preferred to specify type hints for pandas UDF instead of specifying pandas UDF type which will be deprecated in the future releases. See SPARK-28264 for more details.
+  warnings.warn(
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kdf<span style="color:#f92672">.</span>head()
+
+        A	        B	        C
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">0.813516</span>	<span style="color:#ae81ff">0.527949</span>	<span style="color:#ae81ff">0.661809</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>	<span style="color:#ae81ff">0.467650</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>	<span style="color:#ae81ff">0.046248</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">0.576319</span>	<span style="color:#ae81ff">0.378034</span>	<span style="color:#ae81ff">0.332144</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">0.313028</span>	<span style="color:#ae81ff">0.762469</span>	<span style="color:#ae81ff">0.097987</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># grouping data</span>
+kdf<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;A&#39;</span>)<span style="color:#f92672">.</span>sum()
+
+               B	           C
+   A		
+<span style="color:#ae81ff">0.813516</span>	<span style="color:#ae81ff">0.527949</span>	<span style="color:#ae81ff">0.661809</span>
+<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>	<span style="color:#ae81ff">0.467650</span>
+<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>	<span style="color:#ae81ff">0.046248</span>
+<span style="color:#ae81ff">0.576319</span>	<span style="color:#ae81ff">0.378034</span>	<span style="color:#ae81ff">0.332144</span>
+<span style="color:#ae81ff">0.313028</span>	<span style="color:#ae81ff">0.762469</span>	<span style="color:#ae81ff">0.097987</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># grouping multiple columns</span>
+kdf<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>])<span style="color:#f92672">.</span>sum()
+
+                            C
+    A	        B	
+<span style="color:#ae81ff">0.813516</span>	<span style="color:#ae81ff">0.527949</span>	<span style="color:#ae81ff">0.661809</span>
+<span style="color:#ae81ff">0.683850</span>	<span style="color:#ae81ff">0.468637</span>	<span style="color:#ae81ff">0.467650</span>
+<span style="color:#ae81ff">0.215054</span>	<span style="color:#ae81ff">0.058884</span>	<span style="color:#ae81ff">0.046248</span>
+<span style="color:#ae81ff">0.576319</span>	<span style="color:#ae81ff">0.378034</span>	<span style="color:#ae81ff">0.332144</span>
+<span style="color:#ae81ff">0.313028</span>	<span style="color:#ae81ff">0.762469</span>	<span style="color:#ae81ff">0.097987</span>
+
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Visualizing plot on notebook</span>
+<span style="color:#f92672">%</span>matplotlib inline
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Native integration of matplot by koalas</span>
+
+speed <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">17.5</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">48</span>, <span style="color:#ae81ff">52</span>, <span style="color:#ae81ff">69</span>, <span style="color:#ae81ff">88</span>]
+lifespan <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">70</span>, <span style="color:#ae81ff">1.5</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">28</span>]
+
+index <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;snail&#39;</span>, <span style="color:#e6db74">&#39;pig&#39;</span>, <span style="color:#e6db74">&#39;elephant&#39;</span>,
+         <span style="color:#e6db74">&#39;rabbit&#39;</span>, <span style="color:#e6db74">&#39;giraffe&#39;</span>, <span style="color:#e6db74">&#39;coyote&#39;</span>, <span style="color:#e6db74">&#39;horse&#39;</span>]
+
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;speed&#39;</span>: speed,
+                   <span style="color:#e6db74">&#39;lifespan&#39;</span>: lifespan}, index<span style="color:#f92672">=</span>index)
+kdf<span style="color:#f92672">.</span>plot<span style="color:#f92672">.</span>bar()
+</code></pre></div><p><img src="/images/newplot.png" alt="png"></p>
+<p><strong>Using SQL no Koalas</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># koala df</span>
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;year&#39;</span>: [<span style="color:#ae81ff">1990</span>, <span style="color:#ae81ff">1997</span>, <span style="color:#ae81ff">2003</span>, <span style="color:#ae81ff">2009</span>, <span style="color:#ae81ff">2014</span>],
+                    <span style="color:#e6db74">&#39;pig&#39;</span>: [<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">489</span>, <span style="color:#ae81ff">675</span>, <span style="color:#ae81ff">1776</span>],
+                    <span style="color:#e6db74">&#39;horse&#39;</span>: [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">281</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">1900</span>]})
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># query on koala df</span>
+ks<span style="color:#f92672">.</span>sql(<span style="color:#e6db74">&#34;SELECT * FROM </span><span style="color:#e6db74">{kdf}</span><span style="color:#e6db74"> WHERE pig &gt; 100&#34;</span>)
+
+    year	pig	   horse
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">2003</span>	<span style="color:#ae81ff">489</span>	    <span style="color:#ae81ff">281</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">2009</span>	<span style="color:#ae81ff">675</span>	    <span style="color:#ae81ff">600</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">2014</span>	<span style="color:#ae81ff">1776</span>	<span style="color:#ae81ff">1900</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># creates a pd df</span>
+pdf <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;year&#39;</span>: [<span style="color:#ae81ff">1990</span>, <span style="color:#ae81ff">1997</span>, <span style="color:#ae81ff">2003</span>, <span style="color:#ae81ff">2009</span>, <span style="color:#ae81ff">2014</span>],
+                    <span style="color:#e6db74">&#39;sheep&#39;</span>: [<span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">121</span>, <span style="color:#ae81ff">445</span>, <span style="color:#ae81ff">791</span>],
+                    <span style="color:#e6db74">&#39;chicken&#39;</span>: [<span style="color:#ae81ff">250</span>, <span style="color:#ae81ff">326</span>, <span style="color:#ae81ff">589</span>, <span style="color:#ae81ff">1241</span>, <span style="color:#ae81ff">2118</span>]})
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Query with inner join between pd and koala df</span>
+ks<span style="color:#f92672">.</span>sql(<span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">    SELECT ks.pig, pd.chicken
+</span><span style="color:#e6db74">    FROM </span><span style="color:#e6db74">{kdf}</span><span style="color:#e6db74"> ks INNER JOIN </span><span style="color:#e6db74">{pdf}</span><span style="color:#e6db74"> pd
+</span><span style="color:#e6db74">    ON ks.year = pd.year
+</span><span style="color:#e6db74">    ORDER BY ks.pig, pd.chicken&#39;&#39;&#39;</span>)
+
+<span style="color:#75715e"># select the features pig from koala and chicken from pd</span>
+<span style="color:#75715e"># calling koala df to inner join the pd df</span>
+<span style="color:#75715e"># where year = year in both df</span>
+<span style="color:#75715e"># ordering by both tables</span>
+
+    pig	  chicken
+<span style="color:#ae81ff">0</span>	<span style="color:#ae81ff">18</span>	    <span style="color:#ae81ff">326</span>
+<span style="color:#ae81ff">1</span>	<span style="color:#ae81ff">20</span>	    <span style="color:#ae81ff">250</span>
+<span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">489</span>	    <span style="color:#ae81ff">589</span>
+<span style="color:#ae81ff">3</span>	<span style="color:#ae81ff">675</span>	    <span style="color:#ae81ff">1241</span>
+<span style="color:#ae81ff">4</span>	<span style="color:#ae81ff">1776</span>	<span style="color:#ae81ff">2118</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># converting koalas df to Pyspark df</span>
+
+kdf <span style="color:#f92672">=</span> ks<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;A&#39;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>], <span style="color:#e6db74">&#39;B&#39;</span>: [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>]})
+pydf <span style="color:#f92672">=</span> kdf<span style="color:#f92672">.</span>to_spark()
+</code></pre></div><p>So now we arrived to the end of our exercise. This was a great module that taught me multiple things about BigData and eased the fear I had about trying to learn this new step of Data Science, and with a bit of study and discipline it may not be a big monster. I hope you enjoyed 👾!</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/sql/">SQL</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/database/">Database</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/big-data/">Big Data</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/databricks/">DataBricks</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/imdb-exploratory-analysis-python-sql/" data-tooltip="IMDB Exploratory Analysis (Python &amp; SQL)" aria-label="PREVIOUS: IMDB Exploratory Analysis (Python &amp; SQL)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/12/big-data-pyspark-sql/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/12/big-data-pyspark-sql/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/12/big-data-pyspark-sql/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = '\/2021\/12\/big-data-pyspark-sql\/';
+        
+          this.page.identifier = '\/2021\/12\/big-data-pyspark-sql\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Data Science Portfolio. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2021/11/imdb-exploratory-analysis-python-sql/" data-tooltip="IMDB Exploratory Analysis (Python &amp; SQL)" aria-label="PREVIOUS: IMDB Exploratory Analysis (Python &amp; SQL)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/12/big-data-pyspark-sql/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/12/big-data-pyspark-sql/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2021/12/big-data-pyspark-sql/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F12%2Fbig-data-pyspark-sql%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F12%2Fbig-data-pyspark-sql%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=%2F2021%2F12%2Fbig-data-pyspark-sql%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://media.giphy.com/avatars/azarikh/DXrysueUD8QB/200h.gif" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Data Science Portfolio</h4>
+    
+      <div id="about-card-bio">Hi, I’m Lucas Chitolina, passionate about learning and the worlds you discover through it. I’m qualified for M.Sc. in Molecular Biology with practical experience with Linux and Python. Through the posts, I expect to improve my skills and will appreciate your time coming by.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Biologist/Potential Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/dunno.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

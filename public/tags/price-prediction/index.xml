@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Price prediction on </title>
+    <link>/tags/price-prediction/</link>
+    <description>Recent content in Price prediction on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Nov 2021 16:50:18 -0300</lastBuildDate><atom:link href="/tags/price-prediction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>House Sales Prediction - Data Science challenge</title>
+      <link>/2021/11/house-sales-prediction-data-science-challenge/</link>
+      <pubDate>Fri, 19 Nov 2021 16:50:18 -0300</pubDate>
+      
+      <guid>/2021/11/house-sales-prediction-data-science-challenge/</guid>
+      <description>So, I&amp;rsquo;m gonna start to post my Data Science challenges, usually taken from the Kaggle site. House Rocket is a digital platform whose business model is the purchase and sale of properties using technology. The houses have many attributes that make them more or less attractive to buyers and sellers, like numbers of bathrooms, rooms, the year they were built, if/when they were reformed and other attributes. Following this information, we can find some questions:</description>
+    </item>
+    
+  </channel>
+</rss>

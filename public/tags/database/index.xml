@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on </title>
+    <link>/tags/database/</link>
+    <description>Recent content in Database on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Dec 2021 19:36:52 -0300</lastBuildDate><atom:link href="/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Big Data - PySpark &amp; SQL</title>
+      <link>/2021/12/big-data-pyspark-sql/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/2021/12/big-data-pyspark-sql/</guid>
+      <description>Big Data for Data Scientists - From Mega to Giga In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology. Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from &amp;ldquo;Stack Academy - Big Data for Data Scientist&amp;rdquo; that, for its massive importance and content, I decided to bring to my portfolio.</description>
+    </item>
+    
+    <item>
+      <title>IMDB Exploratory Analysis (Python &amp; SQL)</title>
+      <link>/2021/11/imdb-exploratory-analysis-python-sql/</link>
+      <pubDate>Sat, 27 Nov 2021 00:16:10 -0300</pubDate>
+      
+      <guid>/2021/11/imdb-exploratory-analysis-python-sql/</guid>
+      <description>Here’s Lucas! I’m glad you’re here. This project is about the exploratory analysis of the IMDb databank, the world&amp;rsquo;s most popular and authoritative source for movie, TV and celebrity content. This was a project taught on a free course I signed called “Python Fundamentos Para Análise de Dados 3.0” from the Data Science Academy, and I enjoyed it so much because it focused a lot on data munging and graph production.</description>
+    </item>
+    
+  </channel>
+</rss>

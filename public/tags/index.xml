@@ -5,6 +5,79 @@
     <link>/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Dec 2021 19:36:52 -0300</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Big Data</title>
+      <link>/tags/big-data/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>/tags/database/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DataBricks</title>
+      <link>/tags/databricks/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/tags/databricks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>/tags/sql/</link>
+      <pubDate>Mon, 06 Dec 2021 19:36:52 -0300</pubDate>
+      
+      <guid>/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hot-encoder</title>
+      <link>/tags/hot-encoder/</link>
+      <pubDate>Wed, 24 Nov 2021 09:04:58 -0300</pubDate>
+      
+      <guid>/tags/hot-encoder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing</title>
+      <link>/tags/natural-language-processing/</link>
+      <pubDate>Wed, 24 Nov 2021 09:04:58 -0300</pubDate>
+      
+      <guid>/tags/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploratory Analysis</title>
+      <link>/tags/exploratory-analysis/</link>
+      <pubDate>Fri, 19 Nov 2021 16:50:18 -0300</pubDate>
+      
+      <guid>/tags/exploratory-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Price prediction</title>
+      <link>/tags/price-prediction/</link>
+      <pubDate>Fri, 19 Nov 2021 16:50:18 -0300</pubDate>
+      
+      <guid>/tags/price-prediction/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
