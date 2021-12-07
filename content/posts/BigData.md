@@ -445,7 +445,7 @@ df.orderBy(col("count").desc(), col("DEST_COUNTRY_NAME").asc()).show(2)
 
 - **dropMalformed**: *Deletes a corrupted or unreadable line.*
 
-- **failFast**: *Fails immediately when it finds a row it doesn't.*
+- **failFast**: *Fails immediately when it finds a row it doesn't recognize.*
 
 
 ```python
