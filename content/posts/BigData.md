@@ -19,9 +19,9 @@ keywords:
 - Data Bank
 ---
 
-# Big Data for Data Scientists - From Mega to Giga 
+# Big Data for Data Scientists - From Mega to Giga   
 
-In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology.
+**Description**: In this post we are going to learn about the use of some tools to apply on Big Data, that differs a bit from a normal pandas-csv methodology.
 Working with Big Data usually demands more sophisticated software that can deal with the upload and storage of Gyga files. This was a great module I had from "Stack Academy - Big Data for Data Scientist" that, for its massive importance and content, I decided to bring to my portfolio.
 
 Without further ado, some tools we are going to use are:  
