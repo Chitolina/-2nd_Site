@@ -185,25 +185,6 @@ DROP TABLE IF EXISTS all_files;
 ```
 
 
-<style scoped>
-  .table-result-container {
-    max-height: 300px;
-    overflow: auto;
-  }
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 5px;
-  }
-  th {
-    text-align: left;
-  }
-</style><div class='table-result-container'><table class='table-result'><thead style='background-color: white'><tr></tr></thead><tbody></tbody></table></div>
-
-
-
 ```python
 %sql
 CREATE TABLE all_files
@@ -473,24 +454,6 @@ display(df.head(10))
 ```
 
 
-<style scoped>
-  .table-result-container {
-    max-height: 300px;
-    overflow: auto;
-  }
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 5px;
-  }
-  th {
-    text-align: left;
-  }
-</style><div class='table-result-container'><table class='table-result'><thead style='background-color: white'><tr><th>InvoiceNo</th><th>StockCode</th><th>Description</th><th>Quantity</th><th>InvoiceDate</th><th>UnitPrice</th><th>CustomerID</th><th>Country</th></tr></thead><tbody><tr><td>536365</td><td>85123A</td><td>WHITE HANGING HEART T-LIGHT HOLDER</td><td>6</td><td>2010-12-01 08:26:00</td><td>2.55</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>71053</td><td>WHITE METAL LANTERN</td><td>6</td><td>2010-12-01 08:26:00</td><td>3.39</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>84406B</td><td>CREAM CUPID HEARTS COAT HANGER</td><td>8</td><td>2010-12-01 08:26:00</td><td>2.75</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>84029G</td><td>KNITTED UNION FLAG HOT WATER BOTTLE</td><td>6</td><td>2010-12-01 08:26:00</td><td>3.39</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>84029E</td><td>RED WOOLLY HOTTIE WHITE HEART.</td><td>6</td><td>2010-12-01 08:26:00</td><td>3.39</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>22752</td><td>SET 7 BABUSHKA NESTING BOXES</td><td>2</td><td>2010-12-01 08:26:00</td><td>7.65</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536365</td><td>21730</td><td>GLASS STAR FROSTED T-LIGHT HOLDER</td><td>6</td><td>2010-12-01 08:26:00</td><td>4.25</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536366</td><td>22633</td><td>HAND WARMER UNION JACK</td><td>6</td><td>2010-12-01 08:28:00</td><td>1.85</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536366</td><td>22632</td><td>HAND WARMER RED POLKA DOT</td><td>6</td><td>2010-12-01 08:28:00</td><td>1.85</td><td>17850.0</td><td>United Kingdom</td></tr><tr><td>536367</td><td>84879</td><td>ASSORTED COLOUR BIRD ORNAMENT</td><td>32</td><td>2010-12-01 08:34:00</td><td>1.69</td><td>13047.0</td><td>United Kingdom</td></tr></tbody></table></div>
-
-
 #### Creating a schema
 - The **infer_schema** option will not always define the best datatype..
 - Improves performance when reading large databases.
@@ -531,6 +494,8 @@ schema_df = StructType([
     StructField("CustomerID", DoubleType()),
     StructField("Country", StringType())
 ])
+
+
 ```
 
 
