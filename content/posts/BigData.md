@@ -445,7 +445,7 @@ df.orderBy(col("count").desc(), col("DEST_COUNTRY_NAME").asc()).show(2)
 
 - **dropMalformed**: *Deletes a corrupted or unreadable line.*
 
-- **failFast**: *Fails immediately when it finds a row it doesn't.*
+- **failFast**: *Fails immediately when it finds a row it doesn't recognize.*
 
 
 ```python
@@ -2624,6 +2624,9 @@ kdf = ks.DataFrame({'speed': speed,
                    'lifespan': lifespan}, index=index)
 kdf.plot.bar()
 ```
+
+*CRTL + to zoom it*
+
 ![png](/images/newplot.png)
 
 **Using SQL no Koalas**
