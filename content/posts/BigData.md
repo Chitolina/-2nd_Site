@@ -2587,15 +2587,7 @@ kdf = ks.DataFrame({'speed': speed,
                    'lifespan': lifespan}, index=index)
 kdf.plot.bar()
 ```
-<<<<<<< HEAD
 
-*CRTL + to zoom it*
-
-=======
- 
- *CRTL + to zoom it*
- 
->>>>>>> 7f806a5985fcb7158866613fbf0674a37a982069
 ![png](/images/newplot.png)
 
 **Using SQL no Koalas**

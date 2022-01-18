@@ -1,6 +1,6 @@
 ---
 title: "Análise de Sentimento com banco de dados real"
-date: 2022-01-18T09:04:58-03:00
+date: 2022-01-15T09:04:58-03:00
 draft: False
 autoThumbnailImage: false
 thumbnailImagePosition: top
