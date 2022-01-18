@@ -2,10 +2,10 @@
 title: "Big Data - PySpark & SQL"
 date: 2021-12-06T19:36:52-03:00
 draft: False
-autoThumbnailImage: false
-thumbnailImagePosition: top
+thumbnailImagePosition: left
 thumbnailImage: /post_cover/disq.png
 coverImage: /post_cover/disq.png
+coverCaption: ""
 metaAlignment: center
 showSocial: true
 categories:
